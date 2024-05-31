@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./CurrentWeather";
+
 export default function CurrentWeather() {
-  return;
+  return <div className="CurrentWeather"></div>;
 }

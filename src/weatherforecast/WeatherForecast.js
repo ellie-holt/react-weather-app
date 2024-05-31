@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./WeatherForecast.scss";
+
 export default function WeatherForecast() {
-  return;
+  return <div className="WeatherForecast"></div>;
 }

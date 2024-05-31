@@ -1,0 +1,79 @@
+.App {
+  margin: 1rem auto;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "heading"
+    "search"
+    "current-weather"
+    "forecast"
+    "footer";
+}
+
+.MainHeading {
+  grid-area: heading;
+}
+
+.Search {
+  grid-area: search;
+}
+
+.CurrentWeather {
+  grid-area: current;
+}
+
+.WeatherForecast {
+  grid-area: forecast;
+}
+
+.Footer {
+  grid-area: footer;
+}
+
+/* Responsive Breakpoints */
+
+$breakpoint-xs: 480px;
+$breakpoint-sm: 600px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+
+// @media screen and (min-width: $breakpoint-xs) {
+//   /* extra small screens */
+// }
+
+@media screen and (min-width: $breakpoint-sm) {
+  /* small screens */
+  .App {
+    grid:
+      "heading heading"
+      "search search"
+      "current current"
+      "forecast forecast"
+      "footer footer";
+  }
+}
+
+@media screen and (min-width: $breakpoint-md) {
+  /* medium screens */
+  .App {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "heading heading"
+      "search current"
+      "forecast forecast"
+      "footer footer";
+  }
+}
+
+@media screen and (min-width: $breakpoint-lg) {
+  /* large screens */
+  .App {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "heading heading heading"
+      "search current forecast"
+      "footer footer footer";
+  }
+}
