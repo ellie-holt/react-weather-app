@@ -20,7 +20,7 @@
     grid-template-columns: 3fr 1fr;
     grid-template-areas:
       "city time"
-      "date time";
+      "date date";
 
     .cityName {
       grid-area: city;
@@ -66,6 +66,7 @@
     }
     .weatherTemp {
       border: 1px solid black;
+      padding-top: 1rem;
       grid-area: temp;
       display: flex;
       flex-flow: column nowrap;
@@ -79,6 +80,7 @@
     }
     .weatherTable {
       border: 1px solid black;
+      line-height: 1.4;
       grid-area: table;
 
       th {

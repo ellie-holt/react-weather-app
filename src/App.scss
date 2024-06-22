@@ -8,7 +8,7 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.6fr 1fr 1.4fr 1.4fr 0.6fr;
+  grid-template-rows: min-content min-content auto auto min-content;
   grid-template-areas:
     "heading"
     "search"
@@ -19,6 +19,7 @@
 
 .MainHeading {
   grid-area: heading;
+  padding: 1rem;
   border: 1px solid black;
 }
 
@@ -40,15 +41,18 @@
 
 /* Responsive Breakpoints */
 
-// @media screen and (min-width: $breakpoint-xs) {
-//   /* extra small screens */
-// }
+@media screen and (min-width: $breakpoint-xs) {
+  /* extra small screens */
+  .App {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 @media screen and (min-width: $breakpoint-sm) {
   /* small screens */
   .App {
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto min-content max-content 1fr;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content auto 1fr min-content;
     grid-template-areas:
       "heading forecast"
       "search forecast"
@@ -61,7 +65,7 @@
   /* medium screens */
   .App {
     grid-template-columns: 1fr max-content;
-    grid-template-rows: max-content 0.5fr 2fr 1fr;
+    grid-template-rows: min-content min-content auto min-content;
     grid-template-areas:
       "heading search"
       "current search"
@@ -74,7 +78,7 @@
   /* large screens */
   .App {
     grid-template-columns: 1.4fr 0.6fr;
-    grid-template-rows: 0.7fr 1.6fr 1.3fr 0.6fr;
+    grid-template-rows: min-content 1.6fr 1.3fr min-content;
     grid-template-areas:
       "heading search"
       "current search"

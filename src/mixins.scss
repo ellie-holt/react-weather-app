@@ -6,7 +6,7 @@
   font-size: $base-size;
 
   @media (min-width: $breakpoint-sm) {
-    font-size: calc(#{$base-size} * 1);
+    font-size: calc(#{$base-size} * 1.1);
   }
 
   @media (min-width: $breakpoint-md) {

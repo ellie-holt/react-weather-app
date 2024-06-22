@@ -12,33 +12,33 @@ body {
   height: 100%;
   background: #abd5d8;
   background: linear-gradient(330deg, #bde0e3 34%, #74a8f1 100%);
-  @include mixins.responsive-text($font-size-medium);
+  @include mixins.responsive-text($font-size-small);
   font-family: "IBM Plex Sans", sans-serif;
 }
 
 h1 {
   margin: 0;
-  padding: 1rem 0;
+  padding: 0;
   white-space: nowrap;
   text-align: center;
-  @include mixins.responsive-text($font-size-xxlarge);
+  @include mixins.responsive-text($font-size-xlarge);
 }
 
 h2 {
   margin: 0;
-  padding: 0.5rem 0;
-  @include mixins.responsive-text($font-size-xlarge);
+  padding: 0;
+  @include mixins.responsive-text($font-size-large);
 }
 
 h3 {
   margin: 0;
-  padding: 1rem 0;
-  @include mixins.responsive-text($font-size-large);
+  padding: 0;
+  @include mixins.responsive-text($font-size-medium);
 }
 
 p {
-  margin: 0.5rem 0;
-  @include mixins.responsive-text($font-size-small);
+  margin: 0;
+  @include mixins.responsive-text($font-size-xsmall);
 }
 
 input,

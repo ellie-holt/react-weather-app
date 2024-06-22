@@ -13,7 +13,7 @@ button {
 
 input {
   // max-width: 50%;
-  width: minmax(4rem auto);
+  // width: minmax(4rem auto);
   @include mixins.glassmorphic-input;
   @include mixins.responsive-text($font-size-small);
   border-radius: 10px 0 0 10px;
