@@ -7,7 +7,9 @@ import Footer from "./footer/Footer";
 function App() {
   return (
     <div className="App">
-      <h1 className="MainHeading">Weather Checker</h1>
+      <div className="MainHeading">
+        <h1>Weather Checker</h1>
+      </div>
       <Search />
       <CurrentWeather />
       <WeatherForecast />

@@ -1,3 +1,47 @@
-.Search {
+@use "../variables" as *;
+@use "../mixins";
+
+div.Search {
   border: 1px solid black;
+  padding: 1rem;
+}
+
+button {
+  @include mixins.glassmorphic-button;
+  @include mixins.responsive-text($font-size-small);
+}
+
+input {
+  // max-width: 50%;
+  width: minmax(4rem auto);
+  @include mixins.glassmorphic-input;
+  @include mixins.responsive-text($font-size-small);
+  border-radius: 10px 0 0 10px;
+}
+
+.Search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .SearchBar {
+    display: flex;
+    flex-wrap: nowrap;
+
+    button {
+      border-radius: 0 10px 10px 0;
+    }
+  }
+
+  // .ConversionButton {
+  //   grid-area: conversion-button;
+  //   display: flex;
+  // }
+}
+
+@media screen and (min-width: $breakpoint-sm) {
+  .Search {
+    align-items: center;
+    justify-content: space-between;
+  }
 }

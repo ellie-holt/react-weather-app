@@ -1,6 +1,8 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-import "./Search";
+import "./Search.scss";
 
 export default function Search() {
   return (
@@ -16,7 +18,17 @@ export default function Search() {
           aria-describedby="search-button"
         />
         <button type="submit" id="search-button">
-          Search
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
+        </button>
+      </div>
+      {/* <div className="ConversionButton">
+        <button type="button" id="conversion-button">
+          Metric
+        </button>
+      </div> */}
+      <div className="CurrentButton">
+        <button type="button" id="current-button">
+          Current
         </button>
       </div>
     </div>

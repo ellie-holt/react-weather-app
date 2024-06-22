@@ -1,3 +1,89 @@
+@use "../mixins";
+
 .CurrentWeather {
   border: 1px solid black;
+  padding: 0 0.5rem 0.2rem;
+
+  .temp {
+    font-size: 4rem;
+  }
+
+  .tempUnit {
+    @include mixins.unit-text(1em, top);
+  }
+
+  .cityInfo {
+    border: 1px solid black;
+    display: grid;
+    justify-content: start;
+    grid-template-rows: auto auto;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas:
+      "city time"
+      "date time";
+
+    .cityName {
+      grid-area: city;
+    }
+
+    .currentDate {
+      grid-area: date;
+      font-style: italic;
+      font-weight: 200;
+    }
+
+    .currentTime {
+      grid-area: time;
+      justify-self: end;
+      font-size: 3em;
+    }
+  }
+
+  .cityWeather {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "main main"
+      "temp table";
+    align-items: end;
+    overflow: hidden;
+
+    .weatherMain {
+      border: 1px solid black;
+      grid-area: main;
+      height: 4.5rem;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+
+      .icon {
+        font-size: 6em;
+        min-height: 0;
+        align-self: flex-start;
+        line-height: 1;
+      }
+    }
+    .weatherTemp {
+      border: 1px solid black;
+      grid-area: temp;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      .temp .tempUnit {
+        @include mixins.unit-text(0.7em, top);
+      }
+      .tempData {
+        text-align: right;
+      }
+    }
+    .weatherTable {
+      border: 1px solid black;
+      grid-area: table;
+
+      th {
+        text-align: right;
+      }
+    }
+  }
 }

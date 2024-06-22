@@ -1,19 +1,25 @@
+@use "variables" as *;
+
 .App {
-  margin: 1rem auto;
-  padding: 1.5rem;
+  margin: 0.5rem auto;
+  padding: 1rem;
+  min-width: 90%;
+  border: 1px solid black;
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
+  grid-template-rows: 0.6fr 1fr 1.4fr 1.4fr 0.6fr;
   grid-template-areas:
     "heading"
     "search"
-    "current-weather"
+    "current"
     "forecast"
     "footer";
 }
 
 .MainHeading {
   grid-area: heading;
+  border: 1px solid black;
 }
 
 .Search {
@@ -34,11 +40,6 @@
 
 /* Responsive Breakpoints */
 
-$breakpoint-xs: 480px;
-$breakpoint-sm: 600px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-
 // @media screen and (min-width: $breakpoint-xs) {
 //   /* extra small screens */
 // }
@@ -46,11 +47,12 @@ $breakpoint-lg: 992px;
 @media screen and (min-width: $breakpoint-sm) {
   /* small screens */
   .App {
-    grid:
-      "heading heading"
-      "search search"
-      "current current"
-      "forecast forecast"
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto min-content max-content 1fr;
+    grid-template-areas:
+      "heading forecast"
+      "search forecast"
+      "current forecast"
       "footer footer";
   }
 }
@@ -58,11 +60,12 @@ $breakpoint-lg: 992px;
 @media screen and (min-width: $breakpoint-md) {
   /* medium screens */
   .App {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: max-content 0.5fr 2fr 1fr;
     grid-template-areas:
-      "heading heading"
-      "search current"
-      "forecast forecast"
+      "heading search"
+      "current search"
+      "current forecast"
       "footer footer";
   }
 }
@@ -70,10 +73,12 @@ $breakpoint-lg: 992px;
 @media screen and (min-width: $breakpoint-lg) {
   /* large screens */
   .App {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1.4fr 0.6fr;
+    grid-template-rows: 0.7fr 1.6fr 1.3fr 0.6fr;
     grid-template-areas:
-      "heading heading heading"
-      "search current forecast"
-      "footer footer footer";
+      "heading search"
+      "current search"
+      "forecast forecast"
+      "footer footer";
   }
 }
