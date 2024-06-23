@@ -20,15 +20,26 @@ export default function CurrentWeather() {
             17<span className="tempUnit">°C</span>
           </h2>
           <div className="tempData">
-            <p className="tempMin">
-              Min 13<span className="tempUnit">°C</span>
-            </p>
-            <p className="tempMax">
-              Max 19<span className="tempUnit">°C</span>
-            </p>
-            <p className="tempFeelsLike">
-              Feels like 16<span className="tempUnit">°C</span>
-            </p>
+            <table>
+              <tr className="tempMin">
+                <th>Min</th>
+                <td>
+                  13<span className="tempUnit">°C</span>
+                </td>
+              </tr>
+              <tr className="tempMax">
+                <th>Max</th>
+                <td>
+                  19<span className="tempUnit">°C</span>
+                </td>
+              </tr>
+              <tr className="tempFeelsLike">
+                <th>Feels like</th>
+                <td>
+                  16<span className="tempUnit">°C</span>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
         <div className="weatherTable">

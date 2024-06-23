@@ -8,14 +8,14 @@ div.Search {
 
 button {
   @include mixins.glassmorphic-button;
-  @include mixins.responsive-text($font-size-small);
+  @include mixins.responsive-text($font-size-xsmall);
 }
 
 input {
   // max-width: 50%;
   // width: minmax(4rem auto);
   @include mixins.glassmorphic-input;
-  @include mixins.responsive-text($font-size-small);
+  @include mixins.responsive-text($font-size-xsmall);
   border-radius: 10px 0 0 10px;
 }
 

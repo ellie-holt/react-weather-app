@@ -1,5 +1,8 @@
 @use "variables" as *;
 
+// Consider combining h1 and search component
+
+// Default layout for xs screens
 .App {
   margin: 0.5rem auto;
   padding: 1rem;
@@ -41,17 +44,10 @@
 
 /* Responsive Breakpoints */
 
-@media screen and (min-width: $breakpoint-xs) {
-  /* extra small screens */
-  .App {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 @media screen and (min-width: $breakpoint-sm) {
-  /* small screens */
+  /* small and medium screens */
   .App {
-    grid-template-columns: min-content 1fr;
+    grid-template-columns: 1fr auto;
     grid-template-rows: min-content auto 1fr min-content;
     grid-template-areas:
       "heading forecast"
@@ -61,8 +57,8 @@
   }
 }
 
-@media screen and (min-width: $breakpoint-md) {
-  /* medium screens */
+@media screen and (min-width: $breakpoint-lg) {
+  /* large screens */
   .App {
     grid-template-columns: 1fr max-content;
     grid-template-rows: min-content min-content auto min-content;
@@ -74,8 +70,8 @@
   }
 }
 
-@media screen and (min-width: $breakpoint-lg) {
-  /* large screens */
+@media screen and (min-width: $breakpoint-xl) {
+  /* xl screens */
   .App {
     grid-template-columns: 1.4fr 0.6fr;
     grid-template-rows: min-content 1.6fr 1.3fr min-content;

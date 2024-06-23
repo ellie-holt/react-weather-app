@@ -1,16 +1,9 @@
+@use "../variables" as *;
 @use "../mixins";
 
 .CurrentWeather {
   border: 1px solid black;
   padding: 0 0.5rem 0.2rem;
-
-  .temp {
-    font-size: 4rem;
-  }
-
-  .tempUnit {
-    @include mixins.unit-text(1em, top);
-  }
 
   .cityInfo {
     border: 1px solid black;
@@ -35,22 +28,23 @@
     .currentTime {
       grid-area: time;
       justify-self: end;
-      font-size: 3em;
+      font-size: 2.8em;
     }
   }
 
   .cityWeather {
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto 3rem max-content;
     grid-template-areas:
       "main main"
+      "temp ."
       "temp table";
     align-items: end;
-    overflow: hidden;
+    overflow: visible;
 
     .weatherMain {
-      border: 1px solid black;
       grid-area: main;
+      border: 1px solid black;
       height: 4.5rem;
       display: flex;
       flex-flow: row nowrap;
@@ -59,29 +53,53 @@
 
       .icon {
         font-size: 6em;
+        margin-right: 2rem;
         min-height: 0;
         align-self: flex-start;
         line-height: 1;
       }
     }
+
     .weatherTemp {
+      grid-area: temp;
       border: 1px solid black;
       padding-top: 1rem;
-      grid-area: temp;
       display: flex;
       flex-flow: column nowrap;
-      align-items: center;
-      .temp .tempUnit {
-        @include mixins.unit-text(0.7em, top);
+      justify-content: space-between;
+      align-content: center;
+      align-self: stretch;
+
+      .temp {
+        font-size: 4rem;
+        align-self: center;
+        justify-self: center;
+        line-height: 1.7;
+
+        .tempUnit {
+          @include mixins.unit-text(0.7em, top);
+        }
       }
+
       .tempData {
         text-align: right;
+        align-self: center;
+        @include mixins.responsive-text($font-size-small);
+
+        .tempUnit {
+          @include mixins.unit-text(1em, top);
+        }
       }
     }
+
     .weatherTable {
       border: 1px solid black;
       line-height: 1.4;
       grid-area: table;
+
+      table {
+        margin: 0 auto;
+      }
 
       th {
         text-align: right;
