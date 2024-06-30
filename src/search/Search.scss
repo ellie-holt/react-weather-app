@@ -3,7 +3,7 @@
 
 div.Search {
   border: 1px solid black;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 button {
@@ -11,37 +11,30 @@ button {
   @include mixins.responsive-text($font-size-xsmall);
 }
 
-input {
-  // max-width: 50%;
-  // width: minmax(4rem auto);
-  @include mixins.glassmorphic-input;
-  @include mixins.responsive-text($font-size-xsmall);
-  border-radius: 10px 0 0 10px;
-}
-
 .Search {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-content: space-evenly;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .MainHeading {
+    margin: 0 auto;
+    flex-basis: 100%;
+  }
 
   .SearchBar {
     display: flex;
     flex-wrap: nowrap;
+    align-content: center;
 
-    button {
+    .SearchInput {
+      @include mixins.glassmorphic-input;
+      @include mixins.responsive-text($font-size-xsmall);
+      border-radius: 10px 0 0 10px;
+    }
+
+    .SearchButton {
       border-radius: 0 10px 10px 0;
     }
-  }
-
-  // .ConversionButton {
-  //   grid-area: conversion-button;
-  //   display: flex;
-  // }
-}
-
-@media screen and (min-width: $breakpoint-sm) {
-  .Search {
-    align-items: center;
-    justify-content: space-between;
   }
 }

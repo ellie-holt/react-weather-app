@@ -13,17 +13,10 @@
   grid-template-columns: 1fr;
   grid-template-rows: min-content min-content auto auto min-content;
   grid-template-areas:
-    "heading"
     "search"
     "current"
     "forecast"
     "footer";
-}
-
-.MainHeading {
-  grid-area: heading;
-  padding: 1rem;
-  border: 1px solid black;
 }
 
 .Search {
@@ -50,7 +43,6 @@
     grid-template-columns: 1fr auto;
     grid-template-rows: min-content auto 1fr min-content;
     grid-template-areas:
-      "heading forecast"
       "search forecast"
       "current forecast"
       "footer footer";
@@ -63,7 +55,6 @@
     grid-template-columns: 1fr max-content;
     grid-template-rows: min-content min-content auto min-content;
     grid-template-areas:
-      "heading search"
       "current search"
       "current forecast"
       "footer footer";
@@ -76,7 +67,6 @@
     grid-template-columns: 1.4fr 0.6fr;
     grid-template-rows: min-content 1.6fr 1.3fr min-content;
     grid-template-areas:
-      "heading search"
       "current search"
       "forecast forecast"
       "footer footer";
