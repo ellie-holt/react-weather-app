@@ -13,24 +13,25 @@ button {
 
 .Search {
   display: flex;
-  align-content: space-evenly;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 
-  .MainHeading {
-    margin: 0 auto;
-    flex-basis: 100%;
-  }
+  // .MainHeading {
+  //   margin: 0 auto;
+  //   flex-basis: 100%;
+  // }
 
   .SearchBar {
     display: flex;
     flex-wrap: nowrap;
     align-content: center;
+    flex-basis: 100%;
 
     .SearchInput {
       @include mixins.glassmorphic-input;
       @include mixins.responsive-text($font-size-xsmall);
       border-radius: 10px 0 0 10px;
+      flex-basis: 80%;
     }
 
     .SearchButton {
@@ -38,3 +39,12 @@ button {
     }
   }
 }
+
+// @media screen and (min-width: $breakpoint-sm) {
+//   .Search {
+//     justify-content: space-around;
+//     .SearchInput {
+//       width: initial;
+//     }
+//   }
+// }

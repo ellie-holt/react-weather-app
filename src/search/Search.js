@@ -7,9 +7,9 @@ import "./Search.scss";
 export default function Search() {
   return (
     <div className="Search">
-      <div className="MainHeading">
+      {/* <div className="MainHeading">
         <h1>Weather Checker</h1>
-      </div>
+      </div> */}
       <div className="SearchBar">
         <input
           type="search"
