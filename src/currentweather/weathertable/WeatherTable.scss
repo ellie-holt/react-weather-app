@@ -1,0 +1,16 @@
+@use "../../mixins";
+@use "../../variables" as *;
+
+.weatherTable {
+  border: 1px solid black;
+  line-height: 1.4;
+  grid-area: table;
+
+  table {
+    margin: 0 auto;
+  }
+
+  th {
+    text-align: right;
+  }
+}

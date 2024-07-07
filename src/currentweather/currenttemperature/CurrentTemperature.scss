@@ -1,0 +1,34 @@
+@use "../../mixins";
+@use "../../variables" as *;
+
+.currentTemperature {
+  grid-area: temp;
+  border: 1px solid black;
+  padding-top: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-content: center;
+  align-self: stretch;
+
+  .temp {
+    font-size: 4rem;
+    align-self: center;
+    justify-self: center;
+    line-height: 1.7;
+
+    .tempUnit {
+      @include mixins.unit-text(0.7em, top);
+    }
+  }
+
+  .tempData {
+    text-align: right;
+    align-self: center;
+    @include mixins.responsive-text($font-size-small);
+
+    .tempUnit {
+      @include mixins.unit-text(1em, top);
+    }
+  }
+}
