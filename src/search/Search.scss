@@ -12,30 +12,33 @@ button {
 }
 
 .Search {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  // .MainHeading {
-  //   margin: 0 auto;
-  //   flex-basis: 100%;
-  // }
-
-  .SearchBar {
+  .SearchForm {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
     flex-wrap: nowrap;
-    align-content: center;
-    flex-basis: 100%;
 
-    .SearchInput {
-      @include mixins.glassmorphic-input;
-      @include mixins.responsive-text($font-size-xsmall);
-      border-radius: 10px 0 0 10px;
-      flex-basis: 80%;
-    }
+    // .CurrentButton {
+    //   align-self: flex-start;
+    // }
 
-    .SearchButton {
-      border-radius: 0 10px 10px 0;
+    .SearchBar {
+      display: flex;
+      flex-wrap: nowrap;
+      align-content: center;
+
+      .SearchInput {
+        @include mixins.glassmorphic-input;
+        @include mixins.responsive-text($font-size-xsmall);
+        border-radius: 10px 0 0 10px;
+        flex-basis: 80%;
+      }
+
+      .SearchButton {
+        border-radius: 0 10px 10px 0;
+      }
     }
   }
 }
