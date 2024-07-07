@@ -1,0 +1,17 @@
+.weatherMain {
+  grid-area: main;
+  border: 1px solid black;
+  height: 4.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  .icon {
+    font-size: 6em;
+    margin-right: 2rem;
+    min-height: 0;
+    align-self: flex-start;
+    line-height: 1;
+  }
+}

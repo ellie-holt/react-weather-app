@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import "./App.scss";
+import FormattedDateTime from "./FormattedDateTime";
 import Search from "./search/Search";
 import CurrentWeather from "./currentweather/CurrentWeather";
 import WeatherForecast from "./weatherforecast/WeatherForecast";
 import Footer from "./footer/Footer";
+
+import "./App.scss";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -49,6 +51,7 @@ function App() {
         <CurrentWeather weatherData={weatherData} />
         <WeatherForecast />
         <Footer />
+        <FormattedDateTime timestamp={Date.now()} />
       </div>
     );
   } else {
