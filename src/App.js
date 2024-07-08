@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import FormattedDateTime from "./FormattedDateTime";
 import Search from "./search/Search";
 import CurrentWeather from "./currentweather/CurrentWeather";
 import WeatherForecast from "./weatherforecast/WeatherForecast";
@@ -51,7 +50,6 @@ function App() {
         <CurrentWeather weatherData={weatherData} />
         <WeatherForecast />
         <Footer />
-        <FormattedDateTime timestamp={Date.now()} />
       </div>
     );
   } else {

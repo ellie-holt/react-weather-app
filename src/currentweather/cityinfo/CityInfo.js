@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+import FormattedDateTime from "../../FormattedDateTime";
 
 import "./CityInfo.scss";
 
 export default function CityInfo({ weatherData }) {
+  const [currentTime, setCurrentTime] = useState(Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(Date.now());
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <div className="cityInfo">
       <h2 className="cityName">{weatherData.city}</h2>
-      <h3 className="currentDate">Tuesday 1st November</h3>
-      <h2 className="currentTime">15:52</h2>
+      <h3 className="currentDate">
+        <FormattedDateTime
+          timestamp={currentTime}
+          format={"weekday_,_ _day_ _month"}
+        />
+      </h3>
+      <h2 className="currentTime">
+        <FormattedDateTime timestamp={currentTime} format={"hours_:_minutes"} />
+      </h2>
     </div>
   );
 }
