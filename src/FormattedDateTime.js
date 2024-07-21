@@ -25,7 +25,7 @@ const months = [
   "December",
 ];
 
-// Helper function to format the day with the correct suffix
+// Helper function to format the day (of the month) with the correct suffix
 const formatDay = (day) => {
   if (day >= 4 && day <= 20) {
     return `${day}th`;
@@ -53,13 +53,18 @@ export default function FormattedDateTime({ timestamp, format }) {
     month: months[fullDate.getMonth()],
     year: fullDate.getFullYear().toString(),
   };
-  // Split the formats string into an array of individual format strings
-  const splitFormats = format.split("_");
-  console.log(splitFormats);
+
+  // Split the inputted format string by the underscore character
+  // This will create an array of strings that can be iterated over over to format the date and time
+  const formatArray = format.split("_");
+  console.log(formatArray);
+
   // Create a new string to store the formatted values
   let formattedString = "";
-  // Iterate over the split format strings and append the formatted values to the string
-  splitFormats.forEach((string) => {
+
+  // Iterate over formatArray and check if the current string is a key in the formattedValues object
+  // If it is, add the newly formatted value to the formattedString, otherwise add the string as is
+  formatArray.forEach((string) => {
     if (formattedValues[string]) {
       formattedString += formattedValues[string];
     } else {

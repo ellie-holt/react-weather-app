@@ -2,8 +2,7 @@
 @use "../mixins";
 
 .CurrentWeather {
-  border: 1px solid black;
-  padding: 0 0.5rem 0.2rem;
+  @include mixins.glassmorphic-card;
 
   .cityWeather {
     display: grid;
@@ -12,6 +11,7 @@
       "main main"
       "temp ."
       "temp table";
+    gap: 0.5rem;
     align-items: end;
     overflow: visible;
 

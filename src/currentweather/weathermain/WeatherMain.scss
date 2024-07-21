@@ -1,17 +1,27 @@
+@use "../../mixins";
+
 .weatherMain {
   grid-area: main;
-  border: 1px solid black;
   height: 4.5rem;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template:
+    "description description " 1fr
+    "description description " 1fr
+    ". icon" 0
+    / 1fr 1fr;
   align-items: center;
 
+  .description {
+    @include mixins.responsive-text(2.5rem);
+    grid-area: description;
+    font-style: italic;
+  }
+
   .icon {
-    font-size: 6em;
-    margin-right: 2rem;
+    grid-area: icon;
+    justify-self: end;
+    font-size: 7em;
     min-height: 0;
-    align-self: flex-start;
-    line-height: 1;
+    color: #00000022;
   }
 }

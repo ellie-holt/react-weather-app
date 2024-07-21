@@ -1,29 +1,32 @@
 @use "../../mixins";
 
 .cityInfo {
-  border: 1px solid black;
+  @include mixins.glassmorphic-card;
+  padding: 0.5rem 1rem;
   display: grid;
   justify-content: start;
   grid-template-rows: auto auto;
   grid-template-columns: 3fr 1fr;
   grid-template-areas:
     "city time"
-    "date date";
+    "date time";
 
   .cityName {
     grid-area: city;
-    @include mixins.responsive-text(2rem);
+    @include mixins.responsive-text(2.1rem);
   }
 
   .currentDate {
     grid-area: date;
     font-style: italic;
-    font-weight: 200;
+    font-weight: 300;
+    padding-inline-start: 1rem;
   }
 
   .currentTime {
     grid-area: time;
     justify-self: end;
+    align-self: center;
     @include mixins.responsive-text(2.8rem);
   }
 }

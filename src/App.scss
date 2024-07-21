@@ -1,26 +1,25 @@
 @use "variables" as *;
+@use "mixins";
 
 // Appearing differently on chrome and firefox for some reason! Thinking it has something to do with the grid-template property
 
 // Default layout for xxs screens
 .App {
-  margin: 0.5rem auto;
+  margin: 3.8rem auto;
   padding: 1rem;
-  border: 1px solid black;
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
   grid-template-rows: min-content min-content auto auto min-content;
   grid-template-areas:
-    "search"
     "current"
     "forecast"
     "footer";
 }
 
-.Search {
-  grid-area: search;
-}
+// .Search {
+//   grid-area: search;
+// }
 
 .CurrentWeather {
   grid-area: current;
@@ -28,10 +27,12 @@
 
 .WeatherForecast {
   grid-area: forecast;
+  @include mixins.glassmorphic-card;
 }
 
 .Footer {
   grid-area: footer;
+  @include mixins.glassmorphic-card;
 }
 
 /* Responsive Breakpoints */
@@ -39,8 +40,9 @@
 @media screen and (min-width: $breakpoint-xs) {
   /* xs screens */
   .App {
+    margin: 0.5rem auto;
     grid-template:
-      "search search search" 10%
+      ". . forecast" 3rem
       "current current forecast" auto
       "current current forecast" auto
       "current current forecast" auto
@@ -53,7 +55,7 @@
   /* small and medium screens */
   .App {
     grid-template:
-      "search search forecast" 10%
+      ". . forecast" 3rem
       "current current forecast" auto
       "current current forecast" auto
       "current current forecast" auto
@@ -67,7 +69,7 @@
   .App {
     width: 85%;
     grid-template:
-      "search forecast" 10%
+      ". forecast" 3rem
       "current forecast" auto
       "current forecast" auto
       "current forecast" auto

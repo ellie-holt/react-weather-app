@@ -2,7 +2,7 @@
 @use "../../variables" as *;
 
 .weatherTable {
-  border: 1px solid black;
+  @include mixins.glassmorphic-card;
   line-height: 1.4;
   grid-area: table;
 

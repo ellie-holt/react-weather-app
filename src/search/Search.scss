@@ -1,53 +1,59 @@
 @use "../variables" as *;
 @use "../mixins";
 
-div.Search {
-  border: 1px solid black;
-  padding: 0 1rem;
-}
-
 button {
   @include mixins.glassmorphic-button;
   @include mixins.responsive-text($font-size-xsmall);
 }
 
 .Search {
-  .SearchForm {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    width: 100%;
-    flex-wrap: nowrap;
+  z-index: 1;
+  .SearchBarTab {
+    @include mixins.fullscreen-tab;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0.7rem;
+    z-index: 2;
 
-    // .CurrentButton {
-    //   align-self: flex-start;
-    // }
-
-    .SearchBar {
+    .SearchForm {
       display: flex;
+      align-items: center;
+      justify-content: center;
       flex-wrap: nowrap;
-      align-content: center;
 
-      .SearchInput {
-        @include mixins.glassmorphic-input;
-        @include mixins.responsive-text($font-size-xsmall);
-        border-radius: 10px 0 0 10px;
-        flex-basis: 80%;
-      }
+      .SearchBar {
+        margin-left: 8vw;
+        display: flex;
+        flex-wrap: nowrap;
+        align-content: center;
 
-      .SearchButton {
-        border-radius: 0 10px 10px 0;
+        .SearchInput {
+          @include mixins.glassmorphic-input;
+          @include mixins.responsive-text($font-size-xsmall);
+          border-radius: 10px 0 0 10px;
+          flex-basis: 80%;
+        }
+
+        .SearchButton {
+          border-radius: 0 10px 10px 0;
+        }
       }
     }
   }
 }
 
-// @media screen and (min-width: $breakpoint-sm) {
-//   .Search {
-//     justify-content: space-around;
-//     .SearchInput {
-//       width: initial;
-//     }
-//   }
-// }
+@media screen and (min-width: $breakpoint-xs) {
+  .Search {
+    .SearchBarTab {
+      @include mixins.rounded-tab;
+      width: 70vw;
+      .SearchForm {
+        justify-content: left;
+        .CurrentButton {
+          margin-left: 1vw;
+        }
+      }
+    }
+  }
+}

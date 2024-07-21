@@ -19,27 +19,29 @@ export default function Search({ fetchWeatherData, defaultCity }) {
 
   return (
     <div className="Search">
-      <form id="search-form" className="SearchForm" onSubmit={handleSubmit}>
-        <button type="button" id="current-button" className="CurrentButton">
-          Current
-        </button>
-        <div className="SearchBar">
-          <input
-            type="search"
-            id="search-bar"
-            className="SearchInput"
-            placeholder="Type city here..."
-            autoFocus
-            required
-            aria-label="User location"
-            aria-describedby="search-button"
-            onChange={handleCityChange}
-          />
-          <button type="submit" id="search-button" className="SearchButton">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+      <div className="SearchBarTab">
+        <form id="search-form" className="SearchForm" onSubmit={handleSubmit}>
+          <button type="button" id="current-button" className="CurrentButton">
+            Current
           </button>
-        </div>
-      </form>
+          <div className="SearchBar">
+            <input
+              type="search"
+              id="search-bar"
+              className="SearchInput"
+              placeholder="Type city here..."
+              autoFocus
+              required
+              aria-label="User location"
+              aria-describedby="search-button"
+              onChange={handleCityChange}
+            />
+            <button type="submit" id="search-button" className="SearchButton">
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
