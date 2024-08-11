@@ -13,7 +13,7 @@
 
   .cityName {
     grid-area: city;
-    @include mixins.responsive-text(2.1rem);
+    @include mixins.responsive-text(2rem);
   }
 
   .currentDate {
@@ -27,6 +27,6 @@
     grid-area: time;
     justify-self: end;
     align-self: center;
-    @include mixins.responsive-text(2.8rem);
+    @include mixins.responsive-text(2.6rem);
   }
 }

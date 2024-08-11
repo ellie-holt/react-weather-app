@@ -43,7 +43,7 @@ button {
   }
 }
 
-@media screen and (min-width: $breakpoint-xs) {
+@media screen and (min-width: $breakpoint-md) {
   .Search {
     .SearchBarTab {
       @include mixins.rounded-tab;
@@ -54,6 +54,14 @@ button {
           margin-left: 1vw;
         }
       }
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-xl) {
+  .Search {
+    .SearchBarTab {
+      width: 65vw;
     }
   }
 }

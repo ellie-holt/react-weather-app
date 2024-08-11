@@ -6,11 +6,11 @@
 
   .cityWeather {
     display: grid;
-    grid-template-rows: auto 3rem max-content;
-    grid-template-areas:
-      "main main"
-      "temp ."
-      "temp table";
+    grid-template:
+      "main main" auto
+      "temp ." 3rem
+      "temp table" min-content
+      / auto auto;
     gap: 0.5rem;
     align-items: end;
     overflow: visible;

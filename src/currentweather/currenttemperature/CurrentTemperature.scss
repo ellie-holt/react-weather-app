@@ -4,31 +4,28 @@
 .currentTemperature {
   @include mixins.glassmorphic-card;
   grid-area: temp;
-  padding-top: 1rem;
+  // padding-top: 1rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
   align-self: stretch;
 
   .temp {
-    font-size: 4rem;
-    align-self: center;
-    justify-self: center;
-    line-height: 1.7;
+    @include mixins.responsive-text(4.4rem);
+    line-height: 1.8;
 
     .tempUnit {
-      @include mixins.unit-text(0.7em, top);
+      @include mixins.unit-text(0.7em, super);
     }
   }
 
   .tempData {
     text-align: right;
-    align-self: center;
-    @include mixins.responsive-text($font-size-small);
+    @include mixins.responsive-text($font-size-medium);
 
     .tempUnit {
-      @include mixins.unit-text(1em, top);
+      @include mixins.unit-text(1em, super);
     }
   }
 }

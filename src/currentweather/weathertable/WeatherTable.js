@@ -9,11 +9,21 @@ export default function WeatherTable({ weatherData }) {
         <tbody>
           <tr>
             <th>Humidity</th>
-            <td>{weatherData.humidity}</td>
+            <td>{weatherData.humidity}%</td>
           </tr>
           <tr>
-            <th>Pressure</th>
-            <td>{weatherData.pressure}</td>
+            <th>Wind speed</th>
+            <td>
+              {weatherData.wind.speed}
+              <span className="unit">m/s</span>
+            </td>
+          </tr>
+          <tr>
+            <th>Wind dir.</th>
+            <td>
+              {weatherData.wind.direction}
+              <span className="unit">deg</span>
+            </td>
           </tr>
           <tr>
             <th>Cloud cover</th>
@@ -21,15 +31,17 @@ export default function WeatherTable({ weatherData }) {
           </tr>
           <tr>
             <th>Visibility</th>
-            <td>{weatherData.visibility}</td>
+            <td>
+              {weatherData.visibility / 1000}
+              <span className="unit">km</span>
+            </td>
           </tr>
           <tr>
-            <th>Wind speed</th>
-            <td>{weatherData.wind.speed}</td>
-          </tr>
-          <tr>
-            <th>Wind direction</th>
-            <td>{weatherData.wind.direction}</td>
+            <th>Pressure</th>
+            <td>
+              {weatherData.pressure}
+              <span className="unit">hPa</span>
+            </td>
           </tr>
         </tbody>
       </table>

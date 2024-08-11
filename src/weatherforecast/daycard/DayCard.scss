@@ -1,0 +1,40 @@
+@use "../../variables" as *;
+@use "../../mixins";
+
+.dayCard {
+  display: grid;
+  margin: 0.5rem 0;
+  padding: 0.2rem;
+  grid-template-areas:
+    "day icon"
+    "temp description";
+
+  .weekDay {
+    grid-area: day;
+    @include mixins.responsive-text(1.2rem);
+    font-weight: 400;
+  }
+
+  .icon {
+    grid-area: icon;
+    justify-self: center;
+    line-height: 1;
+    min-height: 0;
+    @include mixins.responsive-text($font-size-xlarge);
+  }
+
+  .temp {
+    grid-area: temp;
+    align-self: end;
+    @include mixins.responsive-text(24px);
+    .tempUnit {
+      @include mixins.unit-text(1em, top);
+    }
+  }
+
+  .description {
+    grid-area: description;
+    justify-self: right;
+    align-self: end;
+  }
+}

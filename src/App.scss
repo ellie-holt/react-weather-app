@@ -37,23 +37,24 @@
 
 /* Responsive Breakpoints */
 
-@media screen and (min-width: $breakpoint-xs) {
-  /* xs screens */
+// @media screen and (min-width: $breakpoint-sm) {
+//   /* xs screens */
+//   .App {
+//     margin: 0.5rem auto;
+//     grid-template:
+//       ". . forecast" 3rem
+//       "current current forecast" auto
+//       "current current forecast" auto
+//       "current current forecast" auto
+//       "footer footer footer" auto
+//       / 1fr 1fr minmax(8rem, 25%);
+//   }
+// }
+
+@media screen and (min-width: $breakpoint-md) {
+  /* medium screens */
   .App {
     margin: 0.5rem auto;
-    grid-template:
-      ". . forecast" 3rem
-      "current current forecast" auto
-      "current current forecast" auto
-      "current current forecast" auto
-      "footer footer footer" auto
-      / 1fr 1fr minmax(8rem, 25%);
-  }
-}
-
-@media screen and (min-width: $breakpoint-sm) {
-  /* small and medium screens */
-  .App {
     grid-template:
       ". . forecast" 3rem
       "current current forecast" auto
@@ -67,21 +68,21 @@
 @media screen and (min-width: $breakpoint-lg) {
   /* large screens */
   .App {
-    width: 85%;
+    width: 90%;
     grid-template:
       ". forecast" 3rem
       "current forecast" auto
       "current forecast" auto
       "current forecast" auto
       "footer footer" auto
-      / auto auto;
+      / 5fr 2fr;
   }
 }
 
 @media screen and (min-width: $breakpoint-xl) {
   /* xl screens */
   .App {
-    width: 70%;
+    width: 80%;
     //   grid-template-columns: 1.4fr 0.6fr;
     //   grid-template-rows: min-content 1.6fr 1.3fr min-content;
     //   grid-template-areas:

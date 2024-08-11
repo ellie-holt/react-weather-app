@@ -5,12 +5,33 @@
   @include mixins.glassmorphic-card;
   line-height: 1.4;
   grid-area: table;
+  max-height: 14em;
+  overflow-y: scroll;
 
   table {
     margin: 0 auto;
-  }
+    border-collapse: collapse;
+    line-height: 1.7;
 
-  th {
-    text-align: right;
+    th {
+      border-right: 2px solid #ffffff33;
+      padding-right: 0.3rem;
+      text-align: right;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 8rem;
+    }
+    td {
+      min-width: fit-content;
+      padding-left: 0.3rem;
+      .unit {
+        @include mixins.unit-text(1.3em, baseline);
+        color: #00000084;
+        font-weight: 600;
+        font-style: italic;
+        padding-inline-start: 0.2rem;
+      }
+    }
   }
 }

@@ -5,13 +5,13 @@
 @mixin responsive-text($base-size) {
   font-size: $base-size;
 
-  @media (min-width: $breakpoint-sm) {
+  @media (min-width: $breakpoint-xs) {
     font-size: calc(#{$base-size} * 1.1);
   }
 
-  @media (min-width: $breakpoint-md) {
-    font-size: calc(#{$base-size} * 1.2);
-  }
+  // @media (min-width: $breakpoint-md) {
+  //   font-size: calc(#{$base-size} * 1.2);
+  // }
 
   @media (min-width: $breakpoint-lg) {
     font-size: calc(#{$base-size} * 1.3);
