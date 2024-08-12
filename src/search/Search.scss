@@ -1,7 +1,7 @@
 @use "../variables" as *;
 @use "../mixins";
 
-button {
+.button {
   @include mixins.glassmorphic-button;
   @include mixins.responsive-text($font-size-xsmall);
 }
