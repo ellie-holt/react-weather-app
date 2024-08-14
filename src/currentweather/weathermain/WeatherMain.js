@@ -78,12 +78,12 @@ export default function WeatherMain({ weatherData }) {
       iconType = faCloudSun;
   }
   return (
-    <div className="weatherMain">
-      <h2 className="description">
+    <div className="weatherMain h-[4.5rem]">
+      <h2 className="description italic">
         {weatherData.description.charAt(0).toUpperCase() +
           weatherData.description.slice(1)}
       </h2>
-      <div className="icon">
+      <div className="icon text-[7em] text-[#00000022]">
         <FontAwesomeIcon icon={iconType} />
       </div>
     </div>

@@ -18,9 +18,9 @@ export default function CityInfo({ weatherData }) {
   }, []);
 
   return (
-    <div className="cityInfo">
+    <div className="cityInfo card px-4 py-2">
       <h2 className="cityName">{weatherData.city}</h2>
-      <h3 className="currentDate">
+      <h3 className="currentDate ps-4 font-light italic">
         <FormattedDateTime
           timestamp={currentTime}
           format={"weekday_,_ _day_ _month"}

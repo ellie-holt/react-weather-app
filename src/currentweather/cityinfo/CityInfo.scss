@@ -1,8 +1,6 @@
 @use "../../mixins";
 
 .cityInfo {
-  @include mixins.glassmorphic-card;
-  padding: 0.5rem 1rem;
   display: grid;
   justify-content: start;
   grid-template-rows: auto auto;
@@ -18,9 +16,6 @@
 
   .currentDate {
     grid-area: date;
-    font-style: italic;
-    font-weight: 300;
-    padding-inline-start: 1rem;
   }
 
   .currentTime {

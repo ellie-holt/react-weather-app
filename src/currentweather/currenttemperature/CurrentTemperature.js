@@ -6,7 +6,7 @@ export default function CurrentTemperature({ temperatureData }) {
   return (
     console.log(temperatureData),
     (
-      <div className="currentTemperature">
+      <div className="currentTemperature card">
         <h2 className="temp">
           {Math.round(temperatureData.current)}
           <span className="tempUnit">°C</span>

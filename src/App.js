@@ -45,7 +45,7 @@ function App() {
 
   if (weatherData.ready) {
     return (
-      <div className="App">
+      <div className="App mx-[auto] my-[3.8rem] p-4 grid gap-4">
         <Search fetchWeatherData={fetchWeatherData} defaultCity="London" />
         <CurrentWeather weatherData={weatherData} />
         <WeatherForecast />

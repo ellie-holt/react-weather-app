@@ -2,8 +2,6 @@
 @use "../mixins";
 
 .CurrentWeather {
-  @include mixins.glassmorphic-card;
-
   .cityWeather {
     display: grid;
     grid-template:

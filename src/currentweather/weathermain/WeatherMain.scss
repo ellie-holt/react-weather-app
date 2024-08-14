@@ -2,7 +2,6 @@
 
 .weatherMain {
   grid-area: main;
-  height: 4.5rem;
   display: grid;
   grid-template:
     "description description " 1fr
@@ -14,14 +13,10 @@
   .description {
     @include mixins.responsive-text(2.5rem);
     grid-area: description;
-    font-style: italic;
   }
 
   .icon {
     grid-area: icon;
     justify-self: end;
-    font-size: 7em;
-    min-height: 0;
-    color: #00000022;
   }
 }

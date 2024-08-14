@@ -6,7 +6,7 @@ import "./WeatherForecast.scss";
 
 export default function WeatherForecast() {
   return (
-    <div className="WeatherForecast">
+    <div className="WeatherForecast card">
       <DayCard />
       <DayCard />
       <DayCard />

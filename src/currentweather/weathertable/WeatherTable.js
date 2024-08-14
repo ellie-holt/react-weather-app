@@ -4,8 +4,8 @@ import "./WeatherTable.scss";
 
 export default function WeatherTable({ weatherData }) {
   return (
-    <div className="weatherTable">
-      <table>
+    <div className="weatherTable card max-h-[14em] overflow-y-scroll">
+      <table className="mx-[auto]">
         <tbody>
           <tr>
             <th>Humidity</th>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import Button from "../components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import "./Search.scss";
@@ -19,22 +18,21 @@ export default function Search({ fetchWeatherData, defaultCity }) {
   }
 
   return (
-    <div className="Search">
-      <div className="SearchBarTab">
+    <div className="Search z-10">
+      <div className="SearchBarTab p-[0.7rem] fixed top-0 left-0 z-20 md:w-[70vw] xl:w-[65vw]">
         <form id="search-form" className="SearchForm" onSubmit={handleSubmit}>
-          <Button label="Current" />
           <button
             type="button"
             id="current-button"
-            className="CurrentButton button"
+            className="CurrentButton button md:ml-[1vw]"
           >
             Current
           </button>
-          <div className="SearchBar">
+          <div className="SearchBar ml-[8vw]">
             <input
               type="search"
               id="search-bar"
-              className="SearchInput"
+              className="SearchInput input"
               placeholder="Type city here..."
               autoFocus
               required

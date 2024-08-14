@@ -2,7 +2,6 @@
 @use "../../variables" as *;
 
 .currentTemperature {
-  @include mixins.glassmorphic-card;
   grid-area: temp;
   // padding-top: 1rem;
   display: flex;

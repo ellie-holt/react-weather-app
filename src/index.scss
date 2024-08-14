@@ -1,32 +1,32 @@
-@use "variables" as *;
-@use "mixins";
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
-  height: 100%;
-  background: #abd5d8;
-  background: linear-gradient(330deg, #bde0e3 34%, #74a8f1 100%);
-  @include mixins.responsive-text($font-size-small);
-  font-family: "IBM Plex Sans", sans-serif;
+  @apply h-full text-sm font-sans bg-gradient-to-b from-blue-300 to-blue-100;
 }
-
 h1 {
-  white-space: nowrap;
-  @include mixins.responsive-text($font-size-xlarge);
+  @apply text-xl whitespace-nowrap;
 }
-
 h2 {
-  @include mixins.responsive-text($font-size-large);
+  @apply text-lg;
 }
-
 h3 {
-  @include mixins.responsive-text($font-size-medium);
+  @apply text-md;
+}
+p {
+  @apply text-xs;
 }
 
-p {
-  @include mixins.responsive-text($font-size-xsmall);
+@tailwind components;
+.card {
+  @apply p-4 border border-blue-200 rounded-xl shadow-[0_4px_6px_#0000001a] bg-[#ffffff1a] backdrop-blur-md;
 }
+.button {
+  @apply py-[0.6rem] px-2 border border-[#ffffff33] rounded-xl shadow-[0_4px_6px_#0000001a] bg-[#ffffff1a] backdrop-blur-md transition-all duration-300 ease-in-out hover:bg-[#ffffff66] active:shadow-[0_2px_4px_#00000033];
+}
+.input {
+  @apply py-[0.6rem] px-4 border border-[#ffffff33] rounded-xl bg-[#ffffff1a] backdrop-blur-md transition-all duration-300 ease-in-out focus:bg-[#ffffff33] focus:border-[#57cefa];
+}
+
+@tailwind utilities;
