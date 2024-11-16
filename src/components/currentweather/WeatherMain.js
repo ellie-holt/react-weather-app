@@ -15,8 +15,6 @@ import {
   faSmog,
 } from "@fortawesome/free-solid-svg-icons";
 
-import "./WeatherMain.scss";
-
 export default function WeatherMain({ weatherData }) {
   let iconType = "";
   switch (weatherData.icon) {
@@ -78,12 +76,16 @@ export default function WeatherMain({ weatherData }) {
       iconType = faCloudSun;
   }
   return (
-    <div className="weatherMain h-[4.5rem]">
-      <h2 className="description italic">
+    <div>
+      <h1 className="text-xl leading-tight">
+        {Math.round(weatherData.temperature.current)}
+        <span>°C</span>
+      </h1>
+      <h2 className="italic text-md leading-tight">
         {weatherData.description.charAt(0).toUpperCase() +
           weatherData.description.slice(1)}
       </h2>
-      <div className="icon text-[7em] text-[#00000022]">
+      <div className="text-xl text-[#00000022] leading-tight">
         <FontAwesomeIcon icon={iconType} />
       </div>
     </div>

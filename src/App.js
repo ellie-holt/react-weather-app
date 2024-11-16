@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Search from "./search/Search";
-import CurrentWeather from "./currentweather/CurrentWeather";
-import WeatherForecast from "./weatherforecast/WeatherForecast";
-import Footer from "./footer/Footer";
-
-import "./App.scss";
+import Search from "./components/Search";
+import CurrentWeather from "./components/currentweather/CurrentWeather";
+import WeatherForecast from "./components/weatherforecast/WeatherForecast";
+import Footer from "./components/Footer";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -45,12 +43,12 @@ function App() {
 
   if (weatherData.ready) {
     return (
-      <div className="App mx-[auto] my-[3.8rem] p-4 grid gap-4">
+      <main className="grid grid-rows-[auto_auto_auto_1fr_auto] gap-2 min-h-screen">
         <Search fetchWeatherData={fetchWeatherData} defaultCity="London" />
         <CurrentWeather weatherData={weatherData} />
         <WeatherForecast />
         <Footer />
-      </div>
+      </main>
     );
   } else {
     fetchWeatherData("London");

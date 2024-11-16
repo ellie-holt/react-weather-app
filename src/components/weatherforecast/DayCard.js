@@ -1,10 +1,8 @@
 import React from "react";
 
-import "./DayCard.scss";
-
 export default function DayCard() {
   return (
-    <article className="dayCard">
+    <article>
       <h2 className="weekDay">Mon</h2>
       <h3 className="temp">
         14<span className="tempUnit">°C</span>

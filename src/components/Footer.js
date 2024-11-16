@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div className="Footer card px-4 py-2 text-center">
+    <div className="card px-4 py-2 text-center">
       <p>This weather app was made with ♡ by</p>
       <p>
         <a

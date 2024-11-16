@@ -1,12 +1,10 @@
 import React from "react";
 
-import DayCard from "./daycard/DayCard";
-
-import "./WeatherForecast.scss";
+import DayCard from "./DayCard";
 
 export default function WeatherForecast() {
   return (
-    <div className="WeatherForecast card">
+    <div className="card flex">
       <DayCard />
       <DayCard />
       <DayCard />
