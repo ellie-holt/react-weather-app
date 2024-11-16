@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 import Search from "./components/Search";
+import CityInfo from "./components/CityInfo";
 import CurrentWeather from "./components/currentweather/CurrentWeather";
 import WeatherForecast from "./components/weatherforecast/WeatherForecast";
 import Footer from "./components/Footer";
@@ -43,8 +44,9 @@ function App() {
 
   if (weatherData.ready) {
     return (
-      <main className="grid grid-rows-[auto_auto_auto_1fr_auto] gap-2 min-h-screen">
+      <main className="mx-4 mb-5 grid gap-2 min-h-screen">
         <Search fetchWeatherData={fetchWeatherData} defaultCity="London" />
+        <CityInfo weatherData={weatherData} />
         <CurrentWeather weatherData={weatherData} />
         <WeatherForecast />
         <Footer />

@@ -4,7 +4,7 @@ import Accordion from "../Accordion";
 
 export default function WeatherTable({ weatherData }) {
   return (
-    <div className="weatherTable card">
+    <div className="">
       <Accordion
         title="Weather Details"
         content={

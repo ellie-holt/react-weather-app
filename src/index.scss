@@ -20,13 +20,13 @@ p {
 
 @tailwind components;
 .card {
-  @apply border border-black rounded-lg;
+  @apply px-2 py-1 border border-black rounded-lg;
 }
 .button {
-  @apply py-[0.6rem] px-2 border border-black rounded-lg;
+  @apply py-1.5 px-2 border border-black rounded-lg;
 }
 .input {
-  @apply py-[0.6rem] px-4 border border-black rounded-lg;
+  @apply py-1.5 px-4 border border-black rounded-lg;
 }
 
 @tailwind utilities;

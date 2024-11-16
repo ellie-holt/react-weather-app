@@ -5,14 +5,10 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./src/**/*.js", "/public/index.html"],
   theme: {
-    fontFamily: {
-      sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
-    },
     fontSize: {
       xs: [
         "0.875rem", // Base font size for xs
         {
-          lineHeight: "1.25rem",
           "@screen sm": {
             fontSize: "0.9375rem", // 15px at small screens
           },
@@ -27,7 +23,6 @@ module.exports = {
       sm: [
         "1rem", // Base font size for sm
         {
-          lineHeight: "1.5rem",
           "@screen sm": {
             fontSize: "1.125rem", // 18px at small screens
           },
@@ -42,7 +37,6 @@ module.exports = {
       md: [
         "1.25rem", // Base font size for md
         {
-          lineHeight: "1.75rem",
           "@screen sm": {
             fontSize: "1.375rem", // 22px at small screens
           },
@@ -57,7 +51,6 @@ module.exports = {
       lg: [
         "1.5rem", // Base font size for lg
         {
-          lineHeight: "2rem",
           "@screen sm": {
             fontSize: "1.625rem", // 26px at small screens
           },
@@ -72,7 +65,6 @@ module.exports = {
       xl: [
         "1.75rem", // Base font size for xl
         {
-          lineHeight: "2.25rem",
           "@screen sm": {
             fontSize: "1.875rem", // 30px at small screens
           },
@@ -106,6 +98,9 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        sans: ["IBM Plex Sans", ...defaultTheme.fontFamily.sans],
       },
     },
   },

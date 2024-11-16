@@ -76,16 +76,16 @@ export default function WeatherMain({ weatherData }) {
       iconType = faCloudSun;
   }
   return (
-    <div>
-      <h1 className="text-xl leading-tight">
+    <div className="flex flex-col justify-center items-center">
+      <h1 className="text-[4rem] leading-tight">
         {Math.round(weatherData.temperature.current)}
         <span>°C</span>
       </h1>
-      <h2 className="italic text-md leading-tight">
+      <h2 className="italic text-xl leading-snug">
         {weatherData.description.charAt(0).toUpperCase() +
           weatherData.description.slice(1)}
       </h2>
-      <div className="text-xl text-[#00000022] leading-tight">
+      <div className="text-[7rem] text-[#00000022] leading-tight">
         <FontAwesomeIcon icon={iconType} />
       </div>
     </div>

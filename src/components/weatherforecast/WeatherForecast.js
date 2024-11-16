@@ -4,7 +4,7 @@ import DayCard from "./DayCard";
 
 export default function WeatherForecast() {
   return (
-    <div className="card flex">
+    <div className="card flex overflow-x-scroll">
       <DayCard />
       <DayCard />
       <DayCard />
