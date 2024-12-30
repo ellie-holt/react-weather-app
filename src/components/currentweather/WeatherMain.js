@@ -1,82 +1,76 @@
 import React from "react";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCloud,
-  faSun,
-  faMoon,
-  faCloudSun,
-  faCloudMoon,
-  faCloudSunRain,
-  faCloudMoonRain,
-  faCloudShowersHeavy,
-  faSnowflake,
-  faCloudBolt,
-  faSmog,
-} from "@fortawesome/free-solid-svg-icons";
+import icons from "../../img/icons";
 
 export default function WeatherMain({ weatherData }) {
-  let iconType = "";
+  let iconVariant = "";
+
   switch (weatherData.icon) {
     case "01d":
-      iconType = faSun;
+      iconVariant = "clearday";
       break;
     case "01n":
-      iconType = faMoon;
+      iconVariant = "clearnight";
       break;
     case "02d":
-      iconType = faCloudSun;
+      iconVariant = "cloudyday";
       break;
     case "02n":
-      iconType = faCloudMoon;
+      iconVariant = "cloudynight";
       break;
     case "03d":
-      iconType = faCloud;
+      iconVariant = "cloudyday";
       break;
     case "03n":
-      iconType = faCloud;
+      iconVariant = "cloudynight";
       break;
     case "04d":
-      iconType = faCloudSun;
+      iconVariant = "cloudy";
       break;
     case "04n":
-      iconType = faCloudSun;
+      iconVariant = "cloudy";
       break;
     case "09d":
-      iconType = faCloudSunRain;
+      iconVariant = "rainyday";
       break;
     case "09n":
-      iconType = faCloudMoonRain;
+      iconVariant = "rainynight";
       break;
     case "10d":
-      iconType = faCloudShowersHeavy;
+      iconVariant = "rainyday";
       break;
     case "10n":
-      iconType = faCloudShowersHeavy;
+      iconVariant = "rainynight";
       break;
     case "11d":
-      iconType = faCloudBolt;
+      iconVariant = "stormy";
       break;
     case "11n":
-      iconType = faCloudBolt;
+      iconVariant = "stormy";
       break;
     case "13d":
-      iconType = faSnowflake;
+      iconVariant = "snowyday";
       break;
     case "13n":
-      iconType = faSnowflake;
+      iconVariant = "snowynight";
       break;
     case "50d":
-      iconType = faSmog;
+      iconVariant = "misty";
       break;
     case "50n":
-      iconType = faSmog;
+      iconVariant = "misty";
       break;
     default:
-      iconType = faCloudSun;
+      iconVariant = "cloudyday";
   }
+
+  let icon = icons[iconVariant];
+
+  console.log(icons.cloudy);
+
+  console.log(iconVariant);
+  console.log(icon);
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center px-4">
       <h1 className="text-[4rem] leading-tight">
         {Math.round(weatherData.temperature.current)}
         <span>°C</span>
@@ -85,8 +79,8 @@ export default function WeatherMain({ weatherData }) {
         {weatherData.description.charAt(0).toUpperCase() +
           weatherData.description.slice(1)}
       </h2>
-      <div className="text-[7rem] text-[#00000022] leading-tight">
-        <FontAwesomeIcon icon={iconType} />
+      <div className="self-end">
+        <img src={icon} alt="" className="w-40" />
       </div>
     </div>
   );

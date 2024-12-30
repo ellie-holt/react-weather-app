@@ -23,6 +23,25 @@ export default function Footer() {
           open-source code
         </a>
       </p>
+      <p>
+        Icons created by
+        <a
+          href="https://www.flaticon.com/free-icons/cloudy"
+          target="_blank"
+          rel="noreferrer"
+          title="cloudy icons"
+        >
+          {" "}
+          Freepik
+        </a>{" "}
+        at{" "}
+        <a
+          href="https://www.flaticon.com/free-icons/cloudy"
+          title="cloudy icons"
+        >
+          Flaticon
+        </a>
+      </p>
     </div>
   );
 }

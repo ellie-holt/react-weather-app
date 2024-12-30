@@ -17,7 +17,7 @@ export default function Search({ fetchWeatherData, defaultCity }) {
   }
 
   return (
-    <div className="sticky top-0 z-10 pt-4 pb-2">
+    <div className="sticky top-0 z-10 pt-6 pb-2">
       <form
         id="search-form"
         className="flex items-center justify-around flex-nowrap"
