@@ -24,40 +24,40 @@ export default function WeatherMain({ weatherData }) {
       iconVariant = "cloudynight";
       break;
     case "04d":
-      iconVariant = "cloudy";
+      iconVariant = "overcast";
       break;
     case "04n":
-      iconVariant = "cloudy";
+      iconVariant = "overcast";
       break;
     case "09d":
-      iconVariant = "rainyday";
+      iconVariant = "showerday";
       break;
     case "09n":
-      iconVariant = "rainynight";
+      iconVariant = "showernight";
       break;
     case "10d":
-      iconVariant = "rainyday";
+      iconVariant = "rain";
       break;
     case "10n":
-      iconVariant = "rainynight";
+      iconVariant = "rain";
       break;
     case "11d":
-      iconVariant = "stormy";
+      iconVariant = "thunderstorm";
       break;
     case "11n":
-      iconVariant = "stormy";
+      iconVariant = "thunderstorm";
       break;
     case "13d":
-      iconVariant = "snowyday";
+      iconVariant = "snow";
       break;
     case "13n":
-      iconVariant = "snowynight";
+      iconVariant = "snow";
       break;
     case "50d":
-      iconVariant = "misty";
+      iconVariant = "mist";
       break;
     case "50n":
-      iconVariant = "misty";
+      iconVariant = "mist";
       break;
     default:
       iconVariant = "cloudyday";

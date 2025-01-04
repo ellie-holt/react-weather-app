@@ -3,12 +3,13 @@ const icons = {
   clearnight: require("./clearnight.png"),
   cloudyday: require("./cloudyday.png"),
   cloudynight: require("./cloudynight.png"),
-  cloudy: require("./cloudy.png"),
-  rainyday: require("./rainyday.png"),
-  rainynight: require("./rainynight.png"),
-  stormy: require("./stormy.png"),
-  snowy: require("./snowy.png"),
-  misty: require("./misty.png"),
+  overcast: require("./overcast.png"),
+  showerday: require("./showerday.png"),
+  showernight: require("./showernight.png"),
+  rain: require("./rain.png"),
+  thunderstorm: require("./thunderstorm.png"),
+  snow: require("./snow.png"),
+  mist: require("./mist.png"),
 };
 
 export default icons;
