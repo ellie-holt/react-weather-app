@@ -1,67 +1,9 @@
 import React from "react";
+import IconSelect from "../../IconSelect";
 import icons from "../../img/icons";
 
 export default function WeatherMain({ weatherData }) {
-  let iconVariant = "";
-
-  switch (weatherData.icon) {
-    case "01d":
-      iconVariant = "clearday";
-      break;
-    case "01n":
-      iconVariant = "clearnight";
-      break;
-    case "02d":
-      iconVariant = "cloudyday";
-      break;
-    case "02n":
-      iconVariant = "cloudynight";
-      break;
-    case "03d":
-      iconVariant = "cloudyday";
-      break;
-    case "03n":
-      iconVariant = "cloudynight";
-      break;
-    case "04d":
-      iconVariant = "overcast";
-      break;
-    case "04n":
-      iconVariant = "overcast";
-      break;
-    case "09d":
-      iconVariant = "showerday";
-      break;
-    case "09n":
-      iconVariant = "showernight";
-      break;
-    case "10d":
-      iconVariant = "rain";
-      break;
-    case "10n":
-      iconVariant = "rain";
-      break;
-    case "11d":
-      iconVariant = "thunderstorm";
-      break;
-    case "11n":
-      iconVariant = "thunderstorm";
-      break;
-    case "13d":
-      iconVariant = "snow";
-      break;
-    case "13n":
-      iconVariant = "snow";
-      break;
-    case "50d":
-      iconVariant = "mist";
-      break;
-    case "50n":
-      iconVariant = "mist";
-      break;
-    default:
-      iconVariant = "cloudyday";
-  }
+  let iconVariant = IconSelect({ weatherData });
 
   let icon = icons[iconVariant];
 
@@ -70,17 +12,17 @@ export default function WeatherMain({ weatherData }) {
   console.log(iconVariant);
   console.log(icon);
   return (
-    <div className="flex flex-col justify-center px-4">
-      <h1 className="text-[4rem] leading-tight">
+    <div className="flex flex-col mx-4 px-4 font-ubuntu">
+      <h1 className="text-[6rem] leading-tight ">
         {Math.round(weatherData.temperature.current)}
-        <span>°C</span>
+        <span className="unit">°C</span>
       </h1>
-      <h2 className="italic text-xl leading-snug">
+      <h2 className="italic text-[3rem] tracking-tight leading-none w-3/5 min-h-28">
         {weatherData.description.charAt(0).toUpperCase() +
           weatherData.description.slice(1)}
       </h2>
-      <div className="self-end">
-        <img src={icon} alt="" className="w-40" />
+      <div className="self-end mt-[-4rem] pb-5 px-3">
+        <img src={icon} alt="" className="w-44" />
       </div>
     </div>
   );

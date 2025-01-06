@@ -43,8 +43,31 @@ function App() {
   }
 
   if (weatherData.ready) {
+    const themeMap = {
+      "01d": "clear-day",
+      "01n": "clear-night",
+      "02d": "cloudy-day",
+      "02n": "cloudy-night",
+      "03d": "cloudy-day",
+      "03n": "cloudy-night",
+      "04d": "overcast",
+      "04n": "overcast",
+      "09d": "shower-day",
+      "09n": "shower-night",
+      "10d": "rain",
+      "10n": "rain",
+      "11d": "thunderstorm",
+      "11n": "thunderstorm",
+      "13d": "snow",
+      "13n": "snow",
+      "50d": "mist",
+      "50n": "mist",
+    };
+
+    const iconCode = weatherData.icon;
+    const themeClass = themeMap[iconCode];
     return (
-      <main className="mx-4 mb-5 grid gap-2 min-h-screen">
+      <main className={`${themeClass}`}>
         <Search fetchWeatherData={fetchWeatherData} defaultCity="London" />
         <CityInfo weatherData={weatherData} />
         <CurrentWeather weatherData={weatherData} />
