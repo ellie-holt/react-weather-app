@@ -27,16 +27,23 @@ h3 {
   @apply text-base;
 }
 p {
-  @apply text-xs;
+  @apply text-sm;
+}
+table {
+  @apply w-full border-collapse text-lg;
+}
+th,
+td {
+  @apply p-2 text-left border-b-2;
 }
 
 @tailwind components;
 
 .button {
-  @apply py-1.5 px-2 border-2 rounded-xl shadow-[-3px_3px_0];
+  @apply py-1.5 px-2 border-2 rounded-xl shadow-[-3px_3px_0] text-base font-bold;
 }
 .input {
-  @apply py-1.5 px-4 border-2 rounded-lg shadow-[-3px_3px_0];
+  @apply py-1.5 px-4 border-2 rounded-lg shadow-[-3px_3px_0] text-base font-semibold;
 }
 
 @tailwind utilities;
@@ -50,39 +57,250 @@ p {
 
 /* weather dependent colour themes */
 
+main.clear-day {
+  @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
+}
 .clear-day {
   .button {
-    @apply bg-gradient-to-b from-blue-300 to-blue-100;
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
   }
-  @apply bg-gradient-to-b from-blue-300 to-blue-100;
+  .input {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+}
+
+main.clear-night {
+  @apply bg-gradient-to-b from-[#0A1236] from-20% to-[#236ddb];
 }
 .clear-night {
-  @apply bg-gradient-to-b from-blue-900 to-blue-800;
+  .button {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .input {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .cityInfo {
+    @apply bg-[#fffae2];
+  }
+  .weatherMain {
+    @apply text-[#fffae2];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply bg-[#fff3be] border-[#FEE97D] shadow-[#FEE97D];
+  }
+  .footer div,
+  .footer footer {
+    @apply bg-[#fffae2];
+  }
+}
+
+main.cloudy-day {
+  @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .cloudy-day {
-  @apply bg-gradient-to-b from-gray-300 to-gray-100;
+  .button {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .input {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+}
+
+main.cloudy-night {
+  @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .cloudy-night {
-  @apply bg-gradient-to-b from-gray-900 to-gray-800;
+  .button {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .input {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .cityInfo {
+    @apply bg-[#fffae2];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .footer div,
+  .footer footer {
+    @apply bg-[#F0F5F7];
+  }
 }
-.overcast {
-  @apply bg-gradient-to-b from-gray-500 to-gray-400;
+
+main.overcast-day {
+  @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
+}
+.overcast-day {
+  .button {
+    @apply border-[#71c5da] shadow-[#71c5da];
+  }
+  .input {
+    @apply border-[#71c5da] shadow-[#71c5da];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#417481] shadow-[#417481];
+  }
+  .footer div,
+  .footer footer {
+    @apply bg-[#F0F5F7];
+  }
+}
+
+main.overcast-night {
+  @apply bg-gradient-to-b from-[#7486B5] from-20% to-[#294069] text-[#F5F9FF];
+}
+.overcast-night {
+  a {
+    @apply text-[#006869] hover:text-[#1A8580] active:text-[#00C6BE] visited:text-[#294069];
+  }
+  .button {
+    @apply bg-[#D87B8C] hover:bg-[#d06274] border-[#6F1C33] shadow-[#903B4E] text-[#FFF5F7];
+  }
+  .input {
+    @apply bg-[#FFC7D7] border-[#6F1C33] shadow-[#903B4E] text-[#574144] placeholder-[#897174];
+  }
+  .weatherMain {
+    .description {
+      @apply decoration-[#FFC7D7];
+    }
+  }
+  .weatherTable {
+    @apply text-[#F5F9FF];
+    tr,
+    td,
+    th {
+      @apply border-[#F0F5F7];
+    }
+  }
+  .weatherForecast {
+    @apply text-[#F5F9FF];
+    .description {
+      @apply bg-[#FFC7D7] text-[#574144] border-[#6F1C33];
+    }
+  }
+  .cityInfo,
+  .footer div,
+  .footer footer {
+    @apply bg-[#B9CBFD] text-[#2C2F3A];
+  }
+}
+
+main.shower-day {
+  @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .shower-day {
-  @apply bg-gradient-to-b from-blue-300 to-blue-100;
+  .button {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .input {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+}
+
+main.shower-night {
+  @apply bg-gradient-to-b from-[#1E3D50] from-20% to-[#1B2938] text-[#FAFAFA];
 }
 .shower-night {
-  @apply bg-gradient-to-b from-blue-900 to-blue-800;
+  .button {
+    @apply border-[#00A2C7] shadow-[#00A2C7] bg-[#00A2C7];
+  }
+  .input {
+    @apply border-[#00A2C7] shadow-[#00A2C7];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#FFB74D] shadow-[#FFB74D];
+  }
+  .footer {
+    @apply text-[#3C4957];
+    footer {
+      @apply bg-[#BFD5E1];
+    }
+    .curved-edge {
+      @apply bg-[#BFD5E1];
+    }
+  }
+  .cityInfo {
+    @apply bg-[#BFD5E1] text-[#3C4957];
+  }
+}
+
+main.rain {
+  @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C5E1E8];
 }
 .rain {
-  @apply bg-gradient-to-b from-blue-500 to-blue-400;
+  .button {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .input {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+}
+
+main.thunderstorm {
+  @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .thunderstorm {
-  @apply bg-gradient-to-b from-blue-700 to-blue-600;
+  .button {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .input {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+}
+
+main.snow {
+  @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .snow {
-  @apply bg-gradient-to-b from-blue-100 to-blue-50;
+  .button {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .input {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+}
+
+main.mist {
+  @apply bg-gradient-to-b from-[#e1c3e7] from-20% to-[#A98AB0];
 }
 .mist {
-  @apply bg-gradient-to-b from-gray-200 to-gray-100;
+  .button {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .input {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
+  .weatherTable,
+  .weatherForecast {
+    @apply border-[#3E4EB7] shadow-[#3E4EB7];
+  }
 }

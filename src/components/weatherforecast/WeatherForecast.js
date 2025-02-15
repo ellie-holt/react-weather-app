@@ -2,15 +2,20 @@ import React from "react";
 
 import DayCard from "./DayCard";
 
-export default function WeatherForecast() {
+import SetTheme from "../../SetTheme";
+
+export default function WeatherForecast({ weatherData }) {
+  let themeClass = SetTheme({ weatherData });
   return (
-    <div className="mx-4 mt-2 flex border-2 border-blue-500 rounded-xl shadow-blue-500 shadow-[-5px_5px_0] overflow-x-scroll">
-      <DayCard />
-      <DayCard />
-      <DayCard />
-      <DayCard />
-      <DayCard />
-      <DayCard />
-    </div>
+    <article
+      className={`${themeClass} card weatherForecast mx-4 mt-2 px-2 pt-1 pb-3 flex overflow-x-scroll`}
+    >
+      <DayCard weatherData={weatherData} />
+      <DayCard weatherData={weatherData} />
+      <DayCard weatherData={weatherData} />
+      <DayCard weatherData={weatherData} />
+      <DayCard weatherData={weatherData} />
+      <DayCard weatherData={weatherData} />
+    </article>
   );
 }

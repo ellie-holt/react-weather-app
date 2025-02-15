@@ -2,29 +2,30 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <div>
+    <div className="footer">
       <div className="curved-edge h-20 bg-white"></div>
-      <div className="py-5 bg-white text-center">
-        <p>This weather app was made with ♡ by</p>
-        <p className="font-bold leading-relaxed">
-          <a
-            href="https://github.com/ellie-holt"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Ellie Holt
-          </a>
-        </p>
-        <hr className="border-black border-opacity-20 my-1 mx-10" />
-        <p className="text-xs leading-relaxed font-mono">
+      <footer className="py-5 h-64 text-center bg-white">
+        <p className="text-base mt-2">
+          Open-source{" "}
           <a
             href="https://github.com/ellie-holt/react-weather-app"
             target="_blank"
             rel="noreferrer"
+            className="font-bold font-mono"
           >
-            open-source code
+            code
+          </a>{" "}
+          by{" "}
+          <a
+            href="https://github.com/ellie-holt"
+            target="_blank"
+            rel="noreferrer"
+            className="font-bold"
+          >
+            Ellie Holt
           </a>
         </p>
+        <hr className="border-black border-opacity-20 my-3 mx-10" />
         <p>
           Icons created by
           <a
@@ -44,7 +45,7 @@ export default function Footer() {
             Flaticon
           </a>
         </p>
-      </div>
+      </footer>
     </div>
   );
 }

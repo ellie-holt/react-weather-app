@@ -7,6 +7,8 @@ import CurrentWeather from "./components/currentweather/CurrentWeather";
 import WeatherForecast from "./components/weatherforecast/WeatherForecast";
 import Footer from "./components/Footer";
 
+import SetTheme from "./SetTheme";
+
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
@@ -43,35 +45,13 @@ function App() {
   }
 
   if (weatherData.ready) {
-    const themeMap = {
-      "01d": "clear-day",
-      "01n": "clear-night",
-      "02d": "cloudy-day",
-      "02n": "cloudy-night",
-      "03d": "cloudy-day",
-      "03n": "cloudy-night",
-      "04d": "overcast",
-      "04n": "overcast",
-      "09d": "shower-day",
-      "09n": "shower-night",
-      "10d": "rain",
-      "10n": "rain",
-      "11d": "thunderstorm",
-      "11n": "thunderstorm",
-      "13d": "snow",
-      "13n": "snow",
-      "50d": "mist",
-      "50n": "mist",
-    };
-
-    const iconCode = weatherData.icon;
-    const themeClass = themeMap[iconCode];
+    let themeClass = SetTheme({ weatherData });
     return (
       <main className={`${themeClass}`}>
         <Search fetchWeatherData={fetchWeatherData} defaultCity="London" />
         <CityInfo weatherData={weatherData} />
         <CurrentWeather weatherData={weatherData} />
-        <WeatherForecast />
+        <WeatherForecast weatherData={weatherData} />
         <Footer />
       </main>
     );

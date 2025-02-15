@@ -7,9 +7,9 @@ export default function CurrentWeather({ weatherData }) {
   console.log(weatherData);
   console.log(weatherData.temperature);
   return (
-    <div className="">
+    <article className="currentWeather">
       <WeatherMain weatherData={weatherData} />
       <WeatherTable weatherData={weatherData} />
-    </div>
+    </article>
   );
 }

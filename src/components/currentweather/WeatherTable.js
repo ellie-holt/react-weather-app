@@ -2,11 +2,35 @@ import React from "react";
 
 import Accordion from "../Accordion";
 
+import SetTheme from "../../SetTheme";
+
 export default function WeatherTable({ weatherData }) {
+  let themeClass = SetTheme({ weatherData });
+  console.log(weatherData);
   return (
-    <div className="mx-4 px-2 py-1 border-2 border-blue-500 rounded-xl shadow-blue-500 shadow-[-5px_5px_0]">
+    <section className={`${themeClass} card weatherTable mx-4 mb-6 px-4 py-2`}>
       <Accordion
-        title="Weather Details"
+        title={
+          <thead>
+            <tr>
+              <th>Min</th>
+              <td>
+                {Math.round(weatherData.temperature.min)}
+                <span className="unit">°C</span>
+              </td>
+              <th>Max</th>
+              <td>
+                {Math.round(weatherData.temperature.max)}
+                <span className="unit">°C</span>
+              </td>
+              <th>Feels like</th>
+              <td>
+                {Math.round(weatherData.temperature.feels_like)}
+                <span className="unit">°C</span>
+              </td>
+            </tr>
+          </thead>
+        }
         content={
           <table className="mx-[auto]">
             <tbody>
@@ -50,6 +74,6 @@ export default function WeatherTable({ weatherData }) {
           </table>
         }
       />
-    </div>
+    </section>
   );
 }

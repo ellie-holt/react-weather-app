@@ -17,7 +17,7 @@ export default function Search({ fetchWeatherData, defaultCity }) {
   }
 
   return (
-    <div className="sticky px-4 top-0 z-10 bg-opacity-35 shadow-md p-4 font-librefranklin text-md bg-white max-h-content">
+    <nav className="search sticky px-4 top-0 z-10 bg-opacity-35 shadow-md p-4 font-librefranklin bg-white max-h-content">
       <form
         id="search-form"
         className="flex items-center justify-around flex-nowrap"
@@ -30,11 +30,11 @@ export default function Search({ fetchWeatherData, defaultCity }) {
         >
           Current
         </button>
-        <div className="flex items-center flex-nowrap">
+        <div className="flex items-center flex-nowrap justify-center">
           <input
             type="search"
             id="search-bar"
-            className="input rounded-r-none z-10 border-blue-500 shadow-blue-500"
+            className="input rounded-r-none z-10 w-4/5"
             placeholder="Type city here..."
             autoFocus
             required
@@ -58,6 +58,6 @@ export default function Search({ fetchWeatherData, defaultCity }) {
           <FontAwesomeIcon icon={faGear} />
         </button>
       </form>
-    </div>
+    </nav>
   );
 }

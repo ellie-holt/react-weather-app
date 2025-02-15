@@ -16,7 +16,7 @@ export default function CityInfo({ weatherData }) {
   }, []);
 
   return (
-    <div className="w-4/5 relative bottom-20 px-2 pt-20 pb-3 ml-auto -mb-20 rounded-bl-full flex flex-wrap justify-self-end justify-end bg-white font-librefranklin">
+    <section className="cityInfo w-4/5 relative bottom-20 px-2 pt-24 pb-3 ml-auto -mb-20 rounded-bl-full flex flex-wrap justify-self-end justify-end bg-white font-librefranklin">
       <h3 className="inline-block text-2xl px-1">{weatherData.city}</h3>
       <span className="text-3xl opacity-50">~</span>
       <h3 className="inline-block min-w-[2.8em] text-2xl px-1 w-">
@@ -28,6 +28,6 @@ export default function CityInfo({ weatherData }) {
           format={"weekday_,_ _day_ _month"}
         />
       </h4>
-    </div>
+    </section>
   );
 }

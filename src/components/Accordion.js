@@ -13,7 +13,7 @@ export default function Accordion({ title, content }) {
         className="flex justify-between cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <h3>{title}</h3>
+        <table>{title}</table>
         <span
           className={`transition-transform duration-300 ${
             isOpen ? "rotate-180" : "rotate-0"
