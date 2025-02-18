@@ -47,13 +47,15 @@ function App() {
   if (weatherData.ready) {
     let themeClass = SetTheme({ weatherData });
     return (
-      <main className={`${themeClass}`}>
-        <Search fetchWeatherData={fetchWeatherData} defaultCity="London" />
-        <CityInfo weatherData={weatherData} />
-        <CurrentWeather weatherData={weatherData} />
-        <WeatherForecast weatherData={weatherData} />
+      <div className={`App flex flex-col min-h-screen ${themeClass}`}>
+        <main className={`w-full flex-grow`}>
+          <Search fetchWeatherData={fetchWeatherData} defaultCity="London" />
+          <CityInfo weatherData={weatherData} />
+          <CurrentWeather weatherData={weatherData} />
+          <WeatherForecast weatherData={weatherData} />
+        </main>
         <Footer />
-      </main>
+      </div>
     );
   } else {
     fetchWeatherData("London");

@@ -11,11 +11,8 @@
 
 @tailwind base;
 
-:root {
-  @apply h-full;
-}
 body {
-  @apply size-full text-sm font-librefranklin;
+  @apply text-sm font-librefranklin;
 }
 h1 {
   @apply text-xl whitespace-nowrap;
@@ -30,11 +27,12 @@ p {
   @apply text-sm;
 }
 table {
-  @apply w-full border-collapse text-lg;
+  @apply w-full border-separate border-spacing-0 text-lg;
 }
+
 th,
 td {
-  @apply p-2 text-left border-b-2;
+  @apply px-3 py-1 text-left;
 }
 
 @tailwind components;
@@ -57,7 +55,9 @@ td {
 
 /* weather dependent colour themes */
 
-main.clear-day {
+/* to fix this mess, I will probs use CSS variables to map the general colours out */
+
+.App.clear-day {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .clear-day {
@@ -73,7 +73,7 @@ main.clear-day {
   }
 }
 
-main.clear-night {
+.App.clear-night {
   @apply bg-gradient-to-b from-[#0A1236] from-20% to-[#236ddb];
 }
 .clear-night {
@@ -99,7 +99,7 @@ main.clear-night {
   }
 }
 
-main.cloudy-day {
+.App.cloudy-day {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .cloudy-day {
@@ -115,7 +115,7 @@ main.cloudy-day {
   }
 }
 
-main.cloudy-night {
+.App.cloudy-night {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .cloudy-night {
@@ -138,7 +138,7 @@ main.cloudy-night {
   }
 }
 
-main.overcast-day {
+.App.overcast-day {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .overcast-day {
@@ -158,7 +158,7 @@ main.overcast-day {
   }
 }
 
-main.overcast-night {
+.App.overcast-night {
   @apply bg-gradient-to-b from-[#7486B5] from-20% to-[#294069] text-[#F5F9FF];
 }
 .overcast-night {
@@ -171,6 +171,9 @@ main.overcast-night {
   .input {
     @apply bg-[#FFC7D7] border-[#6F1C33] shadow-[#903B4E] text-[#574144] placeholder-[#897174];
   }
+  .caret-icon {
+    @apply bg-[#FFC7D7] text-[#6F1C33];
+  }
   .weatherMain {
     .description {
       @apply decoration-[#FFC7D7];
@@ -178,16 +181,25 @@ main.overcast-night {
   }
   .weatherTable {
     @apply text-[#F5F9FF];
-    tr,
-    td,
-    th {
-      @apply border-[#F0F5F7];
+    button {
+      @apply border border-[#7486B5] bg-[#7486B5] rounded-full;
+    }
+
+    tbody {
+      tr:nth-child(even) {
+        th {
+          @apply border border-[#7486B5] bg-[#7486B5] rounded-tl-full rounded-bl-full;
+        }
+        td {
+          @apply border border-[#7486B5] bg-[#7486B5] rounded-tr-full rounded-br-full;
+        }
+      }
     }
   }
   .weatherForecast {
     @apply text-[#F5F9FF];
-    .description {
-      @apply bg-[#FFC7D7] text-[#574144] border-[#6F1C33];
+    .dayCard {
+      @apply bg-[#7486B5];
     }
   }
   .cityInfo,
@@ -197,7 +209,7 @@ main.overcast-night {
   }
 }
 
-main.shower-day {
+.App.shower-day {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .shower-day {
@@ -213,7 +225,7 @@ main.shower-day {
   }
 }
 
-main.shower-night {
+.App.shower-night {
   @apply bg-gradient-to-b from-[#1E3D50] from-20% to-[#1B2938] text-[#FAFAFA];
 }
 .shower-night {
@@ -241,7 +253,7 @@ main.shower-night {
   }
 }
 
-main.rain {
+.App.rain {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C5E1E8];
 }
 .rain {
@@ -257,7 +269,7 @@ main.rain {
   }
 }
 
-main.thunderstorm {
+.App.thunderstorm {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .thunderstorm {
@@ -273,7 +285,7 @@ main.thunderstorm {
   }
 }
 
-main.snow {
+.App.snow {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .snow {
@@ -289,7 +301,7 @@ main.snow {
   }
 }
 
-main.mist {
+.App.mist {
   @apply bg-gradient-to-b from-[#e1c3e7] from-20% to-[#A98AB0];
 }
 .mist {

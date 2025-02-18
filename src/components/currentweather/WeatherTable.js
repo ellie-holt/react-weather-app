@@ -8,31 +8,33 @@ export default function WeatherTable({ weatherData }) {
   let themeClass = SetTheme({ weatherData });
   console.log(weatherData);
   return (
-    <section className={`${themeClass} card weatherTable mx-4 mb-6 px-4 py-2`}>
+    <section className={`${themeClass} weatherTable mx-2 mb-6 px-3 py-2`}>
       <Accordion
-        title={
-          <thead>
-            <tr>
-              <th>Min</th>
-              <td>
-                {Math.round(weatherData.temperature.min)}
-                <span className="unit">°C</span>
-              </td>
-              <th>Max</th>
-              <td>
-                {Math.round(weatherData.temperature.max)}
-                <span className="unit">°C</span>
-              </td>
-              <th>Feels like</th>
-              <td>
-                {Math.round(weatherData.temperature.feels_like)}
-                <span className="unit">°C</span>
-              </td>
-            </tr>
-          </thead>
+        summary={
+          <table className="table-header">
+            <tbody>
+              <tr>
+                <th className="pr-0.5">Min</th>
+                <td className="pl-0.5">
+                  {Math.round(weatherData.temperature.min)}
+                  <span className="unit">°C</span>
+                </td>
+                <th className="pr-0.5">Max</th>
+                <td className="pl-0.5">
+                  {Math.round(weatherData.temperature.max)}
+                  <span className="unit">°C</span>
+                </td>
+                <th className="pr-0.5">Feels like</th>
+                <td className="pl-0.5">
+                  {Math.round(weatherData.temperature.feels_like)}
+                  <span className="unit">°C</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         }
-        content={
-          <table className="mx-[auto]">
+        details={
+          <table className="table-content mx-[auto]">
             <tbody>
               <tr>
                 <th>Humidity</th>
