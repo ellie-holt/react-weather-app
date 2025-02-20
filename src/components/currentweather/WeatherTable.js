@@ -4,7 +4,7 @@ import Accordion from "../Accordion";
 
 import SetTheme from "../../SetTheme";
 
-export default function WeatherTable({ weatherData }) {
+export default function WeatherTable({ weatherData, unit }) {
   let themeClass = SetTheme({ weatherData });
   console.log(weatherData);
   return (
@@ -16,18 +16,30 @@ export default function WeatherTable({ weatherData }) {
               <tr>
                 <th className="pr-0.5">Min</th>
                 <td className="pl-0.5">
-                  {Math.round(weatherData.temperature.min)}
-                  <span className="unit">°C</span>
+                  {unit === "metric"
+                    ? Math.round(weatherData.temperature.min)
+                    : Math.round(weatherData.temperature.min * 1.8 + 32)}
+                  <span className="unit">
+                    {unit === "metric" ? "°C" : "°F"}
+                  </span>
                 </td>
                 <th className="pr-0.5">Max</th>
                 <td className="pl-0.5">
-                  {Math.round(weatherData.temperature.max)}
-                  <span className="unit">°C</span>
+                  {unit === "metric"
+                    ? Math.round(weatherData.temperature.max)
+                    : Math.round(weatherData.temperature.max * 1.8 + 32)}
+                  <span className="unit">
+                    {unit === "metric" ? "°C" : "°F"}
+                  </span>
                 </td>
                 <th className="pr-0.5">Feels like</th>
                 <td className="pl-0.5">
-                  {Math.round(weatherData.temperature.feels_like)}
-                  <span className="unit">°C</span>
+                  {unit === "metric"
+                    ? Math.round(weatherData.temperature.feels_like)
+                    : Math.round(weatherData.temperature.feels_like * 1.8 + 32)}
+                  <span className="unit">
+                    {unit === "metric" ? "°C" : "°F"}
+                  </span>
                 </td>
               </tr>
             </tbody>

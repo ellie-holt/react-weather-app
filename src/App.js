@@ -11,6 +11,7 @@ import SetTheme from "./SetTheme";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [unit, setUnit] = useState("metric");
 
   function handleResponse(response) {
     console.log(response.data);
@@ -59,15 +60,25 @@ function App() {
     axios.get(apiUrl).then(handleResponse);
   }
 
+  function changeUnit(unit) {
+    let newUnit = unit;
+    setUnit(newUnit);
+    console.log(newUnit);
+  }
+
   if (weatherData.ready) {
     let themeClass = SetTheme({ weatherData });
     return (
       <div className={`App flex flex-col min-h-screen ${themeClass}`}>
         <main className={`w-full flex-grow`}>
-          <Search fetchWeatherData={fetchWeatherData} defaultCity="London" />
+          <Search
+            fetchWeatherData={fetchWeatherData}
+            changeUnit={changeUnit}
+            defaultCity="London"
+          />
           <CityInfo weatherData={weatherData} />
-          <CurrentWeather weatherData={weatherData} />
-          <WeatherForecast weatherData={weatherData} />
+          <CurrentWeather weatherData={weatherData} unit={unit} />
+          <WeatherForecast weatherData={weatherData} unit={unit} />
         </main>
         <Footer />
       </div>

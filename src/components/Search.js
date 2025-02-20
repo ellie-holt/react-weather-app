@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faGear } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-export default function Search({ fetchWeatherData, defaultCity }) {
+export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
   const [city, setCity] = useState(defaultCity);
   console.log(defaultCity);
 
@@ -13,6 +13,14 @@ export default function Search({ fetchWeatherData, defaultCity }) {
       let lon = position.coords.longitude;
       fetchWeatherData({ lat, lon });
     });
+  }
+
+  function handleUnitClick() {
+    let unitButton = document.getElementById("unit-button");
+    let unit = unitButton.textContent === "℉" ? "imperial" : "metric";
+    unitButton.textContent = unit === "metric" ? "℉" : "℃";
+    changeUnit(unit);
+    console.log(unit);
   }
 
   function handleCityChange(event) {
@@ -61,10 +69,11 @@ export default function Search({ fetchWeatherData, defaultCity }) {
         </div>
         <button
           type="button"
-          id="settings-button"
-          className="button rounded-full px-2.5"
+          id="unit-button"
+          className="button rounded-full text-sm px-2.5 self-stretch w-fit"
+          onClick={handleUnitClick}
         >
-          <FontAwesomeIcon icon={faGear} />
+          ℉
         </button>
       </form>
     </nav>
