@@ -10,14 +10,14 @@ export default function SetTheme({ weatherData }) {
     "04n": "overcast-night",
     "09d": "shower-day",
     "09n": "shower-night",
-    "10d": "rain",
-    "10n": "rain",
+    "10d": "rainy-day",
+    "10n": "rainy-night",
     "11d": "thunderstorm",
     "11n": "thunderstorm",
-    "13d": "snow",
-    "13n": "snow",
-    "50d": "mist",
-    "50n": "mist",
+    "13d": "snowy-day",
+    "13n": "snowy-night",
+    "50d": "misty-day",
+    "50n": "misty-night",
   };
 
   const themeClass = themeMap[weatherData.icon];

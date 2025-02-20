@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div className="footer">
       {/* <div className="curved-edge h-20 bg-white"></div> */}
-      <footer className="rounded-tr-full pb-10 pt-5 px-2 mt-0 flex flex-col justify-start w-4/5 bg-white">
+      <footer className="rounded-tr-full pb-10 pt-5 px-4 mt-0 flex flex-col justify-start w-5/6 shadow-[4px_-4px_5px_rgba(0,0,0,0.1)]">
         <p className="text-base mt-2 px-1">
           Open-source{" "}
           <a

@@ -9,6 +9,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+@import "weather-themes";
+
 @tailwind base;
 
 body {
@@ -29,7 +31,6 @@ p {
 table {
   @apply w-full border-separate border-spacing-0 text-lg;
 }
-
 th,
 td {
   @apply px-3 py-1 text-left;
@@ -38,10 +39,20 @@ td {
 @tailwind components;
 
 .button {
-  @apply py-1.5 px-2 border-2 rounded-xl shadow-[-3px_3px_0] text-base font-bold;
+  @apply py-1.5 px-2 text-base font-bold rounded-xl border-2 
+  backdrop-blur-md transition-all duration-300 ease-out 
+  shadow-[-3px_3px_0_rgba(0,0,0,0.2)] 
+  hover:shadow-[-4px_4px_0_rgba(0,0,0,0.25)] 
+  active:scale-[0.98] active:shadow-[-2px_2px_2px_rgba(0,0,0,0.2)];
 }
+
 .input {
-  @apply py-1.5 px-4 border-2 rounded-lg shadow-[-3px_3px_0] text-base font-semibold;
+  @apply py-1.5 px-4 border-2 rounded-lg text-base font-semibold
+  backdrop-blur-md transition-all duration-300 ease-out
+  shadow-[-3px_3px_0_rgba(0,0,0,0.2)]
+  hover:shadow-[-4px_4px_0_rgba(0,0,0,0.25)]
+  focus:shadow-[-2px_2px_0_rgba(0,0,0,0.3)]
+  active:shadow-[-2px_2px_2px_rgba(0,0,0,0.3)];
 }
 
 @tailwind utilities;
@@ -55,9 +66,9 @@ td {
 
 /* weather dependent colour themes */
 
-/* to fix this mess, I will probs use CSS variables to map the general colours out */
+/* to fix this mess, I will probs use CSS variables to map the general colours out -- investigate why focus ring not working :( */
 
-.App.clear-day {
+/* .App.clear-day {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .clear-day {
@@ -71,8 +82,8 @@ td {
   .weatherForecast {
     @apply border-[#3E4EB7] shadow-[#3E4EB7];
   }
-}
-
+} */
+/* 
 .App.clear-night {
   @apply bg-gradient-to-b from-[#0A1236] from-20% to-[#236ddb];
 }
@@ -136,8 +147,8 @@ td {
   .footer footer {
     @apply bg-[#F0F5F7];
   }
-}
-
+} */
+/* 
 .App.overcast-day {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
@@ -156,9 +167,9 @@ td {
   .footer footer {
     @apply bg-[#F0F5F7];
   }
-}
+} */
 
-.App.overcast-night {
+/* .App.overcast-night {
   @apply bg-gradient-to-b from-[#7486B5] from-20% to-[#294069] text-[#F5F9FF];
 }
 .overcast-night {
@@ -166,10 +177,10 @@ td {
     @apply text-[#006869] hover:text-[#1A8580] active:text-[#00C6BE] visited:text-[#294069];
   }
   .button {
-    @apply bg-[#D87B8C] hover:bg-[#d06274] border-[#6F1C33] shadow-[#903B4E] text-[#FFF5F7];
+    @apply bg-[#D87B8C] hover:bg-[#d06274] border-[#6f1c33] hover:border-[#6f1c33a8] active:border-[#6f1c3380] text-[#FFF5F7];
   }
   .input {
-    @apply bg-[#FFC7D7] border-[#6F1C33] shadow-[#903B4E] text-[#574144] placeholder-[#897174];
+    @apply bg-[#FFC7D7] border-[#6F1C33] text-[#574144] placeholder-[#897174] focus:ring-1 focus:ring-[#6F1C33] focus-visible:ring-1 focus-visible:ring-[#6F1C33];
   }
   .caret-icon {
     @apply bg-[#FFC7D7] text-[#6F1C33];
@@ -207,9 +218,9 @@ td {
   .footer footer {
     @apply bg-[#B9CBFD] text-[#2C2F3A];
   }
-}
+} */
 
-.App.shower-day {
+/* .App.shower-day {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C4E1E8];
 }
 .shower-day {
@@ -223,9 +234,9 @@ td {
   .weatherForecast {
     @apply border-[#3E4EB7] shadow-[#3E4EB7];
   }
-}
+} */
 
-.App.shower-night {
+/* .App.shower-night {
   @apply bg-gradient-to-b from-[#1E3D50] from-20% to-[#1B2938] text-[#FAFAFA];
 }
 .shower-night {
@@ -251,8 +262,8 @@ td {
   .cityInfo {
     @apply bg-[#BFD5E1] text-[#3C4957];
   }
-}
-
+} */
+/* 
 .App.rain {
   @apply bg-gradient-to-b from-[#F0F5F7] from-20% to-[#C5E1E8];
 }
@@ -315,4 +326,4 @@ td {
   .weatherForecast {
     @apply border-[#3E4EB7] shadow-[#3E4EB7];
   }
-}
+} */

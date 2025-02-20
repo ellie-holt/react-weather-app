@@ -31,7 +31,7 @@ function App() {
       visibility: response.data.visibility,
       cloud_cover: response.data.clouds.all,
       description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
+      icon: "50n",
       city: response.data.name,
       coordinates: response.data.coord,
     });
