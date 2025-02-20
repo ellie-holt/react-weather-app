@@ -7,13 +7,21 @@ export default function Search({ fetchWeatherData, defaultCity }) {
   const [city, setCity] = useState(defaultCity);
   console.log(defaultCity);
 
+  function handleCurrentClick() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      fetchWeatherData({ lat, lon });
+    });
+  }
+
   function handleCityChange(event) {
     setCity(event.target.value);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetchWeatherData(city);
+    fetchWeatherData({ city });
   }
 
   return (
@@ -23,7 +31,12 @@ export default function Search({ fetchWeatherData, defaultCity }) {
         className="flex items-center justify-around flex-nowrap"
         onSubmit={handleSubmit}
       >
-        <button type="button" id="current-button" className="button">
+        <button
+          type="button"
+          id="current-button"
+          className="button"
+          onClick={handleCurrentClick}
+        >
           Current
         </button>
         <div className="flex items-center flex-nowrap justify-center">

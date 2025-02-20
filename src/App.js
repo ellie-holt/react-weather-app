@@ -31,15 +31,30 @@ function App() {
       visibility: response.data.visibility,
       cloud_cover: response.data.clouds.all,
       description: response.data.weather[0].description,
-      icon: "50n",
+      icon: response.data.weather[0].icon,
       city: response.data.name,
       coordinates: response.data.coord,
     });
   }
 
-  function fetchWeatherData(city) {
-    let apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  function createApiUrl({ city, lat, lon }) {
+    const apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
+    let apiUrl = "";
+    console.log(city);
+    console.log(lat);
+    console.log(lon);
+
+    if (city) {
+      apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    } else if (lat && lon) {
+      apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    }
+
+    return apiUrl;
+  }
+
+  function fetchWeatherData(query) {
+    let apiUrl = createApiUrl(query);
     console.log(apiUrl);
     axios.get(apiUrl).then(handleResponse);
   }
@@ -58,7 +73,7 @@ function App() {
       </div>
     );
   } else {
-    fetchWeatherData("London");
+    fetchWeatherData({ city: "London" });
     return "Loading";
   }
 }
