@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Search from "./search/Search";
-import CurrentWeather from "./currentweather/CurrentWeather";
-import WeatherForecast from "./weatherforecast/WeatherForecast";
-import Footer from "./footer/Footer";
+import Search from "./components/Search";
+import CityInfo from "./components/CityInfo";
+import CurrentWeather from "./components/currentweather/CurrentWeather";
+import WeatherForecast from "./components/weatherforecast/WeatherForecast";
+import Footer from "./components/Footer";
 
-import "./App.scss";
+import SetTheme from "./SetTheme";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [unit, setUnit] = useState("metric");
 
   function handleResponse(response) {
     console.log(response.data);
@@ -36,24 +38,53 @@ function App() {
     });
   }
 
-  function fetchWeatherData(city) {
-    let apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  function createApiUrl({ city, lat, lon }) {
+    const apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
+    let apiUrl = "";
+    console.log(city);
+    console.log(lat);
+    console.log(lon);
+
+    if (city) {
+      apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    } else if (lat && lon) {
+      apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+    }
+
+    return apiUrl;
+  }
+
+  function fetchWeatherData(query) {
+    let apiUrl = createApiUrl(query);
     console.log(apiUrl);
     axios.get(apiUrl).then(handleResponse);
   }
 
+  function changeUnit(unit) {
+    let newUnit = unit;
+    setUnit(newUnit);
+    console.log(newUnit);
+  }
+
   if (weatherData.ready) {
+    let themeClass = SetTheme({ weatherData });
     return (
-      <div className="App">
-        <Search fetchWeatherData={fetchWeatherData} defaultCity="London" />
-        <CurrentWeather weatherData={weatherData} />
-        <WeatherForecast />
+      <div className={`App flex flex-col min-h-screen ${themeClass}`}>
+        <main className={`w-full flex-grow`}>
+          <Search
+            fetchWeatherData={fetchWeatherData}
+            changeUnit={changeUnit}
+            defaultCity="London"
+          />
+          <CityInfo weatherData={weatherData} />
+          <CurrentWeather weatherData={weatherData} unit={unit} />
+          <WeatherForecast weatherData={weatherData} unit={unit} />
+        </main>
         <Footer />
       </div>
     );
   } else {
-    fetchWeatherData("London");
+    fetchWeatherData({ city: "London" });
     return "Loading";
   }
 }

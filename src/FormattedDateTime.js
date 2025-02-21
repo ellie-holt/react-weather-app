@@ -41,8 +41,8 @@ const formatDay = (day) => {
 };
 
 export default function FormattedDateTime({ timestamp, format }) {
-  console.log(timestamp);
-  console.log(format);
+  // console.log(timestamp);
+  // console.log(format);
   const fullDate = new Date(timestamp);
 
   const formattedValues = {
@@ -57,7 +57,7 @@ export default function FormattedDateTime({ timestamp, format }) {
   // Split the inputted format string by the underscore character
   // This will create an array of strings that can be iterated over over to format the date and time
   const formatArray = format.split("_");
-  console.log(formatArray);
+  // console.log(formatArray);
 
   // Create a new string to store the formatted values
   let formattedString = "";
@@ -71,7 +71,7 @@ export default function FormattedDateTime({ timestamp, format }) {
       formattedString += string;
     }
   });
-  console.log(formattedString);
+  // console.log(formattedString);
 
   return <span>{formattedString}</span>;
 }

@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import "weather-themes";
+
+@tailwind base;
+
+body {
+  @apply text-sm font-librefranklin;
+}
+h1 {
+  @apply text-xl whitespace-nowrap;
+}
+h2 {
+  @apply text-lg;
+}
+h3 {
+  @apply text-base;
+}
+p {
+  @apply text-sm;
+}
+table {
+  @apply w-full border-separate border-spacing-0 text-lg;
+}
+th,
+td {
+  @apply px-3 py-1 text-left;
+}
+
+@tailwind components;
+
+.button {
+  @apply py-1.5 px-2 text-base font-bold rounded-xl border-2 
+  backdrop-blur-md transition-all duration-300 ease-out 
+  shadow-[-3px_3px_0_rgba(0,0,0,0.2)] 
+  hover:shadow-[-4px_4px_0_rgba(0,0,0,0.25)] 
+  active:scale-[0.98] active:shadow-[-2px_2px_2px_rgba(0,0,0,0.2)];
+}
+
+.input {
+  @apply py-1.5 px-4 border-2 rounded-lg text-base font-semibold
+  backdrop-blur-md transition-all duration-300 ease-out
+  shadow-[-3px_3px_0_rgba(0,0,0,0.2)]
+  hover:shadow-[-4px_4px_0_rgba(0,0,0,0.25)]
+  focus:shadow-[-2px_2px_0_rgba(0,0,0,0.3)]
+  active:shadow-[-2px_2px_2px_rgba(0,0,0,0.3)];
+}
+
+@tailwind utilities;
+.unit {
+  @apply text-[0.6em] align-super;
+}
+
+.curved-edge {
+  mask: radial-gradient(60% 80% at top, #0000 calc(100% - 5px), #000);
+}
