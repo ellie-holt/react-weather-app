@@ -11,6 +11,7 @@ import SetTheme from "./SetTheme";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [forecastData, setForecastData] = useState({ ready: false });
   const [unit, setUnit] = useState("metric");
 
   function handleResponse(response) {
@@ -35,6 +36,16 @@ function App() {
       icon: response.data.weather[0].icon,
       city: response.data.name,
       coordinates: response.data.coord,
+      timezone: response.data.timezone,
+    });
+    fetchForecastData(response.data.coord);
+  }
+
+  function handleForecastResponse(response) {
+    console.log(response.data);
+    setForecastData({
+      ready: true,
+      forecast: response.data.daily,
     });
   }
 
@@ -60,6 +71,12 @@ function App() {
     axios.get(apiUrl).then(handleResponse);
   }
 
+  function fetchForecastData(coord) {
+    const apiKey = "839e3cb4ta48e140e587fa20cb9532o6";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coord.lon}&lat=${coord.lat}&key=${apiKey}`;
+    axios.get(apiUrl).then(handleForecastResponse);
+  }
+
   function changeUnit(unit) {
     let newUnit = unit;
     setUnit(newUnit);
@@ -78,7 +95,11 @@ function App() {
           />
           <CityInfo weatherData={weatherData} />
           <CurrentWeather weatherData={weatherData} unit={unit} />
-          <WeatherForecast weatherData={weatherData} unit={unit} />
+          <WeatherForecast
+            weatherData={weatherData}
+            forecastData={forecastData}
+            unit={unit}
+          />
         </main>
         <Footer />
       </div>
