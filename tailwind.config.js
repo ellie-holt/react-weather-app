@@ -6,6 +6,10 @@ module.exports = {
   content: ["./src/**/*.js", "/public/index.html"],
   theme: {
     extend: {
+      screens: {
+        xs: "450px",
+        "2xl": "1440px",
+      },
       keyframes: {
         /*Accordion expand keyframes*/
         "accordion-down": {

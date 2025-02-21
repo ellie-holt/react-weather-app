@@ -19,7 +19,7 @@ export default function WeatherTable({ weatherData, unit }) {
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.min)
                     : Math.round(weatherData.temperature.min * 1.8 + 32)}
-                  <span className="unit">
+                  <span className="unit-super">
                     {unit === "metric" ? "°C" : "°F"}
                   </span>
                 </td>
@@ -28,7 +28,7 @@ export default function WeatherTable({ weatherData, unit }) {
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.max)
                     : Math.round(weatherData.temperature.max * 1.8 + 32)}
-                  <span className="unit">
+                  <span className="unit-super">
                     {unit === "metric" ? "°C" : "°F"}
                   </span>
                 </td>
@@ -37,7 +37,7 @@ export default function WeatherTable({ weatherData, unit }) {
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.feels_like)
                     : Math.round(weatherData.temperature.feels_like * 1.8 + 32)}
-                  <span className="unit">
+                  <span className="unit-super">
                     {unit === "metric" ? "°C" : "°F"}
                   </span>
                 </td>
@@ -56,14 +56,14 @@ export default function WeatherTable({ weatherData, unit }) {
                 <th>Wind speed</th>
                 <td>
                   {weatherData.wind.speed}
-                  <span className="unit">m/s</span>
+                  <span className="unit-sub">m/s</span>
                 </td>
               </tr>
               <tr>
                 <th>Wind dir.</th>
                 <td>
                   {weatherData.wind.direction}
-                  <span className="unit">deg</span>
+                  <span className="unit-sub">deg</span>
                 </td>
               </tr>
               <tr>
@@ -74,14 +74,14 @@ export default function WeatherTable({ weatherData, unit }) {
                 <th>Visibility</th>
                 <td>
                   {weatherData.visibility / 1000}
-                  <span className="unit">km</span>
+                  <span className="unit-sub">km</span>
                 </td>
               </tr>
               <tr>
                 <th>Pressure</th>
                 <td>
                   {weatherData.pressure}
-                  <span className="unit">hPa</span>
+                  <span className="unit-sub">hPa</span>
                 </td>
               </tr>
             </tbody>
