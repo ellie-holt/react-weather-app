@@ -3,17 +3,26 @@ import React, { useState, useEffect } from "react";
 import FormattedDateTime from "../FormattedDateTime";
 
 export default function CityInfo({ weatherData }) {
-  const [currentTime, setCurrentTime] = useState(Date.now());
+  const [currentTime, setCurrentTime] = useState(() =>
+    getLocalTime(weatherData.timezone)
+  );
+
+  function getLocalTime(timezoneShift) {
+    return new Date(Date.now() + timezoneShift * 1000);
+  }
 
   useEffect(() => {
+    setCurrentTime(getLocalTime(weatherData.timezone));
     const interval = setInterval(() => {
-      setCurrentTime(Date.now());
+      setCurrentTime(getLocalTime(weatherData.timezone));
     }, 1000);
 
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [weatherData.timezone]);
+
+  console.log(currentTime);
 
   return (
     <section className="cityInfo w-5/6 relative bottom-20 px-2 pt-24 pb-5 ml-auto -mb-20 rounded-bl-full flex flex-wrap justify-self-end justify-end bg-white font-librefranklin shadow-[-4px_4px_5px_rgba(0,0,0,0.1)]">

@@ -1,20 +1,27 @@
 import React from "react";
+import FormattedDateTime from "../../FormattedDateTime";
 
-import SetTheme from "../../SetTheme";
-
-export default function DayCard({ weatherData }) {
-  let themeClass = SetTheme({ weatherData });
+export default function DayCard({ dailyForecast, unit }) {
   return (
     <section
-      className={`${themeClass} dayCard w-[calc(100%/3)] flex-shrink-0 mx-1 py-3 text-center border-none rounded-xl snap-start hover:shadow-[-4px_4px_2px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out`}
+      className={` dayCard w-[calc(100%/3)] flex-shrink-0 mx-1 py-3 text-center border-none rounded-xl snap-start hover:shadow-[-4px_4px_2px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out`}
     >
-      <h2 className="weekDay text-xl font-semibold">Mon</h2>
+      <h2 className="weekDay text-xl font-semibold">
+        <FormattedDateTime
+          timestamp={dailyForecast.time * 1000}
+          format={"weekday"}
+        />
+      </h2>
       <h3 className="temp text-2xl">
-        14<span className="unit">°C</span>
+        {unit === "metric"
+          ? Math.round(dailyForecast.temperature.day)
+          : Math.round(dailyForecast.temperature.day * 1.8 + 32)}
+        <span className="unit">{unit === "metric" ? "°C" : "°F"}</span>
       </h3>
       <div className="icon text-[3rem] leading-tight">☀︎</div>
       <p className="description whitespace-nowrap italic text-base px-2 py-1 font-semibold">
-        Light rain
+        {dailyForecast.condition.description.charAt(0).toUpperCase() +
+          dailyForecast.condition.description.slice(1)}
       </p>
     </section>
   );
