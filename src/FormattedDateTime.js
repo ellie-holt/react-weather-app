@@ -10,6 +10,8 @@ const weekdays = [
   "Saturday",
 ];
 
+const shortWeekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
 const months = [
   "January",
   "February",
@@ -23,6 +25,21 @@ const months = [
   "October",
   "November",
   "December",
+];
+
+const shortMonths = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
 ];
 
 // Helper function to format the day (of the month) with the correct suffix
@@ -49,8 +66,10 @@ export default function FormattedDateTime({ timestamp, format }) {
     minutes: String(fullDate.getMinutes()).padStart(2, "0"),
     hours: String(fullDate.getHours()).padStart(2, "0"),
     weekday: weekdays[fullDate.getDay()],
+    shortWeekday: shortWeekdays[fullDate.getDay()],
     day: formatDay(fullDate.getDate()),
     month: months[fullDate.getMonth()],
+    shortMonth: shortMonths[fullDate.getMonth()],
     year: fullDate.getFullYear().toString(),
   };
 

@@ -17,22 +17,22 @@
 
 @layer base {
   body {
-    @apply text-xs xs:text-sm font-librefranklin;
+    @apply text-xs 2xs:text-sm sm:text-base font-librefranklin;
   }
   h1 {
-    @apply text-lg xs:text-xl whitespace-nowrap;
+    @apply text-lg 2xs:text-xl whitespace-nowrap;
   }
   h2 {
-    @apply text-base xs:text-lg;
+    @apply text-base 2xs:text-lg;
   }
   h3 {
-    @apply text-sm xs:text-base;
+    @apply text-sm 2xs:text-base;
   }
   p {
-    @apply text-xs xs:text-sm;
+    @apply text-xs 2xs:text-sm sm:text-base;
   }
   table {
-    @apply w-full border-separate border-spacing-0 text-base xs:text-lg;
+    @apply w-full border-separate border-spacing-0 text-base 2xs:text-lg;
   }
   th,
   td {

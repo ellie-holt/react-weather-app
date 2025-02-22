@@ -94,12 +94,14 @@ function App() {
             defaultCity="London"
           />
           <CityInfo weatherData={weatherData} />
-          <CurrentWeather weatherData={weatherData} unit={unit} />
-          <WeatherForecast
-            weatherData={weatherData}
-            forecastData={forecastData}
-            unit={unit}
-          />
+          <div className="flex flex-col lg:mx-20 lg:mt-10 lg:flex-row lg:justify-center lg:items-start">
+            <CurrentWeather weatherData={weatherData} unit={unit} />
+            <WeatherForecast
+              weatherData={weatherData}
+              forecastData={forecastData}
+              unit={unit}
+            />
+          </div>
         </main>
         <Footer />
       </div>

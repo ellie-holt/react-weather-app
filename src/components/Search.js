@@ -36,7 +36,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
     <nav className="search sticky top-0 z-10 p-4 bg-opacity-35 backdrop-blur-lg bg-white/20 shadow-lg font-librefranklin max-h-content">
       <form
         id="search-form"
-        className="flex items-center justify-around xs:justify-center sm:justify-start flex-nowrap"
+        className="flex items-center justify-around xs:justify-center sm:justify-end flex-nowrap"
         onSubmit={handleSubmit}
       >
         <button
