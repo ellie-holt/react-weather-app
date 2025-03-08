@@ -94,7 +94,7 @@ function App() {
             defaultCity="London"
           />
           <CityInfo weatherData={weatherData} />
-          <div className="flex flex-col lg:mx-20 lg:mt-10 lg:flex-row lg:justify-center lg:items-start">
+          <div className="flex flex-col sm:mx-4 md:mx-8 mlg:mx-14 lg:mx-20 mlg:mt-10 mlg:flex-row mlg:justify-center mlg:items-start">
             <CurrentWeather weatherData={weatherData} unit={unit} />
             <WeatherForecast
               weatherData={weatherData}

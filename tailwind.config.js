@@ -9,6 +9,7 @@ module.exports = {
       screens: {
         "2xs": "450px",
         xs: "475px",
+        mlg: "925px",
         "2xl": "1440px",
       },
       keyframes: {

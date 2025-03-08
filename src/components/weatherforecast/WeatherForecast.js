@@ -10,7 +10,7 @@ export default function WeatherForecast({ weatherData, forecastData, unit }) {
   if (forecastData.ready) {
     return (
       <article
-        className={`${themeClass} card weatherForecast mx-5 mt-2 px-2 pt-1 pb-3 flex lg:max-h-[500px] lg:flex-col overflow-x-scroll lg:overflow-x-hidden lg:overflow-y-auto scroll-smooth snap-x lg:snap-y snap-mandatory`}
+        className={`${themeClass} card weatherForecast mx-5 sm:mx-12 mlg:mx-2 lg:mx-8 mt-2 px-2 pt-1 pb-3 flex mlg:max-h-[500px] mlg:flex-col overflow-x-scroll mlg:overflow-x-hidden mlg:overflow-y-auto scroll-smooth snap-x mlg:snap-y snap-mandatory`}
       >
         {forecastData.forecast.map(
           (data, index) =>

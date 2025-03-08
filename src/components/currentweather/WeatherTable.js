@@ -9,15 +9,15 @@ export default function WeatherTable({ weatherData, unit }) {
   console.log(weatherData);
   return (
     <section
-      className={`${themeClass} weatherTable mx-2 mb-6 px-3 py-2 lg:mb-0`}
+      className={`${themeClass} weatherTable mx-2 xs:mx-7 sm:mx-8 md:mx-14 mlg:mx-2 lg:mx-2 mb-6 px-3 py-2 mlg:mb-0`}
     >
       <Accordion
         summary={
-          <table className="table-header lg:min-w-96">
+          <table className="table-header md:min-w-96">
             <tbody>
               <tr>
                 <th className="pr-0.5">Min</th>
-                <td className="pl-0.5">
+                <td className="pl-0 text-">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.min)
                     : Math.round(weatherData.temperature.min * 1.8 + 32)}
@@ -26,7 +26,7 @@ export default function WeatherTable({ weatherData, unit }) {
                   </span>
                 </td>
                 <th className="pr-0.5">Max</th>
-                <td className="pl-0.5">
+                <td className="pl-0">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.max)
                     : Math.round(weatherData.temperature.max * 1.8 + 32)}
@@ -35,7 +35,7 @@ export default function WeatherTable({ weatherData, unit }) {
                   </span>
                 </td>
                 <th className="pr-0.5">Feels like</th>
-                <td className="pl-0.5">
+                <td className="pl-0">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.feels_like)
                     : Math.round(weatherData.temperature.feels_like * 1.8 + 32)}
