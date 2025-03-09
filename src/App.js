@@ -87,14 +87,14 @@ function App() {
     let themeClass = SetTheme({ weatherData });
     return (
       <div className={`App flex flex-col min-h-screen ${themeClass}`}>
-        <main className={`w-full flex-grow`}>
+        <main className={`w-full flex-grow flex flex-col`}>
           <Search
             fetchWeatherData={fetchWeatherData}
             changeUnit={changeUnit}
             defaultCity="London"
           />
           <CityInfo weatherData={weatherData} />
-          <div className="flex flex-col sm:mx-4 md:mx-8 mlg:mx-14 lg:mx-20 mlg:mt-10 mlg:flex-row mlg:justify-center mlg:items-start">
+          <div className="flex flex-col sm:mx-4 md:mx-8 mlg:mx-14 lg:mx-20 mlg:m-auto mlg:flex-row-reverse mlg:gap-2 mlg:justify-center mlg:items-start">
             <CurrentWeather weatherData={weatherData} unit={unit} />
             <WeatherForecast
               weatherData={weatherData}

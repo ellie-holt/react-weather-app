@@ -9,7 +9,7 @@ export default function WeatherTable({ weatherData, unit }) {
   console.log(weatherData);
   return (
     <section
-      className={`${themeClass} weatherTable mx-2 xs:mx-7 sm:mx-8 md:mx-14 mlg:mx-2 lg:mx-2 mb-6 px-3 py-2 mlg:mb-0`}
+      className={`${themeClass} weatherTable mx-2 xs:mx-7 sm:mx-12 md:mx-20 mlg:mx-2 lg:mx-2 mb-6 px-3 py-2 mlg:mb-0`}
     >
       <Accordion
         summary={
@@ -34,7 +34,9 @@ export default function WeatherTable({ weatherData, unit }) {
                     {unit === "metric" ? "°C" : "°F"}
                   </span>
                 </td>
-                <th className="pr-0.5">Feels like</th>
+                <th className="pr-0.5 xss:max-w-20 sm:max-w-[4.5rem] mlg:max-w-full truncate">
+                  Feels like
+                </th>
                 <td className="pl-0">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.feels_like)

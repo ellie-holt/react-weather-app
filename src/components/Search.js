@@ -47,7 +47,10 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
         >
           Current
         </button>
-        <div className="flex items-center flex-nowrap justify-center xs:mx-3 sm:mx-3">
+        <div
+          className="flex items-center flex-nowrap justify-center xs:mx-3 sm:mx-3"
+          role="search"
+        >
           <input
             type="search"
             id="search-bar"

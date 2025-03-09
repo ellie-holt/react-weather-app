@@ -17,7 +17,11 @@ export default function DayCard({ dailyForecast, unit }) {
           format={"weekday"}
         />
       </h2>
-      <img src={icon} alt="" className="icon w-16 m-auto lg:self-end" />
+      <img
+        src={icon}
+        alt={dailyForecast.condition.description + " icon"}
+        className="icon w-16 m-auto lg:self-end"
+      />
       <h3 className="temp text-2xl mlg:self-end">
         {unit === "metric"
           ? Math.round(dailyForecast.temperature.day)
