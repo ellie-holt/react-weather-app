@@ -78,7 +78,7 @@
   /* Weather table */
   .weatherTable {
     color: $table-text;
-    button {
+    .accordion-toggle {
       border: 2px solid $table-bg;
       background-color: $table-bg;
       border-radius: 9999px;

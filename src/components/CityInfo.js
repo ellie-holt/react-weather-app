@@ -23,7 +23,7 @@ export default function CityInfo({ weatherData }) {
   }, [weatherData.timezone]);
 
   return (
-    <section className="cityInfo w-5/6 lg:w-3/4 relative bottom-20 px-2 pt-24 pb-5 ml-auto -mb-20 rounded-bl-full flex flex-wrap justify-self-end justify-end md:justify-center md:flex-col md:content-end md:max-h-48 bg-white font-librefranklin shadow-[-4px_4px_5px_rgba(0,0,0,0.1)]">
+    <section className="cityInfo w-5/6 lg:w-3/4 relative bottom-20 px-2 pt-24 pb-5 ml-auto -mb-20 mlg:-mb-16 rounded-bl-full flex flex-wrap justify-self-end justify-end md:justify-center md:flex-col md:content-end md:max-h-48 bg-white font-librefranklin shadow-[-4px_4px_5px_rgba(0,0,0,0.1)]">
       <h3 className="inline-block text-right text-2xl 2xs:text-3xl md:text-4xl px-1">
         {weatherData.city}
       </h3>
