@@ -17,7 +17,7 @@ export default function WeatherMain({ weatherData, unit }) {
   let themeClass = SetTheme({ weatherData });
   return (
     <section
-      className={`${themeClass} weatherMain flex flex-col xss:mt-5 sm:mt-8 lg:mt-10 mx-4 xss:mx-12 sm:mx-16 md:mx-28 mlg:mx-10 mlg:min-w-80 px-4 font-ubuntu`}
+      className={`${themeClass} weatherMain flex flex-col xss:mt-5 sm:mt-8 lg:mt-10 mx-4 xss:mx-12 sm:mx-16 md:mx-28 mlg:mx-10 mlg:min-w-80 lg:min-w-96 px-4 font-ubuntu`}
     >
       <h1 className="text-[5.5rem] 2xs:text-[6rem] sm:text-[6.5rem] md:text-[7rem] lg:text-[8rem] leading-tight ">
         {unit === "metric"

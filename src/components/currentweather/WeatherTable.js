@@ -15,18 +15,18 @@ export default function WeatherTable({ weatherData, unit }) {
         summary={
           <table className="table-header md:min-w-96">
             <tbody>
-              <tr>
-                <th className="pr-0.5">Min</th>
-                <td className="pl-0 text-">
+              <tr className="pt-0.5">
+                <th className="flex-initial truncate sm:flex-auto">
+                  Min / Max
+                </th>
+                <td className="text-nowrap">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.min)
                     : Math.round(weatherData.temperature.min * 1.8 + 32)}
                   <span className="unit-super">
                     {unit === "metric" ? "°C" : "°F"}
                   </span>
-                </td>
-                <th className="pr-0.5">Max</th>
-                <td className="pl-0">
+                  {" / "}
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.max)
                     : Math.round(weatherData.temperature.max * 1.8 + 32)}
@@ -34,10 +34,10 @@ export default function WeatherTable({ weatherData, unit }) {
                     {unit === "metric" ? "°C" : "°F"}
                   </span>
                 </td>
-                <th className="pr-0.5 xss:max-w-20 sm:max-w-[4.5rem] mlg:max-w-full truncate">
+                <th className="flex-initial truncate sm:flex-auto">
                   Feels like
                 </th>
-                <td className="pl-0">
+                <td className="">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.feels_like)
                     : Math.round(weatherData.temperature.feels_like * 1.8 + 32)}

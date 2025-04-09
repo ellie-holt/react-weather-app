@@ -21,15 +21,15 @@ export default function Accordion({ summary, details }) {
         aria-expanded={isOpen}
         aria-controls="accordion-details"
       >
-        <div className="accordion-summary grow mr-2">{summary}</div>
+        <div className="mr-2 accordion-summary grow">{summary}</div>
 
         {/* Caret Icon */}
         <button
-          className={`caret-icon w-9 h-9 origin-center rounded-full ${
+          className={`caret-icon w-11 h-11 origin-center rounded-full ${
             isOpen ? "animate-rotate-in" : "animate-rotate-out"
           }`}
         >
-          <FontAwesomeIcon icon={faCaretDown} className="text-xl pt-2" />
+          <FontAwesomeIcon icon={faCaretDown} className="text-xl" />
         </button>
       </div>
 
