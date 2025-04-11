@@ -9,39 +9,34 @@ export default function WeatherTable({ weatherData, unit }) {
   console.log(weatherData);
   return (
     <section
-      className={`${themeClass} weatherTable mx-2 xs:mx-7 sm:mx-12 md:mx-20 mlg:mx-2 lg:mx-2 mb-6 px-3 py-2 mlg:mb-0`}
+      className={`${themeClass} weatherTable mx-5 xs:mx-9 sm:mx-14 md:mx-22 mlg:mx-2 lg:mx-2 mb-6 mlg:mb-0`}
     >
       <Accordion
         summary={
           <table className="table-header md:min-w-96">
             <tbody>
-              <tr className="pt-0.5">
-                <th className="flex-initial truncate sm:flex-auto">
-                  Min / Max
-                </th>
-                <td className="text-nowrap">
+              <tr className="temp-data">
+                <td className="text-nowrap basis-1/3">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.min)
                     : Math.round(weatherData.temperature.min * 1.8 + 32)}
-                  <span className="unit-super">
+                  <span className="unit-top">
                     {unit === "metric" ? "°C" : "°F"}
                   </span>
                   {" / "}
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.max)
                     : Math.round(weatherData.temperature.max * 1.8 + 32)}
-                  <span className="unit-super">
+                  <span className="unit-top">
                     {unit === "metric" ? "°C" : "°F"}
                   </span>
                 </td>
-                <th className="flex-initial truncate sm:flex-auto">
-                  Feels like
-                </th>
+                <th className="flex-initial pl-0 truncate">Feels like</th>
                 <td className="">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.feels_like)
                     : Math.round(weatherData.temperature.feels_like * 1.8 + 32)}
-                  <span className="unit-super">
+                  <span className="unit-top">
                     {unit === "metric" ? "°C" : "°F"}
                   </span>
                 </td>
@@ -50,8 +45,8 @@ export default function WeatherTable({ weatherData, unit }) {
           </table>
         }
         details={
-          <table className="table-content mx-[auto]">
-            <tbody>
+          <table className="table-content">
+            <tbody className="grid grid-rows-6">
               <tr>
                 <th>Humidity</th>
                 <td>{weatherData.humidity}%</td>

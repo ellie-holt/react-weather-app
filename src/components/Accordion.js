@@ -13,7 +13,7 @@ export default function Accordion({ summary, details }) {
   }, []);
 
   return (
-    <div className="accordion">
+    <div className="flex flex-col accordion">
       {/* Accordion Header - contains clickable summary*/}
       <div
         className="accordion-toggle flex justify-between items-center cursor-pointer w-full hover:shadow-[-4px_4px_2px_rgba(0,0,0,0.2)] active:shadow-[-2px_2px_2px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out "
@@ -25,7 +25,7 @@ export default function Accordion({ summary, details }) {
 
         {/* Caret Icon */}
         <button
-          className={`caret-icon w-11 h-11 origin-center rounded-full ${
+          className={`caret-icon w-10 h-10 origin-center rounded-full ${
             isOpen ? "animate-rotate-in" : "animate-rotate-out"
           }`}
         >

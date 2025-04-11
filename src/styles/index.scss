@@ -35,11 +35,11 @@
     @apply w-full border-separate border-spacing-0 text-base 2xs:text-lg;
   }
   tr {
-    @apply flex h-12 items-center justify-evenly;
+    @apply flex items-stretch justify-evenly;
   }
   th,
   td {
-    @apply sm:pl-4 sm:pr-3 pt-2 text-left h-full pl-3 pr-1;
+    @apply sm:pl-4 sm:pr-1 text-left align-baseline pl-3 pr-1 pb-2 pt-2;
   }
   th {
     @apply font-normal flex-1;
@@ -70,9 +70,12 @@
 
 @layer utilities {
   .unit-super {
+    @apply text-[0.6em] align-super;
+  }
+  .unit-top {
     @apply text-[0.6em] align-top;
   }
   .unit-sub {
-    @apply text-[0.8em];
+    @apply text-[0.8em] align-baseline;
   }
 }

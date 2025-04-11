@@ -82,6 +82,12 @@
       border: 2px solid $table-bg;
       background-color: $table-bg;
       border-radius: 9999px;
+      color: $table-text;
+
+      .table-header tr.temp-data td,
+      .table-header tr.temp-data th {
+        color: $table-text;
+      }
     }
     .caret-icon {
       outline: 2px solid $ui-border;
@@ -100,6 +106,12 @@
         background-color: $table-bg;
         border-top-right-radius: 9999px;
         border-bottom-right-radius: 9999px;
+      }
+    }
+    tbody tr:nth-child(odd) {
+      th,
+      td {
+        color: $primary-text;
       }
     }
   }
