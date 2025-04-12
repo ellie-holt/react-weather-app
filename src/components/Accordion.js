@@ -7,9 +7,20 @@ export default function Accordion({ summary, details }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (window.innerWidth > 1440) {
-      setIsOpen(true);
-    }
+    const handleResize = () => {
+      if (window.innerWidth > 1440) {
+        setIsOpen(true);
+      } else {
+        setIsOpen(false);
+      }
+    };
+
+    handleResize(); // Check on initial render
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -25,7 +36,7 @@ export default function Accordion({ summary, details }) {
 
         {/* Caret Icon */}
         <button
-          className={`caret-icon w-10 h-10 origin-center rounded-full ${
+          className={`caret-icon xs:w-10 xs:h-10 w-9 h-9 origin-center rounded-full ${
             isOpen ? "animate-rotate-in" : "animate-rotate-out"
           }`}
         >

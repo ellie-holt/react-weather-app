@@ -9,7 +9,7 @@ export default function DayCard({ dailyForecast, unit }) {
   console.log(dailyForecast);
   return (
     <section
-      className={` dayCard w-[calc(100%/2)] 2xs:w-[calc(100%/3)] md:w-[calc(98%/4)] mlg:h-[calc(100%/4)] mlg:w-full mlg:grid mlg:grid-cols-[2fr_1fr_1fr] lg:grid-rows-[auto] flex-shrink-0 mx-1 py-3 mlg:my-2 mlg:py-2 mlg:px-3 mlg:place-content-between text-center border-none rounded-xl snap-start hover:shadow-[-4px_4px_2px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out`}
+      className={` dayCard w-[calc(100%/2)] 2xs:w-[calc(100%/3)] md:w-[calc(98%/4)] mlg:h-[calc(100%/4)] 2xl:h-[calc(95%/3)] mlg:w-full mlg:grid mlg:grid-cols-[2fr_1fr_1fr] lg:grid-rows-[auto] flex-shrink-0 mx-1 py-3 mlg:my-2 mlg:py-2 mlg:px-3 mlg:place-content-between text-center border-none rounded-xl snap-start hover:shadow-[-4px_4px_2px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out`}
     >
       <h2 className="text-xl font-semibold weekDay mlg:text-lg mlg:row-start-1 mlg:row-span-2 mlg:self-center mlg:justify-self-start">
         <FormattedDateTime

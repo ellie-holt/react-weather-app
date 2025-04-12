@@ -9,13 +9,13 @@ export default function WeatherTable({ weatherData, unit }) {
   console.log(weatherData);
   return (
     <section
-      className={`${themeClass} weatherTable mx-5 xs:mx-9 sm:mx-14 md:mx-22 mlg:mx-2 lg:mx-2 mb-6 mlg:mb-0`}
+      className={`${themeClass} weatherTable mx-5 xs:mx-9 sm:mx-14 md:mx-22 mlg:mx-2 lg:mx-2 mb-6 mlg:mb-0 2xl:mt-8`}
     >
       <Accordion
         summary={
           <table className="table-header md:min-w-96">
             <tbody>
-              <tr className="temp-data">
+              <tr className="temp-data ">
                 <td className="text-nowrap basis-1/3">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.min)
@@ -54,15 +54,19 @@ export default function WeatherTable({ weatherData, unit }) {
               <tr>
                 <th>Wind speed</th>
                 <td>
-                  {weatherData.wind.speed}
-                  <span className="unit-sub">m/s</span>
+                  <span>
+                    {weatherData.wind.speed}
+                    <span className="unit-sub">m/s</span>
+                  </span>
                 </td>
               </tr>
               <tr>
                 <th>Wind dir.</th>
                 <td>
-                  {weatherData.wind.direction}
-                  <span className="unit-sub">deg</span>
+                  <span>
+                    {weatherData.wind.direction}
+                    <span className="unit-sub">deg</span>
+                  </span>
                 </td>
               </tr>
               <tr>
@@ -72,15 +76,19 @@ export default function WeatherTable({ weatherData, unit }) {
               <tr>
                 <th>Visibility</th>
                 <td>
-                  {weatherData.visibility / 1000}
-                  <span className="unit-sub">km</span>
+                  <span>
+                    {weatherData.visibility / 1000}
+                    <span className="unit-sub">km</span>
+                  </span>
                 </td>
               </tr>
               <tr>
                 <th>Pressure</th>
                 <td>
-                  {weatherData.pressure}
-                  <span className="unit-sub">hPa</span>
+                  <span>
+                    {weatherData.pressure}
+                    <span className="unit-sub">hPa</span>
+                  </span>
                 </td>
               </tr>
             </tbody>
