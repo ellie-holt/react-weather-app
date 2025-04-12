@@ -1,13 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @import "weather-themes";
 
@@ -32,26 +23,26 @@
     @apply text-xs 2xs:text-sm sm:text-base;
   }
   table {
-    @apply w-full border-separate border-spacing-0 text-base 2xs:text-lg;
+    @apply w-full border-separate border-spacing-0;
   }
   tr {
     @apply flex items-stretch justify-evenly;
   }
   th,
   td {
-    @apply xss:pl-4 sm:pr-1 text-left align-baseline pl-3 pr-1 xs:py-2 py-1.5;
+    @apply xs:pl-4 sm:pr-1 text-left align-baseline pl-3 pr-1 xs:py-2 2xs:py-1.5;
   }
   th {
-    @apply font-normal flex-1 inline-flex items-center;
+    @apply font-normal text-base xs:text-lg 2xl:text-xl flex-1 inline-flex items-center;
   }
   td {
-    @apply font-semibold text-xl flex-1 inline-flex items-center;
+    @apply font-semibold text-lg xs:text-xl 2xl:text-2xl flex-1 inline-flex items-center;
   }
 }
 
 @layer components {
   .button {
-    @apply py-1.5 px-2 text-sm 2xs:text-base font-bold rounded-xl border-2 
+    @apply py-1.5 px-2 text-sm 2xs:text-base 2xl:text-lg font-bold rounded-xl border-2 
     backdrop-blur-md transition-all duration-300 ease-out 
     shadow-[-3px_3px_0_rgba(0,0,0,0.2)] 
     hover:shadow-[-4px_4px_0_rgba(0,0,0,0.25)] 
@@ -59,7 +50,7 @@
   }
 
   .input {
-    @apply py-1.5 px-4 border-2 rounded-lg text-sm 2xs:text-base font-semibold
+    @apply py-1.5 px-4 border-2 rounded-lg text-sm 2xs:text-base 2xl:text-lg font-semibold
     backdrop-blur-md transition-all duration-300 ease-out
     shadow-[-3px_3px_0_rgba(0,0,0,0.2)]
     hover:shadow-[-4px_4px_0_rgba(0,0,0,0.25)]

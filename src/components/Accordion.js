@@ -27,7 +27,7 @@ export default function Accordion({ summary, details }) {
     <div className="flex flex-col accordion">
       {/* Accordion Header - contains clickable summary*/}
       <div
-        className="accordion-toggle flex justify-between items-center cursor-pointer w-full hover:shadow-[-4px_4px_2px_rgba(0,0,0,0.2)] active:shadow-[-2px_2px_2px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out "
+        className="flex items-center justify-between w-full transition-all duration-300 ease-out cursor-pointer accordion-toggle "
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-controls="accordion-details"
@@ -36,11 +36,14 @@ export default function Accordion({ summary, details }) {
 
         {/* Caret Icon */}
         <button
-          className={`caret-icon xs:w-10 xs:h-10 w-9 h-9 origin-center rounded-full ${
-            isOpen ? "animate-rotate-in" : "animate-rotate-out"
-          }`}
+          className={`caret-icon xs:w-10 xs:h-10 w-9 h-9 origin-bottom rounded-full shadow-[-3px_3px_0_rgba(0,0,0,0.2)] hover:shadow-[-4px_4px_0_rgba(0,0,0,0.25)] active:shadow-[-2px_2px_2px_rgba(0,0,0,0.2)] active:scale-[0.98]`}
         >
-          <FontAwesomeIcon icon={faCaretDown} className="text-xl" />
+          <FontAwesomeIcon
+            icon={faCaretDown}
+            className={`text-xl relative top-[2px] ${
+              isOpen ? "animate-rotate-in" : "animate-rotate-out"
+            }`}
+          />
         </button>
       </div>
 

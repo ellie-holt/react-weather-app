@@ -73,7 +73,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
         <button
           type="button"
           id="unit-button"
-          className="button flex items-center justify-center rounded-full text-xs 2xs:text-sm px-2.5 self-stretch xs:w-10 w-9"
+          className="button flex items-center justify-center rounded-full text-xs 2xs:text-sm 2xl:text-base px-2.5 self-stretch 2xs:w-10 2xl:w-11 w-9"
           onClick={handleUnitClick}
         >
           ℉
