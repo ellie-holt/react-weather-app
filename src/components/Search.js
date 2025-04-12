@@ -54,7 +54,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
           <input
             type="search"
             id="search-bar"
-            className="z-10 w-4/5 border-r-0 rounded-r-none input xs:w-full"
+            className="z-10 w-3/4 border-r-0 rounded-r-none input xs:w-full"
             placeholder="Type city here..."
             autoFocus
             required
@@ -73,7 +73,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
         <button
           type="button"
           id="unit-button"
-          className="button flex items-center justify-center rounded-full text-xs 2xs:text-sm 2xl:text-base px-2.5 self-stretch 2xs:w-10 2xl:w-11 w-9"
+          className="button flex items-center justify-center rounded-full text-xs 2xs:text-sm 2xl:text-base px-2.5 self-stretch 2xs:min-w-10 2xl:w-11 w-9"
           onClick={handleUnitClick}
         >
           ℉

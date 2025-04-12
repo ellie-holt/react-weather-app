@@ -16,7 +16,7 @@ export default function WeatherTable({ weatherData, unit }) {
           <table className="table-header md:min-w-96">
             <tbody>
               <tr className="temp-data">
-                <td className="pl-10 2xl:pl-4 text-nowrap basis-1/3">
+                <td className="2xs:pl-10 2xl:pl-4 text-nowrap basis-1/3">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.min)
                     : Math.round(weatherData.temperature.min * 1.8 + 32)}
