@@ -70,7 +70,7 @@
       color: $placeholder-text;
     }
     &:focus {
-      outline: none;
+      outline: $ui-border;
       box-shadow: 0 0 0 2px $ui-border;
     }
   }

@@ -20,7 +20,7 @@ export default function DayCard({ dailyForecast, unit }) {
       <img
         src={icon}
         alt={dailyForecast.condition.description + " icon"}
-        className="w-16 m-auto icon lg:self-end"
+        className="w-16 h-16 m-auto icon lg:self-end"
       />
       <h3 className="text-2xl 2xl:text-3xl temp mlg:self-end">
         {unit === "metric"

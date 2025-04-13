@@ -43,6 +43,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
           type="button"
           id="current-button"
           className="button"
+          aria-label="Get current location weather"
           onClick={handleCurrentClick}
         >
           Current
@@ -51,6 +52,9 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
           className="flex items-center justify-center flex-nowrap xs:mx-3 sm:mx-3"
           role="search"
         >
+          <label htmlFor="search-bar" className="sr-only">
+            City search
+          </label>
           <input
             type="search"
             id="search-bar"
@@ -58,7 +62,6 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
             placeholder="Type city here..."
             autoFocus
             required
-            aria-label="User location"
             aria-describedby="search-button"
             onChange={handleCityChange}
           />
@@ -67,6 +70,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
             id="search-button"
             className="rounded-l-none button"
           >
+            <span className="sr-only">Search</span>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </div>

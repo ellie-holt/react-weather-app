@@ -27,8 +27,15 @@ export default function Accordion({ summary, details }) {
     <div className="flex flex-col accordion">
       {/* Accordion Header - contains clickable summary*/}
       <div
-        className="flex items-center justify-between w-full transition-all duration-300 ease-out cursor-pointer accordion-toggle "
+        className="flex items-center justify-between w-full transition-all duration-300 ease-out cursor-pointer accordion-toggle"
+        role="button"
+        tabIndex={0}
         onClick={() => setIsOpen(!isOpen)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            setIsOpen(!isOpen);
+          }
+        }}
         aria-expanded={isOpen}
         aria-controls="accordion-details"
       >
@@ -43,12 +50,25 @@ export default function Accordion({ summary, details }) {
             className={`text-xl relative top-[2px] ${
               isOpen ? "animate-rotate-in" : "animate-rotate-out"
             }`}
-          />
+            role="presentation"
+            tabindex="-1"
+          />{" "}
+          <span className="sr-only">
+            {isOpen ? "Hide weather details" : "Show weather details"}
+          </span>
         </button>
       </div>
 
       {/* Accordion Content - contains expandable details*/}
-      {isOpen && <div id="accordion-details">{details}</div>}
+      {isOpen && (
+        <div
+          id="accordion-details"
+          area-labelledby="accordion-summary"
+          className="accordion-content"
+        >
+          {details}
+        </div>
+      )}
     </div>
   );
 }

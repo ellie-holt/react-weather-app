@@ -33,7 +33,7 @@ export default function WeatherMain({ weatherData, unit }) {
         <img
           src={icon}
           alt={weatherData.description + " icon"}
-          className="w-32 2xs:w-44 sm:w-48 mlg:w-44"
+          className="w-32 h-32 2xs:w-44 2xs:h-44 sm:w-48 sm:h-48 mlg:w-44 mlg:h-44"
         />
       </div>
     </section>
