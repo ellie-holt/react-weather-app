@@ -2,17 +2,17 @@
 
 .App.clear-day {
   @include theme-template(
-    $primary-bg-start: #3592da,
+    $primary-bg-start: #3087c9,
     $primary-bg-end: #84c4f5,
     $primary-text: #fdfdff,
 
     $secondary-bg: #c3e5f7,
     $secondary-text: #2c3e50,
 
-    $link-text: #a3469a,
-    $link-hover: #d16c93,
+    $link-text: #8d3c85,
+    $link-hover: #b95d80,
     $link-active: #db1a64,
-    $link-visited: #983760,
+    $link-visited: #9a3760,
 
     $ui-bg: #d6f0ff,
     $ui-border: #5da2d5,
@@ -65,13 +65,13 @@
     $secondary-bg: #dce6ef,
     $secondary-text: #243544,
 
-    $link-text: #e2725b,
+    $link-text: #a33d36,
     $link-hover: #c95848,
-    $link-active: #a33d36,
+    $link-active: #e2725b,
     $link-visited: #74312d,
 
-    $ui-bg: #62a3a4,
-    $ui-border: #3e7c7a,
+    $ui-bg: #3f7c80,
+    $ui-border: #2a5c5a,
     $ui-text: #ffffff,
 
     $ui-bg-secondary: #f4ebdd,
@@ -90,7 +90,7 @@
     $primary-bg-end: #1f2a40,
     $primary-text: #f0f5ff,
 
-    $secondary-bg: #566d8e,
+    $secondary-bg: #6f90bd,
     $secondary-text: #131c2c,
 
     $link-text: #ddc47a,
@@ -118,7 +118,7 @@
     $primary-bg-end: #8db0ad,
     $primary-text: #3b4a49,
 
-    $secondary-bg: #bacee8,
+    $secondary-bg: #bad6e8,
     $secondary-text: #102d28,
 
     $link-text: #772252,
@@ -134,9 +134,9 @@
     $ui-text-secondary: #02322f,
     $placeholder-text: #36605d,
 
-    $table-bg: #5c8784,
+    $table-bg: #447470,
     $table-text: #e8f3f1,
-    $table-border: #3e7571
+    $table-border: #336663
   );
 }
 
@@ -149,12 +149,12 @@
     $secondary-bg: #b9cbfd,
     $secondary-text: #2c2f3a,
 
-    $link-text: #006869,
+    $link-text: #005f61,
     $link-hover: #1a8580,
     $link-active: #00c6be,
     $link-visited: #294069,
 
-    $ui-bg: #d7798b,
+    $ui-bg: #b14b5d,
     $ui-border: #6f1c33,
     $ui-text: #fff5f7,
 
@@ -162,9 +162,9 @@
     $ui-text-secondary: #574144,
     $placeholder-text: #897174,
 
-    $table-bg: #7486b5,
+    $table-bg: #5e71a1,
     $table-text: #f5f9ff,
-    $table-border: #566488
+    $table-border: #526391
   );
 }
 
@@ -182,9 +182,9 @@
     $link-active: #00a8c2,
     $link-visited: #005c7b,
 
-    $ui-bg: #00a9c2,
-    $ui-border: #00748c,
-    $ui-text: #e6f4f1,
+    $ui-bg: #007688,
+    $ui-border: #005464,
+    $ui-text: #eef7f5,
 
     $ui-bg-secondary: #e4feff,
     $ui-text-secondary: #324b50,
@@ -202,7 +202,7 @@
     $primary-bg-end: #1e3a61,
     $primary-text: #f5f9ff,
 
-    $secondary-bg: #829fc7,
+    $secondary-bg: #a2dbff,
     $secondary-text: #16171b,
 
     $link-text: #66293a,
@@ -212,7 +212,7 @@
 
     $ui-bg: #ffc233,
     $ui-border: #c07b1a,
-    $ui-text: #fff5f7,
+    $ui-text: #0b345e,
 
     $ui-bg-secondary: #fbfaee,
     $ui-text-secondary: #3f362d,
@@ -238,7 +238,7 @@
     $link-active: #2e6166,
     $link-visited: #171f33,
 
-    $ui-bg: #469084,
+    $ui-bg: #377e72,
     $ui-border: #255659,
     $ui-text: #e0fff7,
 
@@ -266,7 +266,7 @@
     $link-active: #750094,
     $link-visited: #3e3194,
 
-    $ui-bg: #d46460,
+    $ui-bg: #b44e4b,
     $ui-border: #811821,
     $ui-text: #fff5f7,
 
@@ -373,10 +373,10 @@
     $secondary-bg: #eecac2,
     $secondary-text: #573c3a,
 
-    $link-text: #ff9f7c,
-    $link-hover: #e88b6b,
-    $link-active: #d2765a,
-    $link-visited: #b85e47,
+    $link-text: #a53208,
+    $link-hover: #ce4c21,
+    $link-active: #ff3c00,
+    $link-visited: #912105,
 
     $ui-bg: #fdf4e7,
     $ui-border: #d3a797,
@@ -386,7 +386,7 @@
     $ui-text-secondary: #5e403b,
     $placeholder-text: #b58b7e,
 
-    $table-bg: #f3d9c6,
+    $table-bg: #f3d0b7,
     $table-text: #3a2c2c,
     $table-border: #d3b6a3
   );

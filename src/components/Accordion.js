@@ -43,7 +43,7 @@ export default function Accordion({ summary, details }) {
 
         {/* Caret Icon */}
         <button
-          className={`caret-icon xs:w-10 xs:h-10 w-9 h-9 origin-bottom rounded-full shadow-[-3px_3px_0_rgba(0,0,0,0.2)] hover:shadow-[-4px_4px_0_rgba(0,0,0,0.25)] active:shadow-[-2px_2px_2px_rgba(0,0,0,0.2)] active:scale-[0.98]`}
+          className={`caret-icon xs:w-10 xs:h-10 xs:min-w-10 w-9 h-9 origin-bottom rounded-full shadow-[-3px_3px_0_rgba(0,0,0,0.2)] hover:shadow-[-4px_4px_0_rgba(0,0,0,0.25)] active:shadow-[-2px_2px_2px_rgba(0,0,0,0.2)] active:scale-[0.98]`}
         >
           <FontAwesomeIcon
             icon={faCaretDown}
@@ -51,7 +51,7 @@ export default function Accordion({ summary, details }) {
               isOpen ? "animate-rotate-in" : "animate-rotate-out"
             }`}
             role="presentation"
-            tabindex="-1"
+            tabIndex="-1"
           />{" "}
           <span className="sr-only">
             {isOpen ? "Hide weather details" : "Show weather details"}

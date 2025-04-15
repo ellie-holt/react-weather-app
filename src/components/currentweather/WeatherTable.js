@@ -6,10 +6,9 @@ import SetTheme from "../../SetTheme";
 
 export default function WeatherTable({ weatherData, unit }) {
   let themeClass = SetTheme({ weatherData });
-  console.log(weatherData);
   return (
     <section
-      className={`${themeClass} weatherTable mx-5 2xs:mx-6 xs:mx-10 sm:mx-28 md:mx-36 mlg:mx-2 mb-6 mlg:mb-0`}
+      className={`${themeClass} weatherTable mx-5 2xs:mx-6 xs:mx-10 sm:mx-28 md:mx-32 mlg:mx-2 mb-6 mlg:mb-0`}
     >
       <Accordion
         summary={

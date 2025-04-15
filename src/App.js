@@ -15,7 +15,6 @@ function App() {
   const [unit, setUnit] = useState("metric");
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: {
@@ -42,7 +41,6 @@ function App() {
   }
 
   function handleForecastResponse(response) {
-    console.log(response.data);
     setForecastData({
       ready: true,
       forecast: response.data.daily,
@@ -52,9 +50,6 @@ function App() {
   function createApiUrl({ city, lat, lon }) {
     const apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
     let apiUrl = "";
-    console.log(city);
-    console.log(lat);
-    console.log(lon);
 
     if (city) {
       apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -80,11 +75,11 @@ function App() {
   function changeUnit(unit) {
     let newUnit = unit;
     setUnit(newUnit);
-    console.log(newUnit);
   }
 
   if (weatherData.ready) {
     let themeClass = SetTheme({ weatherData });
+    console.log(weatherData.description);
     return (
       <div className={`App flex flex-col min-h-screen ${themeClass}`}>
         <main className={`w-full flex-grow flex flex-col`}>

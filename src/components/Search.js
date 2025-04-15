@@ -5,7 +5,6 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
   const [city, setCity] = useState(defaultCity);
-  console.log(defaultCity);
 
   function handleCurrentClick() {
     navigator.geolocation.getCurrentPosition((position) => {

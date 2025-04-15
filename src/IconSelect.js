@@ -1,11 +1,10 @@
 export default function IconSelect({ weatherData, dailyForecast }) {
   let iconVariant = "";
-  console.log(dailyForecast);
+
   if (dailyForecast) {
     weatherData = dailyForecast.condition;
-    console.log(weatherData);
   }
-  console.log(weatherData.icon);
+
   switch (weatherData.icon) {
     case "01d":
     case "clear-sky-day":
@@ -82,6 +81,5 @@ export default function IconSelect({ weatherData, dailyForecast }) {
     default:
       iconVariant = "cloudyday";
   }
-  console.log(iconVariant);
   return iconVariant;
 }
