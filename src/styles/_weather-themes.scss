@@ -86,25 +86,25 @@
 
 .App.cloudy-night {
   @include theme-template(
-    $primary-bg-start: #3c4b66,
-    $primary-bg-end: #1f2a40,
+    $primary-bg-start: #204892,
+    $primary-bg-end: #172136,
     $primary-text: #f0f5ff,
 
-    $secondary-bg: #6f90bd,
+    $secondary-bg: #90b5e9,
     $secondary-text: #131c2c,
 
-    $link-text: #ddc47a,
-    $link-hover: #ffa07a,
-    $link-active: #ff6680,
-    $link-visited: #ffdb70,
+    $link-text: #7e1538,
+    $link-hover: #c21f42,
+    $link-active: #df3451,
+    $link-visited: #5f0e3d,
 
-    $ui-bg: #3f3363,
-    $ui-border: #8d7bb3,
+    $ui-bg: #983e72,
+    $ui-border: #5f0041,
     $ui-text: #ffffff,
 
-    $ui-bg-secondary: #c8cae8,
-    $ui-text-secondary: #242142,
-    $placeholder-text: #8078a0,
+    $ui-bg-secondary: #d4d5eb,
+    $ui-text-secondary: #430028,
+    $placeholder-text: #514d66,
 
     $table-bg: #485b7f,
     $table-text: #ebf1fa,
@@ -317,7 +317,7 @@
     $secondary-bg: #cde3f2,
     $secondary-text: #1b3e52,
 
-    $link-text: #2d776e,
+    $link-text: #2c6d65,
     $link-hover: #226056,
     $link-active: #1b4c44,
     $link-visited: #133730,
@@ -394,28 +394,28 @@
 
 .App.misty-night {
   @include theme-template(
-    $primary-bg-start: #25262a,
+    $primary-bg-start: #737687,
     $primary-bg-end: #3a3f52,
-    $primary-text: #e3e5f1,
+    $primary-text: #e7efff,
 
-    $secondary-bg: #5e496e,
-    $secondary-text: #f1e7ff,
+    $secondary-bg: #5b627e,
+    $secondary-text: #f7f9ff,
 
-    $link-text: #a3f7ff,
-    $link-hover: #89d9e0,
-    $link-active: #6dbac2,
-    $link-visited: #528f98,
+    $link-text: #adf4ff,
+    $link-hover: #80bbf3,
+    $link-active: #5fadf7,
+    $link-visited: #5be2f1,
 
     $ui-bg: #302c44,
-    $ui-border: #ae679d,
-    $ui-text: #e3e5f1,
+    $ui-border: #6b5492,
+    $ui-text: #f7f9ff,
 
-    $ui-bg-secondary: #4f6275,
-    $ui-text-secondary: #ffffff,
-    $placeholder-text: #b5c2d0,
+    $ui-bg-secondary: #bfc6db,
+    $ui-text-secondary: #302c44,
+    $placeholder-text: #46425c,
 
-    $table-bg: #3c4654,
+    $table-bg: #513a79,
     $table-text: #e3e5f1,
-    $table-border: #5c7282
+    $table-border: #393458
   );
 }
