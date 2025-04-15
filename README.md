@@ -57,7 +57,7 @@ You can view the live version here: [Live Demo](https://herecomestherainagain.ne
 
 ## API
 
-This project uses the [OpenWeatherMap API](https://openweathermap.org/api) and the [SheCodes Weather API](https://www.shecodes.io/weather) to fetch weather data.
+This project uses the [OpenWeatherMap API](https://openweathermap.org/api) and the [SheCodes Weather API](https://www.shecodes.io/learn/apis/weather) (requires course enrolment) to fetch weather data.
 
 ---
 
