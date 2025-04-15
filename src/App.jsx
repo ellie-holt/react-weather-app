@@ -7,7 +7,7 @@ import CurrentWeather from "./components/currentweather/CurrentWeather";
 import WeatherForecast from "./components/weatherforecast/WeatherForecast";
 import Footer from "./components/Footer";
 
-import SetTheme from "./SetTheme";
+import SetTheme from "./utils/SetTheme";
 
 function App() {
   const [weatherData, setWeatherData] = useState({ ready: false });

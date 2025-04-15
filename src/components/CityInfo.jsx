@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import FormattedDateTime from "../FormattedDateTime";
+import FormattedDateTime from "../utils/FormattedDateTime";
 
 export default function CityInfo({ weatherData }) {
   const [currentTime, setCurrentTime] = useState(() =>
@@ -24,7 +24,7 @@ export default function CityInfo({ weatherData }) {
 
   return (
     <section className="cityInfo w-[87%] xs:w-5/6 lg:w-3/4 relative bottom-20 px-2 pt-24 pb-5 ml-auto -mb-20 mlg:-mb-16 rounded-bl-full flex flex-wrap justify-self-end justify-end md:justify-center md:flex-col md:content-end md:max-h-48 bg-white font-librefranklin shadow-[-4px_4px_5px_rgba(0,0,0,0.1)]">
-      <h3 className="inline-block px-1 text-2xl text-right truncate xs:max-w-full max-w-44 2xs:text-3xl md:text-4xl">
+      <h3 className="inline-block px-1 text-2xl text-right truncate xs:max-w-full max-w-40 2xs:text-3xl md:text-4xl">
         {weatherData.city}
       </h3>
       <span className="text-3xl opacity-50 2xs:text-4xl md:hidden">~</span>

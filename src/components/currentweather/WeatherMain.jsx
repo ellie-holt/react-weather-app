@@ -1,8 +1,8 @@
 import React from "react";
-import IconSelect from "../../IconSelect";
+import IconSelect from "../../utils/IconSelect";
 import icons from "../../img/icons";
 
-import SetTheme from "../../SetTheme";
+import SetTheme from "../../utils/SetTheme";
 
 export default function WeatherMain({ weatherData, unit }) {
   let iconVariant = IconSelect({ weatherData });
@@ -20,9 +20,8 @@ export default function WeatherMain({ weatherData, unit }) {
           : Math.round(weatherData.temperature.current * 1.8 + 32)}
         <span className="unit-super">{unit === "metric" ? "°C" : "°F"}</span>
       </h1>
-      <h2 className="description mlg:order-last italic text-[2rem] 2xs:text-[3rem] sm:text-[3.5rem] mlg:text-[3.3rem] lg:text-[3.5rem] tracking-tight leading-none w-3/5 mlg:w-full mlg:mt-[-1rem] mlg:mb-4 min-h-28">
-        {weatherData.description.charAt(0).toUpperCase() +
-          weatherData.description.slice(1)}
+      <h2 className="description mlg:order-last italic text-[2rem] 2xs:text-[3rem] sm:text-[3.5rem] mlg:text-[3.3rem] lg:text-[3.5rem] tracking-tight leading-none w-3/5 mlg:w-full -mt-3 mb-3 2xs:mb-0 2xs:mt-0 mlg:mt-[-1rem] mlg:mb-4 min-h-28">
+        {weatherData.description.charAt(0).toUpperCase() + weatherData.description.slice(1)}
       </h2>
       <div className="self-end mt-[-7rem] 2xs:mt-[-4rem] sm:mt-[-6rem] mlg:mt-[-4rem] lg:mt-[-4rem] sm:mb-4 pb-5 px-3">
         <img

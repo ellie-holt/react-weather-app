@@ -2,7 +2,7 @@ import React from "react";
 
 import DayCard from "./DayCard";
 
-import SetTheme from "../../SetTheme";
+import SetTheme from "../../utils/SetTheme";
 
 export default function WeatherForecast({ weatherData, forecastData, unit }) {
   let themeClass = SetTheme({ weatherData });

@@ -7,7 +7,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
   const [city, setCity] = useState(defaultCity);
 
   function handleCurrentClick() {
-    navigator.geolocation.getCurrentPosition((position) => {
+    navigator.geolocation.getCurrentPosition(position => {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
       fetchWeatherData({ lat, lon });
@@ -47,10 +47,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
         >
           Current
         </button>
-        <div
-          className="flex items-center justify-center flex-nowrap xs:mx-3 sm:mx-3"
-          role="search"
-        >
+        <div className="flex items-center justify-center flex-nowrap xs:mx-3 sm:mx-3" role="search">
           <label htmlFor="search-bar" className="sr-only">
             City search
           </label>
@@ -64,11 +61,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
             aria-describedby="search-button"
             onChange={handleCityChange}
           />
-          <button
-            type="submit"
-            id="search-button"
-            className="rounded-l-none button"
-          >
+          <button type="submit" id="search-button" className="rounded-l-none button">
             <span className="sr-only">Search</span>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>

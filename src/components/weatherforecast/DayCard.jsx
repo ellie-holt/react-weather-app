@@ -1,6 +1,6 @@
 import React from "react";
-import FormattedDateTime from "../../FormattedDateTime";
-import IconSelect from "../../IconSelect";
+import FormattedDateTime from "../../utils/FormattedDateTime";
+import IconSelect from "../../utils/IconSelect";
 import icons from "../../img/icons";
 
 export default function DayCard({ dailyForecast, unit }) {
@@ -10,10 +10,10 @@ export default function DayCard({ dailyForecast, unit }) {
     <section
       className={`dayCard w-[calc(100%/2)] 2xs:w-[calc(100%/3)] md:w-[calc(98%/4)] mlg:h-[calc(100%/4)] 2xl:h-[calc(90%/4)] mlg:w-full mlg:grid mlg:grid-cols-[2fr_1fr_1fr] lg:grid-rows-[auto] flex-shrink-0 mx-1 py-3 mlg:my-2 2xl:mt-4 2xl:mb-0 mlg:py-2 mlg:px-3 mlg:place-content-between text-center border-none rounded-xl snap-start`}
     >
-      <h2 className="text-xl font-semibold 2xl:text-[1.4rem] weekDay mlg:text-lg mlg:row-start-1 mlg:row-span-2 mlg:self-center mlg:justify-self-start">
+      <h2 className="text-xl font-semibold 2xl:text-[1.4rem] weekDay mlg:text-lg mlg:row-start-1 mlg:row-span-2 mlg:self-center mlg:justify-self-start pb-2 mlg:pb-0 [word-spacing:0.2em]">
         <FormattedDateTime
           timestamp={dailyForecast.time * 1000}
-          format={"weekday"}
+          format={`shortWeekday_,_ _day`}
         />
       </h2>
       <img

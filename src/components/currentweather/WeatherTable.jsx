@@ -2,7 +2,7 @@ import React from "react";
 
 import Accordion from "../Accordion";
 
-import SetTheme from "../../SetTheme";
+import SetTheme from "../../utils/SetTheme";
 
 export default function WeatherTable({ weatherData, unit }) {
   let themeClass = SetTheme({ weatherData });
@@ -15,29 +15,23 @@ export default function WeatherTable({ weatherData, unit }) {
           <table className="table-header md:min-w-96">
             <tbody>
               <tr className="temp-data">
-                <td className="2xs:pl-10 2xl:pl-4 text-nowrap basis-1/3">
+                <td className="pl-4 2xs:pl-10 2xl:pl-4 text-nowrap basis-1/3">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.min)
                     : Math.round(weatherData.temperature.min * 1.8 + 32)}
-                  <span className="unit-top">
-                    {unit === "metric" ? "°C" : "°F"}
-                  </span>
+                  <span className="unit-top">{unit === "metric" ? "°C" : "°F"}</span>
                   {" / "}
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.max)
                     : Math.round(weatherData.temperature.max * 1.8 + 32)}
-                  <span className="unit-top">
-                    {unit === "metric" ? "°C" : "°F"}
-                  </span>
+                  <span className="unit-top">{unit === "metric" ? "°C" : "°F"}</span>
                 </td>
                 <th className="flex-initial pl-0 truncate">Feels like</th>
                 <td className="">
                   {unit === "metric"
                     ? Math.round(weatherData.temperature.feels_like)
                     : Math.round(weatherData.temperature.feels_like * 1.8 + 32)}
-                  <span className="unit-top">
-                    {unit === "metric" ? "°C" : "°F"}
-                  </span>
+                  <span className="unit-top">{unit === "metric" ? "°C" : "°F"}</span>
                 </td>
               </tr>
             </tbody>
