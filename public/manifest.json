@@ -1,19 +1,19 @@
 {
   "short_name": "Weather App",
-  "name": "Precipitation Station - Weather App",
+  "name": "Here Comes the Rain Again - Weather App",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "cloudyday.ico",
+      "sizes": "96x96 64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "sun.png",
+      "src": "cloudy.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "sun.png",
+      "src": "cloudy.png",
       "type": "image/png",
       "sizes": "512x512"
     }
