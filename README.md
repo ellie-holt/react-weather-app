@@ -61,6 +61,24 @@ This project uses the [OpenWeatherMap API](https://openweathermap.org/api) and t
 
 ---
 
+## Future Improvements
+
+- **Accordion accessibility:**  
+  The accordion toggle currently uses a `<div>` element with `role="button"` and ARIA attributes to simulate button behaviour. This is due to semantic limitations, as HTML buttons cannot contain table elements, which are part of the accordion's content. Whilst the component supports keyboard interaction via the Enter and Space keys, this approach may not provide full accessibility across all screen readers and assistive technologies. A future improvement would be to enhance screen reader support and ensure WCAG compliance without breaking the semantic structure of the page.
+
+- **Geolocation performance in Firefox:**  
+  Firefox tends to take longer than Chrome to retrieve geolocation data, especially on initial page load. A potential enhancement could involve prompting the request earlier as the page loads or adding clearer loading feedback while the user’s location is being fetched.
+
+- **Add screenshots to README to demo different themes**
+
+- **Refactor code and improve comments**
+  Some areas of the codebase could do with some light refactoring and clearer inline comments to improve readability.
+
+- **Address depracated Sass functions**
+  I need to replace some of the outdated Sass colour functions.
+
+---
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).

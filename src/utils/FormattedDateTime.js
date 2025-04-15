@@ -1,14 +1,6 @@
 import React from "react";
 
-const weekdays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 const shortWeekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -43,7 +35,7 @@ const shortMonths = [
 ];
 
 // Helper function to format the day (of the month) with the correct suffix
-const formatDay = (day) => {
+const formatDay = day => {
   if (day >= 4 && day <= 20) {
     return `${day}th`;
   } else if (day === 1 || day === 21 || day === 31) {
@@ -76,21 +68,19 @@ export default function FormattedDateTime({ timestamp, format }) {
   // Split the inputted format string by the underscore character
   // This will create an array of strings that can be iterated over over to format the date and time
   const formatArray = format.split("_");
-  // console.log(formatArray);
 
   // Create a new string to store the formatted values
   let formattedString = "";
 
   // Iterate over formatArray and check if the current string is a key in the formattedValues object
   // If it is, add the newly formatted value to the formattedString, otherwise add the string as is
-  formatArray.forEach((string) => {
+  formatArray.forEach(string => {
     if (formattedValues[string]) {
       formattedString += formattedValues[string];
     } else {
       formattedString += string;
     }
   });
-  // console.log(formattedString);
 
   return <span>{formattedString}</span>;
 }

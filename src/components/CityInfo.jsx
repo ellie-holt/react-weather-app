@@ -1,25 +1,21 @@
 import React, { useState, useEffect } from "react";
-
 import FormattedDateTime from "../utils/FormattedDateTime";
 
 export default function CityInfo({ weatherData }) {
-  const [currentTime, setCurrentTime] = useState(() =>
-    getLocalTime(weatherData.timezone)
-  );
+  const [currentTime, setCurrentTime] = useState(() => getLocalTime(weatherData.timezone));
 
   function getLocalTime(timezoneShift) {
     return new Date(Date.now() + timezoneShift * 1000);
   }
 
+  // Update the time every second to keep the clock ticking
   useEffect(() => {
     setCurrentTime(getLocalTime(weatherData.timezone));
     const interval = setInterval(() => {
       setCurrentTime(getLocalTime(weatherData.timezone));
     }, 1000);
 
-    return () => {
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, [weatherData.timezone]);
 
   return (
@@ -33,15 +29,9 @@ export default function CityInfo({ weatherData }) {
       </h3>
       <h4 className="inline-block px-1 text-xl italic font-light text-right sm:text-2xl basis-full md:basis-auto">
         {window.screen.width < 430 ? (
-          <FormattedDateTime
-            timestamp={currentTime}
-            format={"shortWeekday_,_ _day_ _shortMonth"}
-          />
+          <FormattedDateTime timestamp={currentTime} format={"shortWeekday_,_ _day_ _shortMonth"} />
         ) : (
-          <FormattedDateTime
-            timestamp={currentTime}
-            format={"weekday_,_ _day_ _month"}
-          />
+          <FormattedDateTime timestamp={currentTime} format={"weekday_,_ _day_ _month"} />
         )}
       </h4>
     </section>

@@ -79,7 +79,6 @@ function App() {
 
   if (weatherData.ready) {
     let themeClass = SetTheme({ weatherData });
-    console.log(weatherData.description);
     return (
       <div className={`App flex flex-col min-h-screen ${themeClass}`}>
         <main className={`w-full flex-grow flex flex-col`}>
@@ -91,11 +90,7 @@ function App() {
           <CityInfo weatherData={weatherData} />
           <div className="flex flex-col sm:mx-4 md:mx-8 mlg:mx-14 lg:mx-16 mlg:m-auto mlg:flex-row-reverse mlg:gap-2 mlg:justify-center mlg:items-start 2xl:items-center">
             <CurrentWeather weatherData={weatherData} unit={unit} />
-            <WeatherForecast
-              weatherData={weatherData}
-              forecastData={forecastData}
-              unit={unit}
-            />
+            <WeatherForecast weatherData={weatherData} forecastData={forecastData} unit={unit} />
           </div>
         </main>
         <Footer />

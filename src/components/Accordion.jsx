@@ -31,7 +31,7 @@ export default function Accordion({ summary, details }) {
         role="button"
         tabIndex={0}
         onClick={() => setIsOpen(!isOpen)}
-        onKeyDown={(e) => {
+        onKeyDown={e => {
           if (e.key === "Enter" || e.key === " ") {
             setIsOpen(!isOpen);
           }

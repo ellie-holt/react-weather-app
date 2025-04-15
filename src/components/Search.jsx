@@ -19,7 +19,6 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
     let unit = unitButton.textContent === "℉" ? "imperial" : "metric";
     unitButton.textContent = unit === "metric" ? "℉" : "℃";
     changeUnit(unit);
-    console.log(unit);
   }
 
   function handleCityChange(event) {
