@@ -6,7 +6,7 @@ A responsive and interactive weather application built with React and Tailwind C
 
 ## Live Demo
 
-You can view the live version here: [Live Demo](https://precipitationstation.netlify.app/)
+You can view the live version here: [Live Demo](https://herecomestherainagain.netlify.app/)
 
 ---
 
@@ -48,7 +48,7 @@ You can view the live version here: [Live Demo](https://precipitationstation.net
 
 ## Usage
 
-- Visit the [Live Demo](https://precipitationstation.netlify.app/).
+- Visit the [Live Demo](https://herecomestherainagain.netlify.app/).
 - Search for a city to view the current weather and forecast
 - Use the dropdown to reveal extended weather details (humidity, wind, etc.)
 - Observe how the colour theme changes to reflect current weather conditions! 🌈
