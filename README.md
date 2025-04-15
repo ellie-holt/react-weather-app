@@ -71,10 +71,10 @@ This project uses the [OpenWeatherMap API](https://openweathermap.org/api) and t
 
 - **Add screenshots to README to demo different themes**
 
-- **Refactor code and improve comments**
+- **Refactor code and improve comments:**  
   Some areas of the codebase could do with some light refactoring and clearer inline comments to improve readability.
 
-- **Address depracated Sass functions**
+- **Address depracated Sass functions:**  
   I need to replace some of the outdated Sass colour functions.
 
 ---
