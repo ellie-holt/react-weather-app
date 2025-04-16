@@ -50,8 +50,6 @@ const formatDay = day => {
 };
 
 export default function FormattedDateTime({ timestamp, format }) {
-  // console.log(timestamp);
-  // console.log(format);
   const fullDate = new Date(timestamp);
 
   const formattedValues = {

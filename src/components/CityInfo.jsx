@@ -2,10 +2,20 @@ import React, { useState, useEffect } from "react";
 import FormattedDateTime from "../utils/FormattedDateTime";
 
 export default function CityInfo({ weatherData }) {
+  console.log(weatherData);
+  console.log(weatherData.timezone);
   const [currentTime, setCurrentTime] = useState(() => getLocalTime(weatherData.timezone));
 
   function getLocalTime(timezoneShift) {
-    return new Date(Date.now() + timezoneShift * 1000);
+    // Get the user's local time and timezone offset in seconds
+    let localTime = new Date(Date.now());
+    let timezoneOffset = localTime.getTimezoneOffset() * 60;
+
+    // Calculate the UTC timestamp in milliseconds from the user's local time and timezone offset
+    let UTCtimestamp = Date.now() + timezoneOffset * 1000;
+
+    // Apply the timezone shift from OpenWeather's API to get the time in the specified timezone
+    return UTCtimestamp + timezoneShift * 1000;
   }
 
   // Update the time every second to keep the clock ticking
@@ -19,7 +29,7 @@ export default function CityInfo({ weatherData }) {
   }, [weatherData.timezone]);
 
   return (
-    <section className="cityInfo w-[87%] xs:w-5/6 lg:w-3/4 relative bottom-20 px-2 pt-24 pb-5 ml-auto -mb-20 mlg:-mb-16 rounded-bl-full flex flex-wrap justify-self-end justify-end md:justify-center md:flex-col md:content-end md:max-h-48 bg-white font-librefranklin shadow-[-4px_4px_5px_rgba(0,0,0,0.1)]">
+    <section className="cityInfo w-[87%] xs:w-5/6 lg:w-3/4 relative bottom-20 px-2 pt-24 pb-5 ml-auto -mb-20 mlg:-mb-16 rounded-bl-full flex flex-wrap justify-self-end justify-end md:justify-center md:flex-col md:content-end max-h-44 2xs:max-h-none md:max-h-48 bg-white font-librefranklin shadow-[-4px_4px_5px_rgba(0,0,0,0.1)]">
       <h3 className="inline-block px-1 text-2xl text-right truncate xs:max-w-full max-w-40 2xs:text-3xl md:text-4xl">
         {weatherData.city}
       </h3>
