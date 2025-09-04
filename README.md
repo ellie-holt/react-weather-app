@@ -63,8 +63,8 @@ This project uses the [OpenWeatherMap API](https://openweathermap.org/api) and t
 
 ## Future Improvements
 
--**Usability:**
-  It would be good to implement some sort of autocomplete or spellcheck capabililty / an error state so users know there may be a spelling error, or data for that area may not exist.
+- **Usability:**  
+  It would be good to implement some sort of autocomplete or spellcheck capabililty / an error state to inform users there may be a spelling error, or data for that area may not exist.
 
 - **Accordion accessibility:**  
   The accordion toggle currently uses a `<div>` element with `role="button"` and ARIA attributes to simulate button behaviour. This is due to semantic limitations, as HTML buttons cannot contain table elements, which are part of the accordion's content. Whilst the component supports keyboard interaction via the Enter and Space keys, this approach may not provide full accessibility across all screen readers and assistive technologies. A future improvement would be to enhance screen reader support and ensure WCAG compliance without breaking the semantic structure of the page.
