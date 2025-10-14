@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { fetchCurrentWeather, fetchForecast } from "./services/weatherApi";
 
 import Search from "./components/Search";
 import CityInfo from "./components/CityInfo";
@@ -14,62 +14,51 @@ function App() {
   const [forecastData, setForecastData] = useState({ ready: false });
   const [unit, setUnit] = useState("metric");
 
-  function handleResponse(response) {
+  function handleResponse(data) {
     setWeatherData({
       ready: true,
       temperature: {
-        current: response.data.main.temp,
-        feels_like: response.data.main.feels_like,
-        min: response.data.main.temp_min,
-        max: response.data.main.temp_max,
+        current: data.main.temp,
+        feels_like: data.main.feels_like,
+        min: data.main.temp_min,
+        max: data.main.temp_max,
       },
-      humidity: response.data.main.humidity,
-      pressure: response.data.main.pressure,
+      humidity: data.main.humidity,
+      pressure: data.main.pressure,
       wind: {
-        speed: response.data.wind.speed,
-        direction: response.data.wind.deg,
+        speed: data.wind.speed,
+        direction: data.wind.deg,
       },
-      visibility: response.data.visibility,
-      cloud_cover: response.data.clouds.all,
-      description: response.data.weather[0].description,
-      icon: response.data.weather[0].icon,
-      city: response.data.name,
-      coordinates: response.data.coord,
-      timezone: response.data.timezone,
+      visibility: data.visibility,
+      cloud_cover: data.clouds.all,
+      description: data.weather[0].description,
+      icon: data.weather[0].icon,
+      city: data.name,
+      coordinates: data.coord,
+      timezone: data.timezone,
     });
-    fetchForecastData(response.data.coord);
+    fetchForecastData(data.coord);
   }
 
-  function handleForecastResponse(response) {
-    setForecastData({
-      ready: true,
-      forecast: response.data.daily,
-    });
-  }
-
-  function createApiUrl({ city, lat, lon }) {
-    const apiKey = "ca0db41e2e878c74a1dfc7ffece370d4";
-    let apiUrl = "";
-
-    if (city) {
-      apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    } else if (lat && lon) {
-      apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  async function fetchWeatherData(query) {
+    try {
+      const data = await fetchCurrentWeather(query);
+      handleResponse(data);
+    } catch (error) {
+      console.error("Error fetching weather data:", error.message);
     }
-
-    return apiUrl;
   }
 
-  function fetchWeatherData(query) {
-    let apiUrl = createApiUrl(query);
-    console.log(apiUrl);
-    axios.get(apiUrl).then(handleResponse);
-  }
-
-  function fetchForecastData(coord) {
-    const apiKey = "839e3cb4ta48e140e587fa20cb9532o6";
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coord.lon}&lat=${coord.lat}&key=${apiKey}`;
-    axios.get(apiUrl).then(handleForecastResponse);
+  async function fetchForecastData(coord) {
+    try {
+      const data = await fetchForecast(coord);
+      setForecastData({
+        ready: true,
+        forecast: data.daily,
+      });
+    } catch (error) {
+      console.error("Error fetching forecast data:", error.message);
+    }
   }
 
   function changeUnit(unit) {
