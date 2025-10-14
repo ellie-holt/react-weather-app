@@ -1,4 +1,4 @@
-export default function SetTheme({ weatherData }) {
+export default function SetTheme(weatherData) {
   const themeMap = {
     "01d": "clear-day",
     "01n": "clear-night",
