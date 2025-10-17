@@ -7,7 +7,7 @@ import loadingOpacity from "../../utils/loadingOpacity";
 
 export default function WeatherForecast({ weatherState, forecastState, unit }) {
   let themeClass = SetTheme(weatherState.data);
-  const { data, loading, error } = forecastState;
+  const { data, loading } = forecastState;
 
   // if (forecastState.loading) return "Loading forecast...";
   // if (forecastState.error) return `Error: ${forecastState.error}`;
