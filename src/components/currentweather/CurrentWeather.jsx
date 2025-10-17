@@ -1,13 +1,19 @@
 import React from "react";
+import loadingOpacity from "../../utils/loadingOpacity";
 
 import WeatherMain from "./WeatherMain";
 import WeatherTable from "./WeatherTable";
 
-export default function CurrentWeather({ weatherData, unit }) {
+export default function CurrentWeather({ weatherState, unit }) {
+  const { loading } = weatherState;
   return (
-    <article className="items-center justify-center currentWeather 2xl:flex 2xl:gap-4">
-      <WeatherMain weatherData={weatherData} unit={unit} />
-      <WeatherTable weatherData={weatherData} unit={unit} />
+    <article
+      className={`${loadingOpacity(
+        loading
+      )} items-center justify-center currentWeather 2xl:flex 2xl:gap-4`}
+    >
+      <WeatherMain weatherData={weatherState.data} unit={unit} />
+      <WeatherTable weatherData={weatherState.data} unit={unit} />
     </article>
   );
 }

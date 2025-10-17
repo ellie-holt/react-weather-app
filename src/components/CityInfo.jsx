@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import FormattedDateTime from "../utils/FormattedDateTime";
+import loadingOpacity from "../utils/loadingOpacity";
 
-export default function CityInfo({ weatherData }) {
-  console.log(weatherData);
-  console.log(weatherData.timezone);
-  const [currentTime, setCurrentTime] = useState(() => getLocalTime(weatherData.timezone));
+export default function CityInfo({ weatherState }) {
+  const { data, loading } = weatherState;
+  const [currentTime, setCurrentTime] = useState(() => getLocalTime(data.timezone));
 
   function getLocalTime(timezoneShift) {
     // Get the user's local time and timezone offset in seconds
@@ -20,18 +20,22 @@ export default function CityInfo({ weatherData }) {
 
   // Update the time every second to keep the clock ticking
   useEffect(() => {
-    setCurrentTime(getLocalTime(weatherData.timezone));
+    setCurrentTime(getLocalTime(data.timezone));
     const interval = setInterval(() => {
-      setCurrentTime(getLocalTime(weatherData.timezone));
+      setCurrentTime(getLocalTime(data.timezone));
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [weatherData.timezone]);
+  }, [data.timezone]);
 
   return (
-    <section className="cityInfo w-[87%] xs:w-5/6 lg:w-3/4 relative bottom-20 px-2 pt-24 pb-5 ml-auto -mb-20 mlg:-mb-16 rounded-bl-full flex flex-wrap justify-self-end justify-end md:justify-center md:flex-col md:content-end max-h-44 2xs:max-h-none md:max-h-48 bg-white font-librefranklin shadow-[-4px_4px_5px_rgba(0,0,0,0.1)]">
+    <section
+      className={`${loadingOpacity(
+        loading
+      )} cityInfo w-[87%] xs:w-5/6 lg:w-3/4 relative bottom-20 px-2 pt-24 pb-5 ml-auto -mb-20 mlg:-mb-16 rounded-bl-full flex flex-wrap justify-self-end justify-end md:justify-center md:flex-col md:content-end max-h-44 2xs:max-h-none md:max-h-48 bg-white font-librefranklin shadow-[-4px_4px_5px_rgba(0,0,0,0.1)]`}
+    >
       <h3 className="inline-block px-1 text-2xl text-right truncate xs:max-w-full max-w-40 2xs:text-3xl md:text-4xl">
-        {weatherData.city}
+        {data.city}
       </h3>
       <span className="text-3xl opacity-50 2xs:text-4xl md:hidden">~</span>
       <h3 className="inline-block md:order-last min-w-[2.8em] text-2xl 2xs:text-3xl md:text-7xl md:ml-3 px-1 ">
