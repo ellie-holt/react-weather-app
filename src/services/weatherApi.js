@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const OPENWEATHER_API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
-const SHECODES_API_KEY = process.env.REACT_APP_SHECODES_API_KEY;
+const OPENWEATHER_API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
+const SHECODES_API_KEY = import.meta.env.VITE_SHECODES_API_KEY;
 
 const openWeatherClient = axios.create({
   baseURL: "https://api.openweathermap.org/data/2.5/",

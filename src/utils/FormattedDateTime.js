@@ -80,5 +80,5 @@ export default function FormattedDateTime({ timestamp, format }) {
     }
   });
 
-  return <span>{formattedString}</span>;
+  return React.createElement("span", null, formattedString);
 }
