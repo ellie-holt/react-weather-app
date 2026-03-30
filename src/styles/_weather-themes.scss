@@ -1,4 +1,4 @@
-@import "theme-template";
+@use "theme-template" as *;
 
 .App.clear-day {
   @include theme-template(
