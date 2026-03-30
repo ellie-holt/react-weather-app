@@ -27,7 +27,7 @@ You can view the live version here: [Live Demo](https://herecomestherainagain.ne
 ### Core
 
 - [React](https://reactjs.org/)
-- [Create React App](https://create-react-app.dev/)
+- [Vite](https://vite.dev/)
 
 ### Styling
 
