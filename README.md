@@ -77,9 +77,6 @@ This project uses the [OpenWeatherMap API](https://openweathermap.org/api) and t
 - **Refactor code and improve comments:**  
   Some areas of the codebase could do with some light refactoring and clearer inline comments to improve readability.
 
-- **Address depracated Sass functions:**  
-  I need to replace some of the outdated Sass colour functions.
-
 ---
 
 ## License

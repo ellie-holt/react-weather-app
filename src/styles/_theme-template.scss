@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @mixin theme-template(
   $primary-bg-start,
   $primary-bg-end,
@@ -19,11 +21,7 @@
   $table-border
 ) {
   /* Base colours */
-  background: linear-gradient(
-    to bottom,
-    $primary-bg-start 20%,
-    $primary-bg-end
-  );
+  background: linear-gradient(to bottom, $primary-bg-start 20%, $primary-bg-end);
   background-color: $primary-bg-start;
   color: $primary-text;
 
@@ -52,11 +50,11 @@
     border: 2px solid $ui-border;
     color: $ui-text;
     &:hover {
-      background-color: darken($ui-bg, 5%);
-      border-color: fade-out($ui-border, 0.3);
+      background-color: color.adjust($ui-bg, $lightness: -5%);
+      border-color: color.adjust($ui-border, $alpha: -0.3);
     }
     &:active {
-      border-color: fade-out($ui-border, 0.5);
+      border-color: color.adjust($ui-border, $alpha: -0.5);
     }
   }
 
