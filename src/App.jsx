@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { fetchCurrentWeather, fetchForecast } from "./services/weatherApi";
 
 import Search from "./components/Search";
@@ -7,6 +7,7 @@ import CurrentWeather from "./components/currentweather/CurrentWeather";
 import WeatherForecast from "./components/weatherforecast/WeatherForecast";
 import Footer from "./components/Footer";
 
+import { formatCurrentWeather } from "./utils/formatWeatherData";
 import SetTheme from "./utils/SetTheme";
 
 function App() {
@@ -14,39 +15,16 @@ function App() {
   const [forecastState, setForecastState] = useState({ data: null, loading: false, error: null });
   const [unit, setUnit] = useState("metric");
 
-  function handleResponse(data) {
-    const formattedData = {
-      temperature: {
-        current: data.main.temp,
-        feels_like: data.main.feels_like,
-        min: data.main.temp_min,
-        max: data.main.temp_max,
-      },
-      humidity: data.main.humidity,
-      pressure: data.main.pressure,
-      wind: {
-        speed: data.wind.speed,
-        direction: data.wind.deg,
-      },
-      visibility: data.visibility,
-      cloud_cover: data.clouds.all,
-      description: data.weather[0].description,
-      icon: data.weather[0].icon,
-      city: data.name,
-      coordinates: data.coord,
-      timezone: data.timezone,
-    };
-
-    setWeatherState({ data: formattedData, loading: false, error: null });
-    fetchForecastData(data.coord);
-  }
-
   async function fetchWeatherData(query) {
     setWeatherState(prev => ({ ...prev, loading: true, error: null }));
 
     try {
       const data = await fetchCurrentWeather(query);
-      handleResponse(data);
+      const formattedData = formatCurrentWeather(data);
+
+      setWeatherState({ data: formattedData, loading: false, error: null });
+
+      fetchForecastData(data.coord);
     } catch (error) {
       console.error("Error fetching weather data:", error.message);
       setWeatherState(prev => ({ ...prev, loading: false, error: error.message }));
