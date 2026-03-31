@@ -1,4 +1,3 @@
-import React from "react";
 import IconSelect from "../../utils/IconSelect";
 import icons from "../../img/icons";
 

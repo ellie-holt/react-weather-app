@@ -1,5 +1,3 @@
-import React from "react";
-
 import DayCard from "./DayCard";
 
 import SetTheme from "../../utils/SetTheme";

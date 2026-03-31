@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
@@ -63,7 +63,7 @@ export default function Accordion({ summary, details }) {
       {isOpen && (
         <div
           id="accordion-details"
-          area-labelledby="accordion-summary"
+          aria-labelledby="accordion-summary"
           className="accordion-content"
         >
           {details}
