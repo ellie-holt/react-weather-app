@@ -1,46 +1,42 @@
-import { useState, useEffect } from "react";
+import { useEffect, useReducer } from "react";
 import { fetchCurrentWeather, fetchForecast } from "../services/weatherApi";
 import { formatCurrentWeather } from "../utils/formatWeatherData";
 
+import { weatherReducer, initialState } from "../state/weatherReducer";
+
 export default function useWeather(defaultCity = "London") {
-  const [weatherState, setWeatherState] = useState({ data: null, loading: false, error: null });
-  const [forecastState, setForecastState] = useState({ data: null, loading: false, error: null });
-  const [unit, setUnit] = useState("metric");
+  const [state, dispatch] = useReducer(weatherReducer, initialState);
 
   async function fetchWeatherData(query) {
-    setWeatherState(prev => ({ ...prev, loading: true, error: null }));
+    dispatch({ type: "WEATHER/FETCH_START" });
 
     try {
       const data = await fetchCurrentWeather(query);
       const formattedData = formatCurrentWeather(data);
 
-      setWeatherState({ data: formattedData, loading: false, error: null });
+      dispatch({ type: "WEATHER/FETCH_SUCCESS", payload: formattedData });
 
       fetchForecastData(data.coord);
     } catch (error) {
       console.error("Error fetching weather data:", error.message);
-      setWeatherState(prev => ({ ...prev, loading: false, error: error.message }));
+      dispatch({ type: "WEATHER/FETCH_ERROR", payload: error.message });
     }
   }
 
   async function fetchForecastData(coord) {
-    setForecastState(prev => ({ ...prev, loading: true, error: null }));
+    dispatch({ type: "FORECAST/FETCH_START" });
 
     try {
       const data = await fetchForecast(coord);
-      setForecastState({
-        data: data.daily,
-        loading: false,
-        error: null,
-      });
+      dispatch({ type: "FORECAST/FETCH_SUCCESS", payload: data.daily });
     } catch (error) {
       console.error("Error fetching forecast data:", error.message);
-      setForecastState(prev => ({ ...prev, loading: false, error: error.message }));
+      dispatch({ type: "FORECAST/FETCH_ERROR", payload: error.message });
     }
   }
 
   function changeUnit(newUnit) {
-    setUnit(newUnit);
+    dispatch({ type: "UNIT/CHANGE", payload: newUnit });
   }
 
   useEffect(() => {
@@ -48,9 +44,9 @@ export default function useWeather(defaultCity = "London") {
   }, [defaultCity]);
 
   return {
-    weatherState,
-    forecastState,
-    unit,
+    weatherState: state.weather,
+    forecastState: state.forecast,
+    unit: state.unit,
     fetchWeatherData,
     changeUnit,
   };
