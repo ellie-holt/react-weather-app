@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import FormattedDateTime from "../utils/FormattedDateTime";
 import loadingOpacity from "../utils/loadingOpacity";
 

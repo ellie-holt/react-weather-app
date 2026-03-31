@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
-  const [city, setCity] = useState(defaultCity);
+export default function Search({ fetchWeatherData, changeUnit, unit, defaultCity = "London" }) {
+  const [city, setCity] = useState("");
 
   function handleCurrentClick() {
     navigator.geolocation.getCurrentPosition(position => {
@@ -15,10 +15,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
   }
 
   function handleUnitClick() {
-    let unitButton = document.getElementById("unit-button");
-    let unit = unitButton.textContent === "℉" ? "imperial" : "metric";
-    unitButton.textContent = unit === "metric" ? "℉" : "℃";
-    changeUnit(unit);
+    changeUnit(unit === "metric" ? "imperial" : "metric");
   }
 
   function handleCityChange(event) {
@@ -27,7 +24,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetchWeatherData({ city });
+    fetchWeatherData({ city: city.trim() || defaultCity });
   }
 
   return (
@@ -54,10 +51,11 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
             type="search"
             id="search-bar"
             className="z-10 w-3/4 border-r-0 rounded-r-none input xs:w-full"
-            placeholder="Type city here..."
+            placeholder={`Type city here... (e.g. ${defaultCity})`}
             autoFocus
             required
             aria-describedby="search-button"
+            value={city}
             onChange={handleCityChange}
           />
           <button type="submit" id="search-button" className="rounded-l-none button">
@@ -71,7 +69,7 @@ export default function Search({ fetchWeatherData, changeUnit, defaultCity }) {
           className="button flex items-center justify-center rounded-full text-xs 2xs:text-sm 2xl:text-base px-2.5 self-stretch 2xs:min-w-10 2xl:w-11 w-9"
           onClick={handleUnitClick}
         >
-          ℉
+          {unit === "metric" ? "℉" : "℃"}
         </button>
       </form>
     </nav>

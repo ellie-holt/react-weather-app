@@ -1,5 +1,3 @@
-import React from "react";
-
 import Accordion from "../Accordion";
 
 import SetTheme from "../../utils/SetTheme";
