@@ -1,0 +1,64 @@
+@mixin interactive-surface {
+  @apply backdrop-blur-md transition-all duration-300 ease-out;
+}
+
+@mixin elevation-rest {
+  @apply shadow-[3px_3px_0_rgba(0,0,0,0.2)];
+}
+
+@mixin elevation-hover {
+  @apply hover:shadow-[4px_4px_0_rgba(0,0,0,0.25)];
+}
+
+@mixin elevation-focus {
+  @apply focus:shadow-[2px_2px_0_rgba(0,0,0,0.3)];
+}
+
+@mixin elevation-active {
+  @apply active:shadow-[2px_2px_2px_rgba(0,0,0,0.2)];
+}
+
+@mixin active-press {
+  @apply active:scale-[0.98];
+}
+
+@mixin glass-surface {
+  @apply bg-white/10 border border-white/15 ring-1 ring-white/5 backdrop-blur-lg backdrop-saturate-150 shadow-[2px_10px_24px_rgba(15,23,42,0.12)] transition-all duration-300 ease-out;
+  box-shadow:
+    2px 10px 24px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+@mixin glass-surface-elevated {
+  @apply bg-white/10 border border-white/15 ring-1 ring-white/5 backdrop-blur-lg backdrop-saturate-150 shadow-[2px_12px_28px_rgba(15,23,42,0.15)] transition-all duration-300 ease-out;
+  box-shadow:
+    2px 12px 28px rgba(15, 23, 42, 0.15),
+    1px 4px 10px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26);
+}
+
+@mixin glass-card-surface {
+  @include glass-surface();
+}
+
+@mixin glass-card-surface-elevated {
+  @include glass-surface-elevated();
+}
+
+@mixin spacing-tokens {
+  :root {
+    --space-outside-inline: 1rem;
+    --space-outside-inline-lg: 1.25rem;
+    --space-outside-block: 0.75rem;
+    --space-outside-block-lg: 0.875rem;
+
+    --space-inside-inline: 0.75rem;
+    --space-inside-inline-lg: 1rem;
+    --space-inside-block: 0.5rem;
+    --space-inside-block-lg: 0.625rem;
+    --space-inside-gap: 0.75rem;
+
+    --space-table-row-y: 0.375rem;
+    --space-table-row-y-lg: 0.5rem;
+  }
+}

@@ -1,0 +1,42 @@
+@use "../utilities/primitives" as primitives;
+
+@mixin button-styles {
+  @layer components {
+    .button {
+      @apply py-1.5 px-2 text-sm 3xs:text-base 3xl:text-lg font-bold border-2;
+
+      @include primitives.interactive-surface();
+      @include primitives.elevation-rest();
+      @include primitives.elevation-hover();
+      @include primitives.elevation-active();
+      @include primitives.active-press();
+    }
+
+    .button--rounded {
+      @apply rounded-xl;
+    }
+
+    .button--round {
+      @apply rounded-full w-9 h-9 3xs:w-10 3xs:h-10 3xl:w-11 3xl:h-11 p-0 inline-flex items-center justify-center;
+    }
+
+    .button--round-sm {
+      @apply rounded-full w-8 h-8 p-0 inline-flex items-center justify-center;
+    }
+
+    .button--search {
+      @apply rounded-xl rounded-l-none px-3;
+    }
+
+    .button-caret {
+      @apply inline-flex items-center justify-center leading-none origin-center text-xl;
+      width: 1em;
+      height: 1em;
+      transform-origin: center;
+    }
+
+    .button-caret--sm {
+      @apply text-base;
+    }
+  }
+}

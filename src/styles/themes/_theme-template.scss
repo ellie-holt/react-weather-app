@@ -1,0 +1,191 @@
+@use "sass:color";
+
+@mixin theme-template(
+  $app-bg-start,
+  $app-bg-end,
+  $app-text-primary,
+  $surface-bg,
+  $surface-bg-alt,
+  $surface-text,
+  $surface-border,
+  $surface-shadow,
+  $surface-divider,
+  $interactive-bg,
+  $interactive-bg-hover,
+  $interactive-border,
+  $interactive-text,
+  $interactive-shadow,
+  $interactive-shadow-hover,
+  $interactive-link,
+  $interactive-link-hover,
+  $interactive-link-active,
+  $interactive-link-visited,
+  $input-bg,
+  $input-text,
+  $input-border,
+  $input-placeholder,
+  $input-focus-ring
+) {
+  /* Base colours */
+  background: linear-gradient(to bottom, $app-bg-start 20%, $app-bg-end);
+  background-color: $app-bg-start;
+  color: $app-text-primary;
+
+  /* Scrollbar */
+  .styled-scrollbar {
+    scrollbar-color: $surface-border $app-bg-start;
+  }
+
+  /* Link theme */
+  a {
+    color: $interactive-link;
+    &:visited {
+      color: $interactive-link-visited;
+    }
+    &:hover {
+      color: $interactive-link-hover;
+    }
+    &:active {
+      color: $interactive-link-active;
+    }
+  }
+
+  /* Button theme */
+  .button {
+    background-color: $interactive-bg;
+    border: 2px solid $interactive-border;
+    color: $interactive-text;
+    box-shadow: 1px 2px 0 0 color.adjust($interactive-shadow, $alpha: -0.25);
+
+    &:hover {
+      background-color: $interactive-bg-hover;
+      box-shadow: 1px 3px 0 0 color.adjust($interactive-shadow-hover, $alpha: -0.2);
+    }
+
+    &:active {
+      border-color: color.adjust($interactive-border, $alpha: -0.25);
+    }
+  }
+
+  /* Text input theme */
+  .input {
+    background-color: $input-bg;
+    border: 2px solid $input-border;
+    border-right: 0;
+    color: $input-text;
+
+    &::placeholder {
+      color: $input-placeholder;
+    }
+
+    &:focus {
+      outline: $input-focus-ring;
+      box-shadow: 0 0 0 2px $input-focus-ring;
+    }
+  }
+
+  /* Main weather */
+  .weatherMain .description {
+    color: $app-text-primary;
+  }
+
+  .weatherMain .feels-like-temp {
+    color: color.adjust($app-text-primary, $alpha: -0.24);
+  }
+
+  /* Weather table */
+  .weatherTable {
+    color: $surface-text;
+
+    .weather-report-shell {
+      border: 2px solid $surface-border;
+      border-radius: 0.875rem;
+      background-color: $surface-bg;
+      color: $surface-text;
+      box-shadow: 2px 6px 14px color.adjust($surface-shadow, $alpha: -0.7);
+    }
+
+    .weather-report-header {
+      border-bottom: 1px solid color.adjust($surface-divider, $alpha: -0.35);
+    }
+
+    .weather-report-section-row {
+      background-color: color.adjust($surface-bg-alt, $alpha: -0.68);
+    }
+
+    .accordion-toggle {
+      border: 1px solid $surface-border;
+      background-color: $surface-bg;
+      border-radius: 0.875rem;
+      color: $surface-text;
+      box-shadow: 2px 4px 10px color.adjust($surface-shadow, $alpha: -0.7);
+    }
+
+    .accordion-content {
+      margin-top: 0.5rem;
+      border: 1px solid $surface-border;
+      border-radius: 0.875rem;
+      background-color: $surface-bg;
+      color: $surface-text;
+      box-shadow: 2px 6px 14px color.adjust($surface-shadow, $alpha: -0.7);
+    }
+
+    .weather-report-shell .accordion-toggle {
+      border: 0;
+      border-top: 1px solid color.adjust($surface-divider, $alpha: -0.35);
+      border-radius: 0;
+      background-color: transparent;
+      box-shadow: none;
+      color: $surface-text;
+    }
+
+    .weather-report-shell .accordion-content {
+      margin-top: 0;
+      border: 0;
+      border-radius: 0;
+      background-color: transparent;
+      box-shadow: none;
+      color: $surface-text;
+    }
+
+    .table-content tbody tr {
+      th {
+        color: $surface-text;
+      }
+
+      td {
+        color: $surface-text;
+      }
+    }
+  }
+
+  /* Weather forecast */
+  .weatherForecast {
+    .dayCard {
+      background-color: $surface-bg;
+      color: $surface-text;
+      border: 2px solid $surface-border;
+      box-shadow: 2px 6px 14px color.adjust($surface-shadow, $alpha: -0.7);
+    }
+  }
+
+  /* Frame */
+  .cityInfo,
+  .app-footer div {
+    background-color: $surface-bg;
+    color: $surface-text;
+    border-color: color.adjust($surface-border, $alpha: -0.3);
+    box-shadow: 1px 4px 10px color.adjust($surface-shadow, $alpha: -0.78);
+  }
+
+  .app-main > .weatherMain,
+  .app-main > .weatherTable,
+  .app-main > .weatherForecast {
+    background-color: color.adjust($surface-bg, $alpha: -0.58);
+    color: $surface-text;
+    border-color: color.adjust($surface-border, $alpha: -0.6);
+    box-shadow:
+      2px 12px 28px color.adjust($surface-shadow, $alpha: -0.8),
+      inset 0 1px 0 color.adjust(#ffffff, $alpha: -0.74);
+  }
+}

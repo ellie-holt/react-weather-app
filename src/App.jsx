@@ -15,8 +15,8 @@ function App() {
   let themeClass = SetTheme(weatherState.data);
 
   return (
-    <div className={`App flex flex-col min-h-screen ${themeClass}`}>
-      <main className={`w-full flex-grow flex flex-col`}>
+    <div className={`App app-shell app-shell--overlap ${themeClass}`}>
+      <header className="app-header layout-grid">
         <Search
           fetchWeatherData={fetchWeatherData}
           changeUnit={changeUnit}
@@ -24,12 +24,18 @@ function App() {
           defaultCity="London"
         />
         <CityInfo weatherState={weatherState} />
-        <div className="flex flex-col sm:mx-4 md:mx-8 mlg:mx-14 lg:mx-16 mlg:m-auto mlg:flex-row-reverse mlg:gap-2 mlg:justify-center mlg:items-start 2xl:items-center">
-          <CurrentWeather weatherState={weatherState} unit={unit} />
-          <WeatherForecast weatherState={weatherState} forecastState={forecastState} unit={unit} />
-        </div>
+      </header>
+
+      <main className="app-main layout-grid">
+        {/* <div className="weather-layout"> */}
+        <CurrentWeather weatherState={weatherState} unit={unit} />
+        <WeatherForecast weatherState={weatherState} forecastState={forecastState} unit={unit} />
+        {/* </div> */}
       </main>
-      <Footer />
+
+      <footer className="app-footer layout-grid">
+        <Footer />
+      </footer>
     </div>
   );
 }
