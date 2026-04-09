@@ -5,14 +5,25 @@ import WeatherTable from "./WeatherTable";
 
 export default function CurrentWeather({ weatherState, unit }) {
   const { loading } = weatherState;
+  const sectionStateClass = loadingOpacity(loading);
+
   return (
-    <article
-      className={`${loadingOpacity(
-        loading
-      )} items-center justify-center currentWeather 2xl:flex 2xl:gap-4`}
-    >
-      <WeatherMain weatherData={weatherState.data} unit={unit} />
-      <WeatherTable weatherData={weatherState.data} unit={unit} />
-    </article>
+    <>
+      <h2 id="current-weather-heading" className="sr-only">
+        Current weather
+      </h2>
+      <WeatherMain
+        weatherData={weatherState.data}
+        unit={unit}
+        className={sectionStateClass}
+        ariaLabelledBy="current-weather-heading"
+      />
+      <WeatherTable
+        weatherData={weatherState.data}
+        unit={unit}
+        className={`${sectionStateClass}`}
+        ariaLabelledBy="current-weather-heading"
+      />
+    </>
   );
 }
