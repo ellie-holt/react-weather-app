@@ -1,25 +1,44 @@
+@use "sass:color";
+
 @mixin interactive-surface {
-  @apply backdrop-blur-md transition-all duration-300 ease-out;
+  @apply transition-[transform,box-shadow,background-color,border-color,color] duration-200 ease-out;
 }
 
-@mixin elevation-rest {
-  @apply shadow-[3px_3px_0_rgba(0,0,0,0.2)];
+@mixin interactive-shift {
+  @apply translate-x-0 translate-y-0 will-change-transform hover:-translate-x-[0.5px] hover:-translate-y-[0.5px] active:translate-x-[0.5px] active:translate-y-[0.5px] motion-reduce:transform-none;
 }
 
-@mixin elevation-hover {
-  @apply hover:shadow-[4px_4px_0_rgba(0,0,0,0.25)];
-}
+// @mixin elevation-rest {
+//   @apply shadow-[3px_3px_2px_rgba(0,0,0,0.18)];
+// }
 
-@mixin elevation-focus {
-  @apply focus:shadow-[2px_2px_0_rgba(0,0,0,0.3)];
-}
+// @mixin elevation-hover {
+//   @apply hover:shadow-[4px_4px_3px_rgba(0,0,0,0.24)];
+// }
 
-@mixin elevation-active {
-  @apply active:shadow-[2px_2px_2px_rgba(0,0,0,0.2)];
-}
+// @mixin elevation-focus {
+//   @apply focus:shadow-[2px_2px_3px_rgba(0,0,0,0.28)];
+// }
+
+// @mixin elevation-active {
+//   @apply active:shadow-[1px_1px_1px_rgba(0,0,0,0.3)];
+// }
 
 @mixin active-press {
-  @apply active:scale-[0.98];
+  @apply active:scale-100;
+}
+
+@mixin focus-ring($ring-color, $base-shadow: null) {
+  outline: 2px solid color.adjust($ring-color, $alpha: -0.12);
+  outline-offset: 2px;
+
+  @if $base-shadow == null {
+    box-shadow: 0 0 0 2px color.adjust($ring-color, $alpha: -0.3);
+  } @else {
+    box-shadow:
+      0 0 0 2px color.adjust($ring-color, $alpha: -0.3),
+      $base-shadow;
+  }
 }
 
 @mixin glass-surface {

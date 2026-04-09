@@ -45,6 +45,7 @@ export default function WeatherTable({ weatherData, unit, className = "", ariaLa
     hour: "2-digit",
     minute: "2-digit",
   });
+  const pressureAtGroundLevel = atmosphere.ground_level ?? atmosphere.pressure;
 
   const formatWithSubUnit = (value, subUnit) => {
     if (value == null || value === "—") return "—";
@@ -140,18 +141,12 @@ export default function WeatherTable({ weatherData, unit, className = "", ariaLa
       title: "Pressure",
       rows: [
         {
-          label: "Pressure",
-          value: formatWithSubUnit(atmosphere.pressure, "hPa"),
+          label: "at Ground level",
+          value: formatWithSubUnit(pressureAtGroundLevel, "hPa"),
         },
         {
-          label: "Sea level",
+          label: "at Sea level",
           value: formatWithSubUnit(atmosphere.sea_level, "hPa"),
-          show: atmosphere.sea_level != null,
-        },
-        {
-          label: "Ground level",
-          value: formatWithSubUnit(atmosphere.ground_level, "hPa"),
-          show: atmosphere.ground_level != null,
         },
       ],
     },

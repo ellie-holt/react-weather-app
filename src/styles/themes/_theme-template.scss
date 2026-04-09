@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "../utilities/primitives" as primitives;
 
 @mixin theme-template(
   $app-bg-start,
@@ -50,20 +51,61 @@
     }
   }
 
+  :where(
+      a[href],
+      button,
+      input:not([type="hidden"]),
+      select,
+      textarea,
+      summary,
+      .carousel,
+      .accordion-content,
+      [role="button"],
+      [tabindex]:not([tabindex="-1"])
+    ):not(:disabled):not([aria-disabled="true"]):focus-visible {
+    @include primitives.focus-ring($input-focus-ring);
+  }
+
+  .carousel:focus {
+    @include primitives.focus-ring($input-focus-ring);
+  }
+
+  .accordion-content:focus {
+    @include primitives.focus-ring($input-focus-ring);
+  }
+
   /* Button theme */
   .button {
     background-color: $interactive-bg;
     border: 2px solid $interactive-border;
     color: $interactive-text;
-    box-shadow: 1px 2px 0 0 color.adjust($interactive-shadow, $alpha: -0.25);
+    box-shadow: 1px 1px 2px 0 color.adjust($interactive-shadow, $alpha: -0.28);
 
-    &:hover {
-      background-color: $interactive-bg-hover;
-      box-shadow: 1px 3px 0 0 color.adjust($interactive-shadow-hover, $alpha: -0.2);
+    &:disabled,
+    &[aria-disabled="true"] {
+      background-color: color.adjust($interactive-bg, $alpha: -0.22);
+      border-color: color.adjust($interactive-border, $alpha: -0.32);
+      color: color.adjust($interactive-text, $alpha: -0.26);
+      box-shadow: 0.5px 0.5px 0.5px 0 color.adjust($interactive-shadow, $alpha: -0.15);
     }
 
-    &:active {
+    &:not(:disabled):not([aria-disabled="true"]):hover {
+      background-color: $interactive-bg-hover;
+      box-shadow: 1.5px 1.5px 2px 0 color.adjust($interactive-shadow-hover, $alpha: -0.3);
+    }
+
+    &.button--search:not(:disabled):not([aria-disabled="true"]):hover {
+      box-shadow: 1px 1px 2px 0 color.adjust($interactive-shadow, $alpha: -0.25);
+    }
+
+    &:not(:disabled):not([aria-disabled="true"]):active {
       border-color: color.adjust($interactive-border, $alpha: -0.25);
+      box-shadow: 0.5px 0.5px 0.5px 0 color.adjust($interactive-shadow, $alpha: -0.15);
+    }
+
+    &:disabled .button-caret,
+    &[aria-disabled="true"] .button-caret {
+      color: color.adjust($interactive-text, $alpha: -0.1);
     }
   }
 
@@ -73,14 +115,14 @@
     border: 2px solid $input-border;
     border-right: 0;
     color: $input-text;
+    box-shadow: 1px 1px 2px 0 color.adjust($interactive-shadow, $alpha: -0.3);
 
     &::placeholder {
       color: $input-placeholder;
     }
 
-    &:focus {
-      outline: $input-focus-ring;
-      box-shadow: 0 0 0 2px $input-focus-ring;
+    &:active {
+      box-shadow: 1px 1px 1px 0 color.adjust($interactive-shadow, $alpha: -0.18);
     }
   }
 
@@ -119,6 +161,19 @@
       border-radius: 0.875rem;
       color: $surface-text;
       box-shadow: 2px 4px 10px color.adjust($surface-shadow, $alpha: -0.7);
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        box-shadow:
+          inset 0 0 0 3px color.adjust($input-focus-ring, $alpha: -0.25),
+          2px 4px 10px color.adjust($surface-shadow, $alpha: -0.7);
+      }
+    }
+
+    .weather-report-more-toggle:hover .button {
+      background-color: $interactive-bg-hover;
+      box-shadow: 1.5px 1.5px 2px 0 color.adjust($interactive-shadow-hover, $alpha: -0.3);
     }
 
     .accordion-content {
@@ -128,6 +183,14 @@
       background-color: $surface-bg;
       color: $surface-text;
       box-shadow: 2px 6px 14px color.adjust($surface-shadow, $alpha: -0.7);
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        box-shadow:
+          inset 0 0 0 3px color.adjust($input-focus-ring, $alpha: -0.25),
+          2px 6px 14px color.adjust($surface-shadow, $alpha: -0.7);
+      }
     }
 
     .weather-report-shell .accordion-toggle {
@@ -137,6 +200,12 @@
       background-color: transparent;
       box-shadow: none;
       color: $surface-text;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        box-shadow: inset 0 0 0 3px color.adjust($input-focus-ring, $alpha: -0.25);
+      }
     }
 
     .weather-report-shell .accordion-content {
@@ -146,6 +215,12 @@
       background-color: transparent;
       box-shadow: none;
       color: $surface-text;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+        box-shadow: inset 0 0 0 3px color.adjust($input-focus-ring, $alpha: -0.25);
+      }
     }
 
     .table-content tbody tr {

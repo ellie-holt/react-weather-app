@@ -6,10 +6,6 @@
       @apply py-1.5 px-4 border-2 rounded-lg text-sm 3xs:text-base 3xl:text-lg font-semibold;
 
       @include primitives.interactive-surface();
-      @include primitives.elevation-rest();
-      @include primitives.elevation-hover();
-      @include primitives.elevation-focus();
-      @include primitives.elevation-active();
     }
   }
 }

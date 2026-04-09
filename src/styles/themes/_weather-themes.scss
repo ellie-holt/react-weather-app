@@ -44,7 +44,7 @@ $night-themes: (
       "input-text": palette-token($palette, muted, "muted-deep"),
       "input-border": palette-token($palette, accent, "accent-dark"),
       "input-placeholder": palette-token($palette, muted, "muted-dark"),
-      "input-focus-ring": palette-token($palette, muted, "accent-dark")
+      "input-focus-ring": palette-token($palette, accent, "accent")
     );
   }
 
@@ -72,7 +72,7 @@ $night-themes: (
     "input-text": palette-token($palette, muted, "muted-deep"),
     "input-border": palette-token($palette, accent, "accent-dark"),
     "input-placeholder": palette-token($palette, muted, "muted-dark"),
-    "input-focus-ring": palette-token($palette, primary, "primary-light")
+    "input-focus-ring": palette-token($palette, accent, "accent")
   );
 }
 

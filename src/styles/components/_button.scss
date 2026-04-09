@@ -3,13 +3,21 @@
 @mixin button-styles {
   @layer components {
     .button {
-      @apply py-1.5 px-2 text-sm 3xs:text-base 3xl:text-lg font-bold border-2;
+      @apply py-1.5 px-2 text-sm 3xs:text-base 3xl:text-lg font-bold border-2 relative;
 
       @include primitives.interactive-surface();
-      @include primitives.elevation-rest();
-      @include primitives.elevation-hover();
-      @include primitives.elevation-active();
       @include primitives.active-press();
+
+      &:disabled,
+      &[aria-disabled="true"] {
+        @apply cursor-not-allowed;
+        transform: translate(0.5px, 0.5px);
+      }
+    }
+
+    .button:not(.button--search):not(:disabled):not([aria-disabled="true"]) {
+      @apply transform-gpu [backface-visibility:hidden] [transform-style:preserve-3d];
+      @include primitives.interactive-shift();
     }
 
     .button--rounded {

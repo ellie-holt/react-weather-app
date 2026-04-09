@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Children } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,13 +20,46 @@ export default function Carousel({
   style,
   ...props
 }) {
+  const { onScroll, ...restProps } = props;
   const carouselRef = useRef(null);
   const isVertical = orientation === "vertical";
   const isSmallRoundButton = buttonVariant === "roundSm";
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
   const safeVisibleCards = Math.max(1, Number(visibleCards) || 1);
   const gapValue = typeof gap === "number" ? `${gap}px` : gap;
   const itemSize = `calc((100% - (${safeVisibleCards - 1} * ${gapValue})) / ${safeVisibleCards})`;
   const snapAxisClass = isVertical ? "snap-y" : "snap-x";
+
+  const updateScrollState = useCallback(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const current = isVertical ? carousel.scrollTop : carousel.scrollLeft;
+    const max = isVertical
+      ? carousel.scrollHeight - carousel.clientHeight
+      : carousel.scrollWidth - carousel.clientWidth;
+    const epsilon = 1;
+
+    setCanScrollPrev(current > epsilon);
+    setCanScrollNext(current < max - epsilon);
+  }, [isVertical]);
+
+  useEffect(() => {
+    updateScrollState();
+  }, [updateScrollState, children, safeVisibleCards, gapValue]);
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const onResize = () => updateScrollState();
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, [updateScrollState]);
 
   function scrollByItem(step) {
     const carousel = carouselRef.current;
@@ -83,12 +116,16 @@ export default function Carousel({
   const carouselContent = (
     <Component
       ref={carouselRef}
-      className={`w-full h-full min-h-0 min-w-0 ${isVertical ? "flex flex-col overflow-y-auto overflow-x-visible" : "flex flex-row overflow-x-auto overflow-y-hidden"} ${enableSmoothScroll ? "scroll-smooth" : ""} ${enableSnap ? `${snapAxisClass} snap-mandatory` : ""} ${className}`}
+      className={`carousel w-full h-full min-h-0 min-w-0 ${isVertical ? "flex flex-col overflow-y-auto overflow-x-visible" : "flex flex-row overflow-x-auto overflow-y-hidden"} ${enableSmoothScroll ? "scroll-smooth" : ""} ${enableSnap ? `${snapAxisClass} snap-mandatory` : ""} ${className}`}
       style={{
         ...style,
         gap: gapValue,
       }}
-      {...props}
+      onScroll={event => {
+        updateScrollState();
+        onScroll?.(event);
+      }}
+      {...restProps}
     >
       {slottedChildren}
     </Component>
@@ -104,6 +141,7 @@ export default function Carousel({
       className="pointer-events-auto text-lg"
       aria-label="Scroll to previous item"
       onClick={() => scrollByItem(-1)}
+      disabled={!canScrollPrev}
     >
       <FontAwesomeIcon
         icon={faCaretDown}
@@ -118,6 +156,7 @@ export default function Carousel({
       className="pointer-events-auto text-lg"
       aria-label="Scroll to next item"
       onClick={() => scrollByItem(1)}
+      disabled={!canScrollNext}
     >
       <FontAwesomeIcon
         icon={faCaretDown}

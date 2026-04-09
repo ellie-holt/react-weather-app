@@ -24,6 +24,10 @@ export default function WeatherForecast({ weatherState, forecastState, unit }) {
   const carouselOrientation = is2xlUp ? "vertical" : "horizontal";
   const visibleCards = isBelow2xs ? 2 : isXsDown ? 3 : 4;
   const carouselButtonVariant = is2xsDown ? "roundSm" : "round";
+  const loadingCardCount = visibleCards;
+  const forecastDays = loading
+    ? Array.from({ length: loadingCardCount }, (_, index) => ({ id: `loading-${index}` }))
+    : (data ?? []).slice(1);
 
   useEffect(() => {
     const mediaQuery2xlUp = window.matchMedia("(min-width: 1280px)");
@@ -70,7 +74,7 @@ export default function WeatherForecast({ weatherState, forecastState, unit }) {
 
   return (
     <div className="weatherForecast max-h-[44rem] py-5 px-2 lg:px-0 h-auto">
-      {!loading && (
+      {forecastDays.length > 0 && (
         <Carousel
           as="article"
           showButtons
@@ -80,12 +84,15 @@ export default function WeatherForecast({ weatherState, forecastState, unit }) {
           gap={10}
           className={`${themeClass} ${loadingOpacity(loading)} h-full min-h-0 styled-scrollbar`}
         >
-          {data.map(
-            (day, index) =>
-              index > 0 && (
-                <DayCard dailyForecast={day} unit={unit} orientation={carouselOrientation} />
-              )
-          )}
+          {forecastDays.map((day, index) => (
+            <DayCard
+              key={loading ? day.id : `${day.time}-${index}`}
+              dailyForecast={day}
+              unit={unit}
+              orientation={carouselOrientation}
+              isLoading={loading}
+            />
+          ))}
         </Carousel>
       )}
     </div>
