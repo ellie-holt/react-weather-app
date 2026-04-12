@@ -18,6 +18,17 @@
         box-shadow: var(--input-shadow-active);
       }
 
+      // Override default background for autofill in WebKit browsers
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active,
+      &:-webkit-autofill:checked,
+      &:-webkit-autofill:disabled {
+        -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+
       @include primitives.interactive-surface();
     }
   }

@@ -13,7 +13,7 @@ export default function SearchBar({ city, onCityChange, defaultCity = "London" }
         type="search"
         id="search-bar"
         className="z-10 w-3/4 border-r-0 rounded-r-none input 2xs:w-full"
-        placeholder={`Type city here... (e.g. ${defaultCity})`}
+        placeholder={`Type city here...`}
         autoFocus
         required
         aria-describedby="search-button"
