@@ -1,20 +1,6 @@
-const VARIANT_CLASSES = {
-  glass: "card--glass",
-  glassElevated: "card--glass-elevated",
-  plain: "",
-};
-
-export default function Card({
-  as: Component = "section",
-  variant = "glass",
-  className = "",
-  children,
-  ...props
-}) {
-  const variantClass = VARIANT_CLASSES[variant] || VARIANT_CLASSES.glass;
-
+export default function Card({ as: Component = "section", className = "", children, ...props }) {
   return (
-    <Component className={`card ${variantClass} ${className}`} {...props}>
+    <Component className={`card ${className}`} {...props}>
       {children}
     </Component>
   );

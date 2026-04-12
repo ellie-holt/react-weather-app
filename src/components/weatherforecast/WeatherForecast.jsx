@@ -81,7 +81,7 @@ export default function WeatherForecast({ weatherState, forecastState, unit }) {
           buttonVariant={carouselButtonVariant}
           orientation={carouselOrientation}
           visibleCards={visibleCards}
-          gap={10}
+          gap={0}
           className={`${themeClass} ${loadingOpacity(loading)} h-full min-h-0 styled-scrollbar`}
         >
           {forecastDays.map((day, index) => (

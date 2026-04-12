@@ -27,6 +27,54 @@
   $input-placeholder,
   $input-focus-ring
 ) {
+  /* Theme variables to be used in component styles */
+
+  /* BUTTON */
+  --button-bg: #{$interactive-bg};
+  --button-border: #{$interactive-border};
+  --button-text: #{$interactive-text};
+  --button-shadow: 1px 1px 2px 0 #{color.adjust($interactive-shadow, $alpha: -0.28)};
+  --button-bg-disabled: #{color.adjust($interactive-bg, $alpha: -0.22)};
+  --button-border-disabled: #{color.adjust($interactive-border, $alpha: -0.32)};
+  --button-text-disabled: #{color.adjust($interactive-text, $alpha: -0.26)};
+  --button-caret-disabled: #{color.adjust($interactive-text, $alpha: -0.1)};
+  --button-shadow-disabled: 0.5px 0.5px 0.5px 0 #{color.adjust($interactive-shadow, $alpha: -0.15)};
+  --button-bg-hover: #{$interactive-bg-hover};
+  --button-shadow-hover: 1.5px 1.5px 2px 0 #{color.adjust($interactive-shadow-hover, $alpha: -0.3)};
+  --button-shadow-search-hover: 1px 1px 2px 0 #{color.adjust($interactive-shadow, $alpha: -0.25)};
+  --button-border-active: #{color.adjust($interactive-border, $alpha: -0.25)};
+  --button-shadow-active: 0.5px 0.5px 0.5px 0 #{color.adjust($interactive-shadow, $alpha: -0.15)};
+
+  /* INPUT */
+  --input-bg: #{$input-bg};
+  --input-border: #{$input-border};
+  --input-text: #{$input-text};
+  --input-placeholder: #{$input-placeholder};
+  --input-shadow: 1px 1px 2px 0 #{color.adjust($interactive-shadow, $alpha: -0.3)};
+  --input-shadow-active: 1px 1px 1px 0 #{color.adjust($interactive-shadow, $alpha: -0.18)};
+
+  /* CARD */
+  --card-bg: #{$surface-bg};
+  --card-text: #{$surface-text};
+  --card-border: #{$surface-border};
+  --card-shadow: 1px 2px 6px #{color.adjust($surface-shadow, $alpha: -0.76)};
+
+  /* TABLE */
+  --table-text: #{$surface-text};
+  --table-shell-border: #{$surface-border};
+  --table-shell-bg: #{$surface-bg};
+  --table-shell-shadow: 2px 6px 14px #{color.adjust($surface-shadow, $alpha: -0.7)};
+  --table-header-divider: #{color.adjust($surface-divider, $alpha: -0.35)};
+  --table-section-row-bg: #{color.adjust($surface-bg-alt, $alpha: -0.68)};
+  --table-accordion-border: #{$surface-border};
+  --table-accordion-bg: #{$surface-bg};
+  --table-accordion-shadow: 2px 4px 10px #{color.adjust($surface-shadow, $alpha: -0.7)};
+  --table-accordion-content-shadow: 2px 6px 14px #{color.adjust($surface-shadow, $alpha: -0.7)};
+  --table-focus-inset: 0 0 0 3px #{color.adjust($input-focus-ring, $alpha: -0.25)};
+  --table-more-toggle-button-hover-bg: #{$interactive-bg-hover};
+  --table-more-toggle-button-hover-shadow: 1.5px 1.5px 2px 0
+    #{color.adjust($interactive-shadow-hover, $alpha: -0.3)};
+
   /* Base colours */
   background: linear-gradient(to bottom, $app-bg-start 20%, $app-bg-end);
   background-color: $app-bg-start;
@@ -74,58 +122,6 @@
     @include primitives.focus-ring($input-focus-ring);
   }
 
-  /* Button theme */
-  .button {
-    background-color: $interactive-bg;
-    border: 2px solid $interactive-border;
-    color: $interactive-text;
-    box-shadow: 1px 1px 2px 0 color.adjust($interactive-shadow, $alpha: -0.28);
-
-    &:disabled,
-    &[aria-disabled="true"] {
-      background-color: color.adjust($interactive-bg, $alpha: -0.22);
-      border-color: color.adjust($interactive-border, $alpha: -0.32);
-      color: color.adjust($interactive-text, $alpha: -0.26);
-      box-shadow: 0.5px 0.5px 0.5px 0 color.adjust($interactive-shadow, $alpha: -0.15);
-    }
-
-    &:not(:disabled):not([aria-disabled="true"]):hover {
-      background-color: $interactive-bg-hover;
-      box-shadow: 1.5px 1.5px 2px 0 color.adjust($interactive-shadow-hover, $alpha: -0.3);
-    }
-
-    &.button--search:not(:disabled):not([aria-disabled="true"]):hover {
-      box-shadow: 1px 1px 2px 0 color.adjust($interactive-shadow, $alpha: -0.25);
-    }
-
-    &:not(:disabled):not([aria-disabled="true"]):active {
-      border-color: color.adjust($interactive-border, $alpha: -0.25);
-      box-shadow: 0.5px 0.5px 0.5px 0 color.adjust($interactive-shadow, $alpha: -0.15);
-    }
-
-    &:disabled .button-caret,
-    &[aria-disabled="true"] .button-caret {
-      color: color.adjust($interactive-text, $alpha: -0.1);
-    }
-  }
-
-  /* Text input theme */
-  .input {
-    background-color: $input-bg;
-    border: 2px solid $input-border;
-    border-right: 0;
-    color: $input-text;
-    box-shadow: 1px 1px 2px 0 color.adjust($interactive-shadow, $alpha: -0.3);
-
-    &::placeholder {
-      color: $input-placeholder;
-    }
-
-    &:active {
-      box-shadow: 1px 1px 1px 0 color.adjust($interactive-shadow, $alpha: -0.18);
-    }
-  }
-
   /* Main weather */
   .weatherMain .description {
     color: $app-text-primary;
@@ -133,115 +129,6 @@
 
   .weatherMain .feels-like-temp {
     color: color.adjust($app-text-primary, $alpha: -0.24);
-  }
-
-  /* Weather table */
-  .weatherTable {
-    color: $surface-text;
-
-    .weather-report-shell {
-      border: 2px solid $surface-border;
-      border-radius: 0.875rem;
-      background-color: $surface-bg;
-      color: $surface-text;
-      box-shadow: 2px 6px 14px color.adjust($surface-shadow, $alpha: -0.7);
-    }
-
-    .weather-report-header {
-      border-bottom: 1px solid color.adjust($surface-divider, $alpha: -0.35);
-    }
-
-    .weather-report-section-row {
-      background-color: color.adjust($surface-bg-alt, $alpha: -0.68);
-    }
-
-    .accordion-toggle {
-      border: 1px solid $surface-border;
-      background-color: $surface-bg;
-      border-radius: 0.875rem;
-      color: $surface-text;
-      box-shadow: 2px 4px 10px color.adjust($surface-shadow, $alpha: -0.7);
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-        box-shadow:
-          inset 0 0 0 3px color.adjust($input-focus-ring, $alpha: -0.25),
-          2px 4px 10px color.adjust($surface-shadow, $alpha: -0.7);
-      }
-    }
-
-    .weather-report-more-toggle:hover .button {
-      background-color: $interactive-bg-hover;
-      box-shadow: 1.5px 1.5px 2px 0 color.adjust($interactive-shadow-hover, $alpha: -0.3);
-    }
-
-    .accordion-content {
-      margin-top: 0.5rem;
-      border: 1px solid $surface-border;
-      border-radius: 0.875rem;
-      background-color: $surface-bg;
-      color: $surface-text;
-      box-shadow: 2px 6px 14px color.adjust($surface-shadow, $alpha: -0.7);
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-        box-shadow:
-          inset 0 0 0 3px color.adjust($input-focus-ring, $alpha: -0.25),
-          2px 6px 14px color.adjust($surface-shadow, $alpha: -0.7);
-      }
-    }
-
-    .weather-report-shell .accordion-toggle {
-      border: 0;
-      border-top: 1px solid color.adjust($surface-divider, $alpha: -0.35);
-      border-radius: 0;
-      background-color: transparent;
-      box-shadow: none;
-      color: $surface-text;
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-        box-shadow: inset 0 0 0 3px color.adjust($input-focus-ring, $alpha: -0.25);
-      }
-    }
-
-    .weather-report-shell .accordion-content {
-      margin-top: 0;
-      border: 0;
-      border-radius: 0;
-      background-color: transparent;
-      box-shadow: none;
-      color: $surface-text;
-
-      &:focus,
-      &:focus-visible {
-        outline: none;
-        box-shadow: inset 0 0 0 3px color.adjust($input-focus-ring, $alpha: -0.25);
-      }
-    }
-
-    .table-content tbody tr {
-      th {
-        color: $surface-text;
-      }
-
-      td {
-        color: $surface-text;
-      }
-    }
-  }
-
-  /* Weather forecast */
-  .weatherForecast {
-    .dayCard {
-      background-color: $surface-bg;
-      color: $surface-text;
-      border: 2px solid $surface-border;
-      box-shadow: 2px 6px 14px color.adjust($surface-shadow, $alpha: -0.7);
-    }
   }
 
   /* Frame */

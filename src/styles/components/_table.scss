@@ -1,5 +1,99 @@
 @mixin table-styles {
   @layer components {
+    .weatherTable {
+      color: var(--table-text);
+
+      .weather-report-shell {
+        border: 2px solid var(--table-shell-border);
+        background-color: var(--table-shell-bg);
+        color: var(--table-text);
+        box-shadow: var(--table-shell-shadow);
+      }
+
+      .weather-report-header {
+        border-bottom: 1px solid var(--table-header-divider);
+      }
+
+      .weather-report-section-row {
+        background-color: var(--table-section-row-bg);
+      }
+
+      .accordion-toggle {
+        border: 1px solid var(--table-accordion-border);
+        background-color: var(--table-accordion-bg);
+        border-radius: 0.875rem;
+        color: var(--table-text);
+        box-shadow: var(--table-accordion-shadow);
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          box-shadow:
+            inset var(--table-focus-inset),
+            var(--table-accordion-shadow);
+        }
+      }
+
+      .weather-report-more-toggle:hover .button {
+        background-color: var(--table-more-toggle-button-hover-bg);
+        box-shadow: var(--table-more-toggle-button-hover-shadow);
+      }
+
+      .accordion-content {
+        margin-top: 0.5rem;
+        border: 1px solid var(--table-accordion-border);
+        border-radius: 0.875rem;
+        background-color: var(--table-accordion-bg);
+        color: var(--table-text);
+        box-shadow: var(--table-accordion-content-shadow);
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          box-shadow:
+            inset var(--table-focus-inset),
+            var(--table-accordion-content-shadow);
+        }
+      }
+
+      .weather-report-shell .accordion-toggle {
+        border: 0;
+        border-top: 1px solid var(--table-header-divider);
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+        color: var(--table-text);
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          box-shadow: inset var(--table-focus-inset);
+        }
+      }
+
+      .weather-report-shell .accordion-content {
+        margin-top: 0;
+        border: 0;
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+        color: var(--table-text);
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          box-shadow: inset var(--table-focus-inset);
+        }
+      }
+
+      .table-content tbody tr {
+        th,
+        td {
+          color: var(--table-text);
+        }
+      }
+    }
+
     .weather-report-shell {
       @apply rounded-xl overflow-hidden;
     }

@@ -4,6 +4,10 @@
   @layer components {
     .button {
       @apply py-1.5 px-2 text-sm 3xs:text-base 3xl:text-lg font-bold border-2 relative;
+      background-color: var(--button-bg);
+      border-color: var(--button-border);
+      color: var(--button-text);
+      box-shadow: var(--button-shadow);
 
       @include primitives.interactive-surface();
       @include primitives.active-press();
@@ -11,7 +15,30 @@
       &:disabled,
       &[aria-disabled="true"] {
         @apply cursor-not-allowed;
+        background-color: var(--button-bg-disabled);
+        border-color: var(--button-border-disabled);
+        color: var(--button-text-disabled);
+        box-shadow: var(--button-shadow-disabled);
         transform: translate(0.5px, 0.5px);
+      }
+
+      &:not(:disabled):not([aria-disabled="true"]):hover {
+        background-color: var(--button-bg-hover);
+        box-shadow: var(--button-shadow-hover);
+      }
+
+      &.button--search:not(:disabled):not([aria-disabled="true"]):hover {
+        box-shadow: var(--button-shadow-search-hover);
+      }
+
+      &:not(:disabled):not([aria-disabled="true"]):active {
+        border-color: var(--button-border-active);
+        box-shadow: var(--button-shadow-active);
+      }
+
+      &:disabled .button-caret,
+      &[aria-disabled="true"] .button-caret {
+        color: var(--button-caret-disabled);
       }
     }
 

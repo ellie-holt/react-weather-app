@@ -1,7 +1,7 @@
 @mixin typography-styles {
   @layer base {
     body {
-      @apply text-sm sm:text-base leading-relaxed font-librefranklin;
+      @apply text-sm sm:text-base leading-relaxed font-librefranklin antialiased;
     }
 
     h1 {

@@ -11,16 +11,18 @@ export default function DayCard({
   className = "",
 }) {
   const isHorizontal = orientation === "horizontal";
+  const dayCardSpacingClass = isHorizontal
+    ? "py-3 gap-y-2"
+    : "gap-x-3 px-[var(--space-inside-inline)] sm:px-[var(--space-inside-inline-lg)] py-[var(--space-inside-block)] sm:py-[var(--space-inside-block-lg)]";
 
   if (isLoading) {
     return (
       <Card
-        variant="plain"
-        className={`carousel-item dayCard dayCard--${orientation} ${className}`}
+        className={`carousel-item dayCard dayCard--${orientation} ${dayCardSpacingClass} ${className}`}
         aria-busy="true"
       >
         <h2
-          className={`weekDay ${isHorizontal ? "text-center leading-snug" : "text-left leading-tight"}`}
+          className={`${isHorizontal ? "text-center leading-snug" : "text-left leading-tight"}`}
           aria-hidden="true"
         >
           <span
@@ -43,10 +45,10 @@ export default function DayCard({
           </span>
         </h2>
 
-        <div className="flex flex-col items-center justify-center text-center min-w-0">
+        <div className="flex flex-col justify-center items-center min-w-0 text-center">
           <div
             className={`rounded-full bg-black/15 animate-pulse ${
-              isHorizontal ? "w-10 h-10 sm:w-12 sm:h-12" : "w-14 h-14 sm:w-16 sm:h-16"
+              isHorizontal ? "w-10 h-10 sm:w-12 sm:h-12" : "mt-2 w-14 h-14 sm:w-16 sm:h-16"
             }`}
             aria-hidden="true"
           />
@@ -60,7 +62,7 @@ export default function DayCard({
           >
             <span
               className={`block rounded bg-black/10 animate-pulse ${
-                isHorizontal ? "h-3 w-20 sm:h-4 sm:w-24" : "h-3 w-24 sm:h-4 sm:w-28"
+                isHorizontal ? "h-3 w-20 sm:h-4 sm:w-24" : "mb-2 h-3 w-24 sm:h-4 sm:w-28"
               }`}
             />
           </p>
@@ -87,10 +89,10 @@ export default function DayCard({
   let iconVariant = IconSelect({ dailyForecast });
   let icon = icons[iconVariant];
   return (
-    <Card variant="plain" className={`carousel-item dayCard dayCard--${orientation} ${className}`}>
-      <h2
-        className={`weekDay ${isHorizontal ? "text-center leading-snug" : "text-left leading-tight"}`}
-      >
+    <Card
+      className={`carousel-item dayCard dayCard--${orientation} ${dayCardSpacingClass} ${className}`}
+    >
+      <h2 className={`${isHorizontal ? "text-center leading-snug" : "text-left leading-tight"}`}>
         <span
           className={`block font-semibold ${isHorizontal ? "text-base sm:text-lg" : "text-base 2xs:text-lg sm:text-xl font-bold"}`}
         >
@@ -103,7 +105,7 @@ export default function DayCard({
         </span>
       </h2>
 
-      <div className="flex flex-col items-center justify-center text-center min-w-0">
+      <div className="flex flex-col justify-center items-center min-w-0 text-center">
         <img
           src={icon}
           alt={dailyForecast.condition.description + " icon"}

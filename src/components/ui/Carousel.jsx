@@ -28,6 +28,8 @@ export default function Carousel({
   const [canScrollNext, setCanScrollNext] = useState(false);
   const safeVisibleCards = Math.max(1, Number(visibleCards) || 1);
   const gapValue = typeof gap === "number" ? `${gap}px` : gap;
+  const snapEdgePaddingVertical = "0.5rem";
+  const snapEdgePaddingHorizontal = "0.0625rem";
   const itemSize = `calc((100% - (${safeVisibleCards - 1} * ${gapValue})) / ${safeVisibleCards})`;
   const snapAxisClass = isVertical ? "snap-y" : "snap-x";
 
@@ -120,6 +122,15 @@ export default function Carousel({
       style={{
         ...style,
         gap: gapValue,
+        ...(isVertical
+          ? {
+              scrollPaddingTop: snapEdgePaddingVertical,
+              scrollPaddingBottom: snapEdgePaddingVertical,
+            }
+          : {
+              scrollPaddingLeft: snapEdgePaddingHorizontal,
+              scrollPaddingRight: snapEdgePaddingHorizontal,
+            }),
       }}
       onScroll={event => {
         updateScrollState();

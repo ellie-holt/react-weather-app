@@ -30,10 +30,6 @@
       @apply row-start-2 row-end-3 h-full grid grid-rows-2;
     }
 
-    // .app-main > .weatherForecast {
-    //   @apply min-h-44;
-    // }
-
     @screen lg {
       .app-shell {
         @apply grid-cols-12 gap-10 grid-rows-[auto_auto_auto_auto];
@@ -69,15 +65,18 @@
       }
 
       .app-main > .weatherMain {
-        @apply col-start-1 col-end-7 m-0 min-w-0 min-h-0 max-w-none justify-self-end w-[calc(100%-2.5rem)];
+        @apply col-start-1 col-end-7 m-0 min-w-0 min-h-0 max-w-none justify-self-end
+          w-[calc(100%-2.5rem)];
       }
 
       .app-main > .weatherTable {
-        @apply col-start-7 col-end-13 m-0 min-w-0 min-h-0 px-8 justify-self-start w-[calc(100%-2.5rem)];
+        @apply col-start-7 col-end-13 m-0 min-w-0 min-h-0 px-8 justify-self-start
+          w-[calc(100%-2.5rem)];
       }
 
       .app-main > .weatherForecast {
-        @apply col-start-1 col-end-13 m-0 min-w-0 px-8 min-h-0 justify-self-center w-[calc(100%-5rem)];
+        @apply col-start-1 col-end-13 m-0 min-w-0 px-8 min-h-0 justify-self-center
+          w-[calc(100%-5rem)];
       }
 
       .app-footer > .footer {
@@ -119,15 +118,18 @@
       }
 
       .app-main > .weatherMain {
-        @apply col-start-5 col-end-9 row-start-3 row-end-9 self-stretch justify-self-stretch w-full h-full z-10 m-0 min-w-0 min-h-0 max-w-none;
+        @apply col-start-5 col-end-9 row-start-3 row-end-9 self-stretch justify-self-stretch
+          w-full h-full z-10 m-0 min-w-0 min-h-0 max-w-none;
       }
 
       .app-main > .weatherTable {
-        @apply col-start-9 col-end-13 row-start-3 row-end-10 self-stretch justify-self-start w-[calc(100%-2.5rem)] h-full m-0 min-w-0 min-h-0 px-8;
+        @apply col-start-9 col-end-13 row-start-3 row-end-10 self-stretch justify-self-start
+          w-[calc(100%-2.5rem)] h-full m-0 min-w-0 min-h-0 px-8;
       }
 
       .app-main > .weatherForecast {
-        @apply col-start-1 col-end-5 row-start-2 row-end-9 self-stretch justify-self-end w-[calc(100%-2.5rem)] h-full m-0 min-w-0 min-h-0 px-8;
+        @apply col-start-1 col-end-5 row-start-2 row-end-9 self-stretch justify-self-end
+          w-[calc(100%-2.5rem)] h-full m-0 min-w-0 min-h-0 px-8;
       }
 
       .app-footer > .footer {
