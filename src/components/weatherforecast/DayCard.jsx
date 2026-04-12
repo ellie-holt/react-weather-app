@@ -39,7 +39,9 @@ export default function DayCard({
           >
             <span
               className={` block rounded bg-black/10 animate-pulse ${
-                isHorizontal ? "my-1.5 h-3 w-24 sm:h-4 sm:w-28 mx-auto" : "h-3 w-28 sm:h-4 sm:w-32"
+                isHorizontal
+                  ? "my-0.5 sm:my-1.5 h-3 w-24 sm:h-4 sm:w-28 mx-auto"
+                  : "h-3 w-28 sm:h-4 sm:w-32"
               }`}
             />
           </span>
@@ -48,7 +50,9 @@ export default function DayCard({
         <div className="flex flex-col justify-center items-center min-w-0 text-center">
           <div
             className={`rounded-full bg-black/15 animate-pulse ${
-              isHorizontal ? "w-10 h-10 sm:w-12 sm:h-12" : "mt-2 w-14 h-14 sm:w-16 sm:h-16"
+              isHorizontal
+                ? "w-10 h-10 sm:w-12 sm:h-12"
+                : "mt-4 3xl:mt-3 w-16 h-16 2xl:w-14 2xl:h-14"
             }`}
             aria-hidden="true"
           />
@@ -62,7 +66,7 @@ export default function DayCard({
           >
             <span
               className={`block rounded bg-black/10 animate-pulse ${
-                isHorizontal ? "h-3 w-20 sm:h-4 sm:w-24" : "mb-2 h-3 w-24 sm:h-4 sm:w-28"
+                isHorizontal ? "h-3 w-20 sm:h-4 sm:w-24" : "mb-4 2xl:mb-3 h-4 w-28"
               }`}
             />
           </p>
@@ -72,13 +76,15 @@ export default function DayCard({
           className={`temp font-semibold whitespace-nowrap ${
             isHorizontal
               ? "text-center text-3xl sm:text-4xl leading-none"
-              : "text-4xl sm:text-5xl leading-none text-right"
+              : "text-4xl sm:text-5xl 2xl:text-4xl leading-none text-right"
           }`}
           aria-hidden="true"
         >
           <span
             className={`inline-block rounded bg-black/15 animate-pulse ${
-              isHorizontal ? "h-9 w-20 sm:h-10 sm:w-24" : "h-11 w-24 sm:h-12 sm:w-28"
+              isHorizontal
+                ? "h-9 w-20 sm:h-10 sm:w-24"
+                : "h-11 w-24 sm:h-12 sm:w-28 2xl:h-11 2xl:w-24"
             }`}
           />
         </h3>
@@ -109,7 +115,11 @@ export default function DayCard({
         <img
           src={icon}
           alt={dailyForecast.condition.description + " icon"}
-          className={`icon ${isHorizontal ? "w-10 h-10 sm:w-12 sm:h-12" : "w-14 h-14 sm:w-16 sm:h-16"}`}
+          className={`icon ${
+            isHorizontal
+              ? "w-10 h-10 sm:w-12 sm:h-12"
+              : "w-14 h-14 sm:w-16 sm:h-16 2xl:w-14 2xl:h-14"
+          }`}
         />
         <p
           className={`description italic font-medium truncate ${
@@ -127,7 +137,7 @@ export default function DayCard({
         className={`temp font-semibold whitespace-nowrap ${
           isHorizontal
             ? "text-center text-3xl sm:text-4xl leading-none"
-            : "text-4xl sm:text-5xl leading-none text-right"
+            : "text-4xl sm:text-5xl 2xl:text-4xl leading-none text-right"
         }`}
       >
         {unit === "metric"
