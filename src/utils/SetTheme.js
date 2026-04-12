@@ -20,6 +20,12 @@ export default function SetTheme(weatherData) {
     "50n": "misty-night",
   };
 
-  const themeClass = themeMap[weatherData.icon];
+  const iconCode =
+    weatherData?.icon ??
+    weatherData?.conditions?.icon ??
+    weatherData?.weatherData?.icon ??
+    weatherData?.weatherData?.conditions?.icon;
+
+  const themeClass = themeMap[iconCode];
   return themeClass;
 }

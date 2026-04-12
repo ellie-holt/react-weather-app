@@ -1,0 +1,15 @@
+@mixin unit-utilities {
+  @layer utilities {
+    .unit-super {
+      @apply text-[0.6em] align-super;
+    }
+
+    .unit-top {
+      @apply text-[0.6em] align-top items-start;
+    }
+
+    .unit-sub {
+      @apply text-[0.8em] align-baseline items-end;
+    }
+  }
+}

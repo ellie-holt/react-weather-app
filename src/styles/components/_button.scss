@@ -1,0 +1,77 @@
+@use "../utilities/primitives" as primitives;
+
+@mixin button-styles {
+  @layer components {
+    .button {
+      @apply py-1.5 px-2 text-sm 3xs:text-base 3xl:text-lg font-bold border-2 relative;
+      background-color: var(--button-bg);
+      border-color: var(--button-border);
+      color: var(--button-text);
+      box-shadow: var(--button-shadow);
+
+      @include primitives.interactive-surface();
+      @include primitives.active-press();
+
+      &:disabled,
+      &[aria-disabled="true"] {
+        @apply cursor-not-allowed;
+        background-color: var(--button-bg-disabled);
+        border-color: var(--button-border-disabled);
+        color: var(--button-text-disabled);
+        box-shadow: var(--button-shadow-disabled);
+        transform: translate(0.5px, 0.5px);
+      }
+
+      &:not(:disabled):not([aria-disabled="true"]):hover {
+        background-color: var(--button-bg-hover);
+        box-shadow: var(--button-shadow-hover);
+      }
+
+      &.button--search:not(:disabled):not([aria-disabled="true"]):hover {
+        box-shadow: var(--button-shadow-search-hover);
+      }
+
+      &:not(:disabled):not([aria-disabled="true"]):active {
+        border-color: var(--button-border-active);
+        box-shadow: var(--button-shadow-active);
+      }
+
+      &:disabled .button-caret,
+      &[aria-disabled="true"] .button-caret {
+        color: var(--button-caret-disabled);
+      }
+    }
+
+    .button:not(.button--search):not(:disabled):not([aria-disabled="true"]) {
+      @apply transform-gpu [backface-visibility:hidden] [transform-style:preserve-3d];
+      @include primitives.interactive-shift();
+    }
+
+    .button--rounded {
+      @apply rounded-xl;
+    }
+
+    .button--round {
+      @apply rounded-full w-9 h-9 3xs:w-10 3xs:h-10 3xl:w-11 3xl:h-11 p-0 inline-flex items-center justify-center;
+    }
+
+    .button--round-sm {
+      @apply rounded-full w-8 h-8 p-0 inline-flex items-center justify-center;
+    }
+
+    .button--search {
+      @apply rounded-xl rounded-l-none px-3;
+    }
+
+    .button-caret {
+      @apply inline-flex items-center justify-center leading-none origin-center text-xl;
+      width: 1em;
+      height: 1em;
+      transform-origin: center;
+    }
+
+    .button-caret--sm {
+      @apply text-base;
+    }
+  }
+}

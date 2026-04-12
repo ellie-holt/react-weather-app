@@ -1,0 +1,24 @@
+@use "../utilities/primitives" as primitives;
+
+@mixin input-styles {
+  @layer components {
+    .input {
+      @apply py-1.5 px-4 border-2 rounded-lg text-sm 3xs:text-base 3xl:text-lg font-semibold;
+      @apply border-r-0;
+      background-color: var(--input-bg);
+      border-color: var(--input-border);
+      color: var(--input-text);
+      box-shadow: var(--input-shadow);
+
+      &::placeholder {
+        color: var(--input-placeholder);
+      }
+
+      &:active {
+        box-shadow: var(--input-shadow-active);
+      }
+
+      @include primitives.interactive-surface();
+    }
+  }
+}

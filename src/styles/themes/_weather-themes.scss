@@ -1,0 +1,111 @@
+@use "sass:map";
+@use "sass:list";
+@use "theme-template" as *;
+@use "theme-tokens";
+
+$night-themes: (
+  clear-night,
+  cloudy-night,
+  overcast-night,
+  shower-night,
+  rainy-night,
+  snowy-night,
+  misty-night,
+  thunderstorm
+);
+
+@function palette-token($palette, $family, $token-name) {
+  @return map.get(map.get($palette, $family), $token-name);
+}
+
+@function semantic-from-palette($palette, $is-night: false) {
+  @if $is-night {
+    @return (
+      "app-bg-start": palette-token($palette, primary, "primary-light"),
+      "app-bg-end": palette-token($palette, primary, "primary-dark"),
+      "app-text-primary": palette-token($palette, muted, "muted-pale"),
+      "surface-bg": palette-token($palette, muted, "muted-dark"),
+      "surface-bg-alt": palette-token($palette, primary, "primary-light"),
+      "surface-text": palette-token($palette, muted, "muted-pale"),
+      "surface-border": palette-token($palette, muted, "muted-light"),
+      "surface-shadow": palette-token($palette, muted, "muted-light"),
+      "surface-divider": palette-token($palette, muted, "muted-light"),
+      "interactive-bg": palette-token($palette, accent, "accent"),
+      "interactive-bg-hover": palette-token($palette, accent, "accent-light"),
+      "interactive-border": palette-token($palette, accent, "accent-dark"),
+      "interactive-text": palette-token($palette, muted, "muted-deep"),
+      "interactive-shadow": palette-token($palette, accent, "accent-dark"),
+      "interactive-shadow-hover": palette-token($palette, accent, "accent-dark"),
+      "interactive-link": palette-token($palette, accent, "accent"),
+      "interactive-link-hover": palette-token($palette, accent, "accent-light"),
+      "interactive-link-active": palette-token($palette, accent, "accent-bright"),
+      "interactive-link-visited": palette-token($palette, accent, "accent-dark"),
+      "input-bg": palette-token($palette, accent, "accent-pale"),
+      "input-text": palette-token($palette, muted, "muted-deep"),
+      "input-border": palette-token($palette, accent, "accent-dark"),
+      "input-placeholder": palette-token($palette, muted, "muted-dark"),
+      "input-focus-ring": palette-token($palette, accent, "accent")
+    );
+  }
+
+  @return (
+    "app-bg-start": palette-token($palette, primary, "primary-light"),
+    "app-bg-end": palette-token($palette, primary, "primary-dark"),
+    "app-text-primary": palette-token($palette, muted, "muted-deep"),
+    "surface-bg": palette-token($palette, muted, "muted-light"),
+    "surface-bg-alt": palette-token($palette, primary, "primary-light"),
+    "surface-text": palette-token($palette, muted, "muted-deep"),
+    "surface-border": palette-token($palette, primary, "primary-dark"),
+    "surface-shadow": palette-token($palette, muted, "muted-dark"),
+    "surface-divider": palette-token($palette, muted, "muted-dark"),
+    "interactive-bg": palette-token($palette, accent, "accent"),
+    "interactive-bg-hover": palette-token($palette, accent, "accent-light"),
+    "interactive-border": palette-token($palette, accent, "accent-dark"),
+    "interactive-text": palette-token($palette, muted, "muted-pale"),
+    "interactive-shadow": palette-token($palette, accent, "accent-dark"),
+    "interactive-shadow-hover": palette-token($palette, accent, "accent-dark"),
+    "interactive-link": palette-token($palette, accent, "accent"),
+    "interactive-link-hover": palette-token($palette, accent, "accent-light"),
+    "interactive-link-active": palette-token($palette, accent, "accent-bright"),
+    "interactive-link-visited": palette-token($palette, accent, "accent-dark"),
+    "input-bg": palette-token($palette, accent, "accent-pale"),
+    "input-text": palette-token($palette, muted, "muted-deep"),
+    "input-border": palette-token($palette, accent, "accent-dark"),
+    "input-placeholder": palette-token($palette, muted, "muted-dark"),
+    "input-focus-ring": palette-token($palette, accent, "accent")
+  );
+}
+
+@each $theme-name, $palette in theme-tokens.$weather-color-tokens {
+  $is-night-theme: list.index($night-themes, $theme-name) != null;
+  $semantic: semantic-from-palette($palette, $is-night-theme);
+
+  .App.#{$theme-name} {
+    @include theme-template(
+      $app-bg-start: map.get($semantic, "app-bg-start"),
+      $app-bg-end: map.get($semantic, "app-bg-end"),
+      $app-text-primary: map.get($semantic, "app-text-primary"),
+      $surface-bg: map.get($semantic, "surface-bg"),
+      $surface-bg-alt: map.get($semantic, "surface-bg-alt"),
+      $surface-text: map.get($semantic, "surface-text"),
+      $surface-border: map.get($semantic, "surface-border"),
+      $surface-shadow: map.get($semantic, "surface-shadow"),
+      $surface-divider: map.get($semantic, "surface-divider"),
+      $interactive-bg: map.get($semantic, "interactive-bg"),
+      $interactive-bg-hover: map.get($semantic, "interactive-bg-hover"),
+      $interactive-border: map.get($semantic, "interactive-border"),
+      $interactive-text: map.get($semantic, "interactive-text"),
+      $interactive-shadow: map.get($semantic, "interactive-shadow"),
+      $interactive-shadow-hover: map.get($semantic, "interactive-shadow-hover"),
+      $interactive-link: map.get($semantic, "interactive-link"),
+      $interactive-link-hover: map.get($semantic, "interactive-link-hover"),
+      $interactive-link-active: map.get($semantic, "interactive-link-active"),
+      $interactive-link-visited: map.get($semantic, "interactive-link-visited"),
+      $input-bg: map.get($semantic, "input-bg"),
+      $input-text: map.get($semantic, "input-text"),
+      $input-border: map.get($semantic, "input-border"),
+      $input-placeholder: map.get($semantic, "input-placeholder"),
+      $input-focus-ring: map.get($semantic, "input-focus-ring")
+    );
+  }
+}

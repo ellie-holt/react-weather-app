@@ -5,14 +5,18 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
+    screens: {
+      "3xs": "450px",
+      "2xs": "475px",
+      xs: "550px",
+      sm: "640px",
+      md: "768px",
+      lg: "925px",
+      xl: "1024px",
+      "2xl": "1280px",
+      "3xl": "1440px",
+    },
     extend: {
-      screens: {
-        "2xs": "450px",
-        xs: "475px",
-        xss: "550px",
-        mlg: "925px",
-        "2xl": "1440px",
-      },
       keyframes: {
         /*Accordion expand keyframes*/
         "accordion-down": {

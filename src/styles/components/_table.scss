@@ -1,0 +1,237 @@
+@mixin table-styles {
+  @layer components {
+    .weatherTable {
+      color: var(--table-text);
+
+      .weather-report-shell {
+        border: 2px solid var(--table-shell-border);
+        background-color: var(--table-shell-bg);
+        color: var(--table-text);
+        box-shadow: var(--table-shell-shadow);
+      }
+
+      .weather-report-header {
+        border-bottom: 1px solid var(--table-header-divider);
+      }
+
+      .weather-report-section-row {
+        background-color: var(--table-section-row-bg);
+      }
+
+      .accordion-toggle {
+        border: 1px solid var(--table-accordion-border);
+        background-color: var(--table-accordion-bg);
+        border-radius: 0.875rem;
+        color: var(--table-text);
+        box-shadow: var(--table-accordion-shadow);
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          box-shadow:
+            inset var(--table-focus-inset),
+            var(--table-accordion-shadow);
+        }
+      }
+
+      .weather-report-more-toggle:hover .button {
+        background-color: var(--table-more-toggle-button-hover-bg);
+        box-shadow: var(--table-more-toggle-button-hover-shadow);
+      }
+
+      .accordion-content {
+        margin-top: 0.5rem;
+        border: 1px solid var(--table-accordion-border);
+        border-radius: 0.875rem;
+        background-color: var(--table-accordion-bg);
+        color: var(--table-text);
+        box-shadow: var(--table-accordion-content-shadow);
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          box-shadow:
+            inset var(--table-focus-inset),
+            var(--table-accordion-content-shadow);
+        }
+      }
+
+      .weather-report-shell .accordion-toggle {
+        border: 0;
+        border-top: 1px solid var(--table-header-divider);
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+        color: var(--table-text);
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          box-shadow: inset var(--table-focus-inset);
+        }
+      }
+
+      .weather-report-shell .accordion-content {
+        margin-top: 0;
+        border: 0;
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+        color: var(--table-text);
+
+        &:focus,
+        &:focus-visible {
+          outline: none;
+          box-shadow: inset var(--table-focus-inset);
+        }
+      }
+
+      .table-content tbody tr {
+        th,
+        td {
+          color: var(--table-text);
+        }
+      }
+    }
+
+    .weather-report-shell {
+      @apply rounded-xl overflow-hidden;
+    }
+
+    .weather-report-header {
+      @apply text-center;
+    }
+
+    .weather-report-table {
+      @apply w-full border-collapse;
+    }
+
+    .weather-report-body {
+      @apply block;
+    }
+
+    .weather-report-row {
+      @apply flex justify-between;
+      @apply flex-row items-stretch;
+      column-gap: var(--space-inside-gap);
+      row-gap: 0.125rem;
+      padding-inline: var(--space-inside-inline);
+
+      @screen sm {
+        padding-inline: var(--space-inside-inline-lg);
+      }
+    }
+
+    .weather-report-section-row {
+      @apply border-t-2;
+      border-top-width: 3px;
+      border-top-color: rgb(100 116 139 / 0.22);
+      border-bottom-width: 3px;
+      border-bottom-style: solid;
+      border-bottom-color: rgb(100 116 139 / 0.22);
+      padding-block: 0.56rem;
+    }
+
+    .weather-report-item-row {
+      @apply border-b;
+      border-bottom-color: rgb(100 116 139 / 0.22);
+    }
+
+    .weather-report-item-row--last {
+      @apply border-b-0;
+    }
+
+    .weather-report-key {
+      @apply inline-flex items-center text-base sm:text-lg font-medium leading-snug;
+      padding-block: 0.35rem;
+
+      @screen sm {
+        padding-block: 0.425rem;
+      }
+    }
+
+    .weather-report-section-title {
+      @apply font-semibold;
+    }
+
+    .weather-report-item-key {
+      margin-left: 0.65rem;
+      padding-left: 0.85rem;
+      border-left: 1px solid rgb(100 116 139 / 0.22);
+
+      @screen sm {
+        margin-left: 0.85rem;
+        padding-left: 1rem;
+      }
+
+      @screen 2xl {
+        margin-left: 0.6rem;
+        padding-left: 0.75rem;
+        border-left: 1px solid rgb(100 116 139 / 0.22);
+      }
+    }
+
+    .weather-report-value {
+      @apply inline-flex items-center justify-end text-lg sm:text-xl font-semibold leading-snug;
+      @apply w-auto justify-end;
+      padding-block: 0.35rem;
+
+      @screen sm {
+        padding-block: 0.425rem;
+      }
+    }
+
+    .weather-report-more-toggle {
+      @apply w-full;
+      padding-inline: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 0.75rem;
+
+      @screen sm {
+        padding-inline: 1.25rem;
+        padding-top: 1.25rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .accordion-summary {
+        @apply text-center text-lg sm:text-xl font-semibold;
+        margin-right: 0;
+      }
+
+      .button {
+        @apply ml-2;
+      }
+
+      .button-caret {
+        @apply text-base sm:text-lg;
+      }
+    }
+
+    .weather-report-more-content {
+      @apply mt-0;
+    }
+
+    .weather-report-table--details {
+      .weather-report-row {
+        row-gap: 0.125rem;
+      }
+
+      .weather-report-section-row {
+        padding-block: 0.4rem;
+      }
+
+      .weather-report-key,
+      .weather-report-value {
+        padding-block: 0.35rem;
+
+        @screen sm {
+          padding-block: 0.425rem;
+        }
+      }
+
+      .weather-report-section-row .weather-report-key {
+        padding-block: 0.4rem;
+      }
+    }
+  }
+}

@@ -3,31 +3,60 @@ import icons from "../../img/icons";
 
 import SetTheme from "../../utils/SetTheme";
 
-export default function WeatherMain({ weatherData, unit }) {
+export default function WeatherMain({ weatherData, unit, className = "", ariaLabelledBy }) {
   let iconVariant = IconSelect({ weatherData });
 
   let icon = icons[iconVariant];
 
   let themeClass = SetTheme({ weatherData });
+  const description = weatherData.conditions.description;
+  const currentTemp =
+    unit === "metric"
+      ? Math.round(weatherData.temperature.current)
+      : Math.round(weatherData.temperature.current * 1.8 + 32);
+  const feelsLikeTemp =
+    unit === "metric"
+      ? Math.round(weatherData.temperature.feels_like)
+      : Math.round(weatherData.temperature.feels_like * 1.8 + 32);
+
   return (
     <section
-      className={`${themeClass} weatherMain flex flex-col xss:mt-5 sm:mt-8 mlg:mt-3 lg:mb-2 lg:mt-3 2xl:my-4 mx-4 xss:mx-12 sm:mx-16 md:mx-28 mlg:mx-8 mlg:min-w-[26rem] mlg:max-w-[29rem] lg:min-w-[28rem] 2xl:min-w-[26rem] 2xl:max-w-none mlg:mb-1 px-4 mlg:px-2 font-ubuntu`}
+      className={`${themeClass} weatherMain h-full min-h-0 flex flex-col items-center justify-center lg:justify-start 2xl:justify-center gap-y-4 pt-3 py-5 lg:py-10 2xl:py-0 2xl:min-w-[26rem] 2xl:max-w-[29rem] 3xl:min-w-[26rem] 3xl:max-w-none lg:mb-1 px-4 lg:px-3 font-ubuntu ${className}`}
+      aria-labelledby={ariaLabelledBy}
     >
-      <h1 className="text-[5rem] 2xs:text-[6rem] sm:text-[6.5rem] md:text-[7rem] lg:text-[8rem] leading-normal ">
-        {unit === "metric"
-          ? Math.round(weatherData.temperature.current)
-          : Math.round(weatherData.temperature.current * 1.8 + 32)}
-        <span className="unit-super">{unit === "metric" ? "°C" : "°F"}</span>
-      </h1>
-      <h2 className="description mlg:order-last italic text-[2rem] 2xs:text-[3rem] sm:text-[3.5rem] mlg:text-[3.3rem] lg:text-[3.5rem] tracking-tight leading-none w-3/5 mlg:w-full -mt-3 mb-3 2xs:mb-0 2xs:mt-0 mlg:mt-[-1rem] mlg:mb-4 min-h-28">
-        {weatherData.description.charAt(0).toUpperCase() + weatherData.description.slice(1)}
-      </h2>
-      <div className="self-end mt-[-7rem] 2xs:mt-[-4rem] sm:mt-[-6rem] mlg:mt-[-4rem] lg:mt-[-4rem] sm:mb-4 pb-5 px-3">
+      <div className="flex justify-center items-end w-full mt-2 sm:mt-3">
+        <div className="flex flex-1 justify-end lg:justify-center 2xl:justify-end items-end pr-2 sm:pr-4 lg:pr-0 2xl:pr-4">
+          <h1 className="font-semibold 3xl:text-[6rem] text-6xl 3xs:text-7xl sm:text-[5.5rem] 2xl:text-[5.5rem] lg:text-9xl text-right 2xl:text-right lg:text-center leading-none tracking-tight">
+            {currentTemp}
+            <span className="unit-super">{unit === "metric" ? "°C" : "°F"}</span>
+          </h1>
+        </div>
+
+        <div className="lg:hidden 2xl:block self-stretch w-px bg-black/30" aria-hidden="true" />
+
+        <div className="lg:hidden flex 2xl:flex flex-1 justify-start pl-3 sm:pl-4 text-left leading-none">
+          <div className="inline-block relative">
+            <p className="2xl:left-2 3xl:left-4 bottom-full absolute mb-1 sm:mb-1.5 font-medium text-base sm:text-xl md:text-xl xl:text-2xl italic leading-tight whitespace-nowrap">
+              Feels like
+            </p>
+            <p className="feels-like-temp font-semibold text-4xl 3xs:text-5xl sm:text-6xl 2xl:text-6xl 3xl:text-[4.5rem] leading-none whitespace-nowrap">
+              {feelsLikeTemp}
+              <span className="unit-top">{unit === "metric" ? "°C" : "°F"}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-col justify-center items-center self-center min-w-0 text-center">
         <img
           src={icon}
-          alt={weatherData.description + " icon"}
-          className="w-32 h-32 2xs:w-44 2xs:h-44 sm:w-48 sm:h-48 mlg:w-44 mlg:h-44"
+          alt={description + " icon"}
+          className="w-36 3xs:w-44 sm:w-52 md:w-56 lg:w-52 xl:w-56 h-36 3xs:h-44 sm:h-52 md:h-56 lg:h-52 xl:h-56"
         />
+
+        <h2 className="max-w-[14ch] mt-3 font-medium text-xl 3xs:text-2xl sm:text-3xl lg:text-4xl text-center italic leading-tight tracking-tight description">
+          {description.charAt(0).toUpperCase() + description.slice(1)}
+        </h2>
       </div>
     </section>
   );

@@ -1,0 +1,39 @@
+@use "../utilities/primitives" as primitives;
+
+@mixin base-styles {
+  @layer base {
+    @include primitives.spacing-tokens();
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body,
+    #root {
+      min-height: 100%;
+    }
+
+    body {
+      @apply m-0;
+    }
+
+    img,
+    svg,
+    video,
+    canvas {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+      color: inherit;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@mixin card-styles {
+  @layer components {
+    .card {
+      @apply rounded-xl border-2;
+      background-color: var(--card-bg);
+      color: var(--card-text);
+      border-color: var(--card-border);
+      box-shadow: var(--card-shadow);
+    }
+
+    .weatherForecast {
+      .dayCard {
+        --daycard-margin-x: 0.875rem;
+        --daycard-margin-y: 0.875rem;
+
+        @apply w-full h-full min-h-0 min-w-0 overflow-visible transition-all duration-200 ease-out grid grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_auto] items-center;
+        margin: var(--daycard-margin-y) var(--daycard-margin-x);
+        width: calc(100% - (var(--daycard-margin-x) * 2));
+        height: calc(100% - (var(--daycard-margin-y) * 2));
+      }
+
+      /* Baseline = vertical carousel card styling */
+      .dayCard--vertical {
+        --daycard-margin-y: 0.5rem;
+        @apply grid grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_auto] items-center;
+      }
+
+      /* Horizontal carousel card styling (lg/xl) */
+      .dayCard--horizontal {
+        --daycard-margin-x: 0.5rem;
+        @apply grid grid-cols-1 grid-rows-[auto_auto_auto] justify-items-center;
+      }
+    }
+  }
+}

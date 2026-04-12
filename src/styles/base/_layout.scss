@@ -1,0 +1,157 @@
+@use "../utilities/primitives" as primitives;
+
+@mixin layout-styles {
+  @layer components {
+    .app-shell {
+      @apply min-h-screen grid gap-5 grid-cols-1 grid-rows-[auto_auto_minmax(0,1fr)_auto];
+    }
+
+    .app-header {
+      @apply row-start-1 row-end-3;
+    }
+
+    .app-main {
+      @apply row-start-3 row-end-4 w-full flex flex-col gap-5;
+    }
+
+    .app-footer {
+      @apply row-start-4 row-end-5;
+    }
+
+    .layout-grid {
+      @apply w-full;
+    }
+
+    .app-header > .search {
+      @apply row-start-1 row-end-2;
+    }
+
+    .app-header > .cityInfo {
+      @apply row-start-2 row-end-3 h-full grid grid-rows-2;
+    }
+
+    @screen lg {
+      .app-shell {
+        @apply grid-cols-12 gap-10 grid-rows-[auto_auto_auto_auto];
+      }
+
+      .app-header {
+        @apply col-start-3 col-end-13 row-start-1 row-end-3 block;
+      }
+
+      .app-main {
+        @apply col-start-1 col-end-13 row-start-3 row-end-4;
+      }
+
+      .app-footer {
+        @apply col-start-1 col-end-11 row-start-4 row-end-5;
+      }
+
+      /* Nested child grids (aligned by divisibility with parent 12-col shell) */
+      .layout-grid {
+        @apply gap-10;
+      }
+
+      .app-main.layout-grid {
+        @apply grid grid-cols-12 auto-rows-auto gap-10;
+      }
+
+      .app-header > .search {
+        @apply col-start-1 col-end-13 row-start-1 row-end-2;
+      }
+
+      .app-header > .cityInfo {
+        @apply row-start-2 row-end-3 h-full grid grid-rows-2;
+      }
+
+      .app-main > .weatherMain {
+        @apply col-start-1 col-end-7 m-0 min-w-0 min-h-0 max-w-none justify-self-end
+          w-[calc(100%-2.5rem)];
+      }
+
+      .app-main > .weatherTable {
+        @apply col-start-7 col-end-13 m-0 min-w-0 min-h-0 px-8 justify-self-start
+          w-[calc(100%-2.5rem)];
+      }
+
+      .app-main > .weatherForecast {
+        @apply col-start-1 col-end-13 m-0 min-w-0 px-8 min-h-0 justify-self-center
+          w-[calc(100%-5rem)];
+      }
+
+      .app-footer > .footer {
+        @apply col-start-1 col-end-13;
+      }
+    }
+
+    @screen 2xl {
+      .app-shell {
+        @apply grid-cols-12 gap-10 grid-rows-[repeat(10,minmax(0,1fr))];
+      }
+
+      .app-header {
+        @apply col-start-5 col-end-13 row-start-1 row-end-3;
+      }
+
+      .app-footer {
+        @apply col-start-1 col-end-9 row-start-9 row-end-11;
+      }
+
+      .app-main {
+        @apply col-start-1 col-end-13 row-start-3 row-end-9;
+      }
+
+      .app-shell--overlap .app-main {
+        @apply row-start-1 row-end-11;
+      }
+
+      .layout-grid {
+        @apply gap-10;
+      }
+
+      .app-main.layout-grid {
+        @apply grid grid-cols-12 grid-rows-[repeat(10,minmax(0,1fr))] gap-10;
+      }
+
+      .app-header > .cityInfo {
+        @apply row-start-2 row-end-3 h-full grid grid-rows-2;
+      }
+
+      .app-main > .weatherMain {
+        @apply col-start-5 col-end-9 row-start-3 row-end-9 self-stretch justify-self-stretch
+          w-full h-full z-10 m-0 min-w-0 min-h-0 max-w-none;
+      }
+
+      .app-main > .weatherTable {
+        @apply col-start-9 col-end-13 row-start-3 row-end-10 self-stretch justify-self-start
+          w-[calc(100%-2.5rem)] h-full m-0 min-w-0 min-h-0 px-8;
+      }
+
+      .app-main > .weatherForecast {
+        @apply col-start-1 col-end-5 row-start-2 row-end-9 self-stretch justify-self-end
+          w-[calc(100%-2.5rem)] h-full m-0 min-w-0 min-h-0 px-8;
+      }
+
+      .app-footer > .footer {
+        @apply col-start-1 col-end-11 row-start-1 row-end-3;
+      }
+    }
+
+    .app-header .cityInfo {
+      @apply bottom-auto mb-0 rounded-bl-[2rem];
+      @include primitives.glass-surface-elevated();
+    }
+
+    .app-main > .weatherMain,
+    .app-main > .weatherTable,
+    .app-main > .weatherForecast {
+      @apply border border-gray-300/40 rounded-[2rem];
+      @include primitives.glass-surface-elevated();
+    }
+
+    .app-footer > div {
+      @apply mt-0 rounded-tr-[2rem] h-full;
+      @include primitives.glass-surface-elevated();
+    }
+  }
+}
