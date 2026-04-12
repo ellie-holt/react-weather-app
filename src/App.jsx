@@ -21,6 +21,7 @@ function App() {
           fetchWeatherData={fetchWeatherData}
           changeUnit={changeUnit}
           unit={unit}
+          weatherError={weatherState.error}
           defaultCity="London"
         />
         <CityInfo weatherState={weatherState} />

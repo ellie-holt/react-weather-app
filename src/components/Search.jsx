@@ -3,8 +3,15 @@ import { useState } from "react";
 import Button from "./ui/Button";
 import SearchBar from "./ui/SearchBar";
 
-export default function Search({ fetchWeatherData, changeUnit, unit, defaultCity = "London" }) {
+export default function Search({
+  fetchWeatherData,
+  changeUnit,
+  unit,
+  weatherError,
+  defaultCity = "London",
+}) {
   const [city, setCity] = useState("");
+  const cityNotFound = weatherError?.toLowerCase().includes("not found");
 
   function handleCurrentClick() {
     navigator.geolocation.getCurrentPosition(position => {
@@ -52,6 +59,16 @@ export default function Search({ fetchWeatherData, changeUnit, unit, defaultCity
           {unit === "metric" ? "℉" : "℃"}
         </Button>
       </form>
+
+      {cityNotFound && (
+        <p
+          role="status"
+          aria-live="polite"
+          className="mt-4 text-center sm:text-right text-sm sm:text-base font-medium"
+        >
+          City not found. Check spelling and try again.
+        </p>
+      )}
     </nav>
   );
 }
